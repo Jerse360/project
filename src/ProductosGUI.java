@@ -11,23 +11,23 @@ import java.sql.Statement;
 
 public class ProductosGUI {
     private JTextField txtNombre;
-    private JTextField txtCategoria;
+
     private JTextField txtPrecio;
     private JTextField txtStock;
     private JTextField txtStockMinimo;
     private JButton agregarButton;
-    private JButton verButton;
-    private JButton actualizarButton; // CORREGIDO (antes era "actuaizarButton")
+
+    private JButton actualizarButton;
     private JButton eliminarButton;
     private JTable table1;
-    private JTextField txtId;
+
     private JPanel Main;
     private JComboBox comboBox1;
     private JTextField textField1;
-    private ProductosDAO productosDAO; // Se necesita una instancia del DAO
+    private ProductosDAO productosDAO;
 
     public ProductosGUI() {
-        productosDAO = new ProductosDAO(); // Instanciar DAO
+        productosDAO = new ProductosDAO();
 
         textField1.setEnabled(false);
         agregarButton.addActionListener(new ActionListener() {
