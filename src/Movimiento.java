@@ -1,17 +1,16 @@
 public class Movimiento {
     int idMovimiento, idventa,  monto;
-    String categoria, fecha,ingreso, egreso;
+    String categoria, fecha, descripcion;
 
-    public Movimiento(int idMovimiento, int idventa, int monto, String categoria, String fecha, String ingreso, String egreso) {
+
+    public Movimiento(int idMovimiento, int idventa, int monto, String categoria, String fecha, String descripcion) {
         this.idMovimiento = idMovimiento;
         this.idventa = idventa;
         this.monto = monto;
         this.categoria = categoria;
         this.fecha = fecha;
-        this.ingreso = ingreso;
-        this.egreso = egreso;
+        this.descripcion = descripcion;
     }
-
 
     public int getIdMovimiento() {
         return idMovimiento;
@@ -53,19 +52,11 @@ public class Movimiento {
         this.fecha = fecha;
     }
 
-    public String getIngreso() {
-        return ingreso;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setIngreso(String ingreso) {
-        this.ingreso = ingreso;
-    }
-
-    public String getEgreso() {
-        return egreso;
-    }
-
-    public void setEgreso(String egreso) {
-        this.egreso = egreso;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
