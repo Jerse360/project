@@ -42,8 +42,6 @@ public class MovimientoGUI {
     }
 
 
-
-
     public void obtenerDatos() {
         DefaultTableModel model = new DefaultTableModel();
         model.setRowCount(0);
@@ -54,7 +52,7 @@ public class MovimientoGUI {
         model.addColumn("Categoria");
         model.addColumn("Monto");
         model.addColumn("Fecha");
-
+        
 
         table1.setModel(model);
         String[] dato = new String[7];

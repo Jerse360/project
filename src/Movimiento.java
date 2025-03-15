@@ -10,7 +10,7 @@ public class Movimiento {
         this.fecha = fecha;
         this.ingreso = ingreso;
         this.egreso = egreso;
-    }
+    } 
 
 
     public int getIdMovimiento() {

@@ -11,7 +11,7 @@ public class MovimientosDAO {
 
         Connection con = conexion.getConnection();
         String query = "INSERT INTO movimiento_financiero (id_Movimiento,id_venta, Ingreso, Egreso, categoría, monto, fecha)VALUES (?, ?, ?,?,?,?,CURRENT_DATE);";
-
+ 
         try
         {
             PreparedStatement pst = con.prepareStatement(query);
