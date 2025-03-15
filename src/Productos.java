@@ -11,6 +11,7 @@ public class Productos {
         this.stock_minimo = stock_minimo;
     }
 
+
     public int getId_producto() {
         return id_producto;
     }

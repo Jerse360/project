@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 public class ProductosGUI {
     private JTextField txtNombre;
@@ -62,15 +61,14 @@ public class ProductosGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int id = Integer.parseInt(txtId.getText());
+                    int id = Integer.parseInt(textField1.getText());
                     String nombre = txtNombre.getText();
-                    String categoria = txtCategoria.getText();
+                    String categoria = comboBox1.getSelectedItem().toString();
                     int precio = Integer.parseInt(txtPrecio.getText());
                     int stock = Integer.parseInt(txtStock.getText());
                     int stockMinimo = Integer.parseInt(txtStockMinimo.getText());
 
                     if (productosDAO.actualizarProducto(id, nombre, categoria, precio, stock, stockMinimo)) {
-                        JOptionPane.showMessageDialog(null, "Producto actualizado correctamente");
                         limpiarCampos();
                         obtenerDatos();
                     } else {
@@ -86,9 +84,8 @@ public class ProductosGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int id = Integer.parseInt(txtId.getText());
+                    int id = Integer.parseInt(textField1.getText());
                     if (productosDAO.eliminarProducto(id)) {
-                        JOptionPane.showMessageDialog(null, "Producto eliminado exitosamente");
                         limpiarCampos();
                         obtenerDatos();
                     } else {

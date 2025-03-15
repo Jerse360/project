@@ -48,6 +48,7 @@ public class ProductosDAO {
         }
     }
 
+
     public boolean eliminarProducto(int id) {
         String query = "DELETE FROM productos WHERE id_producto = ?";
         try (Connection con = conexion.getConnection();
