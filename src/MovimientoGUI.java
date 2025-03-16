@@ -18,8 +18,11 @@ public class MovimientoGUI {
     private JComboBox comboBox1;
     private JTextField textField1;
     private JTextField textField2;
+    private JButton verCajaButton;
 
     MovimientosDAO movimientosDAO = new MovimientosDAO();
+
+    CajaGUI caja = new CajaGUI();
 
     public MovimientoGUI() {
         obtenerDatos();
@@ -34,8 +37,8 @@ public class MovimientoGUI {
                 Movimiento movimiento = new Movimiento(0, 0, monto, categoria, "","Egreso");
 
                 if (movimientosDAO.agregar(movimiento)) {
-                    JOptionPane.showMessageDialog(null, "Movimiento agregado correctamente");
                     obtenerDatos();
+
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Error al agregar movimiento");
@@ -72,6 +75,17 @@ public class MovimientoGUI {
 
             }
         });
+
+        verCajaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                caja.main(null);
+
+            }
+        });
+
+
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -141,8 +155,8 @@ public class MovimientoGUI {
         frame.setContentPane(new MovimientoGUI().Main);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setSize(700, 700);
-        frame.setResizable(false);
+        frame.setSize(1400, 600);
+        frame.setResizable(true);
         frame.setVisible(true);
     }
 }
