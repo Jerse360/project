@@ -50,6 +50,7 @@ public class Servidor {
         try (ServerSocket serverSocket = new ServerSocket(12345)) {
             actualizarTextArea("Servidor iniciado. Esperando conexión...\n");
 
+            while (true){
             clientSocket = serverSocket.accept();
             actualizarTextArea("Cliente conectado\n");
 
@@ -59,6 +60,7 @@ public class Servidor {
 
             new Thread(() -> recibirMensajes(in)).start();
 
+            }
         } catch (IOException e) {
             actualizarTextArea("Error en el servidor: " + e.getMessage() + "\n");
         }
@@ -76,6 +78,18 @@ public class Servidor {
             }
         } catch (IOException e) {
             actualizarTextArea("Error al recibir mensajes: " + e.getMessage() + "\n");
+        } finally {
+            cerrarRecursos();
+        }
+    }
+
+    private void cerrarRecursos() {
+        try {
+            if (out != null) out.close();
+            if (clientSocket != null) clientSocket.close();
+            actualizarTextArea("Cliente desconectado. Esperando nueva conexión...\n");
+        } catch (IOException e) {
+            actualizarTextArea("Error al cerrar recursos: " + e.getMessage() + "\n");
         }
     }
 
