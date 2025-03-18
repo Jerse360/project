@@ -4,76 +4,83 @@ import javax.swing.*;
 import java.sql.*;
 
 public class ClienteDAO {
+private static Conexion conexion = new Conexion();
+    public boolean agregar(ClienteSetGet clienteSetGet) {
+        String query = "INSERT INTO cliente (nombre, cedula, telefono, direccion, email) VALUES (?, ?, ?, ?, ?)";
+        try (Connection con = conexion.getConnection();
+        PreparedStatement pst = con.prepareStatement(query)){
 
-    public void agregar(ClienteSetGet clienteSetGet) {
-        Connection con = Conexion.getConnection();
 
-        String query = "INSERT INTO cliente (id_cliente, cedula, nombre, direccion, telefono, email) VALUES (0,?,?,?,?,?)";
+            pst.setString(1, clienteSetGet.getNombre());
+            pst.setString(2, clienteSetGet.getCedula());
+            pst.setString(3, clienteSetGet.getTelefono());
+            pst.setString(4, clienteSetGet.getDireccion());
+            pst.setString(5, clienteSetGet.getEmail());
 
-        try {
-            PreparedStatement pst = con.prepareStatement(query);
-            pst.setInt(0, clienteSetGet.getId_cliente());
-            pst.setString(1, clienteSetGet.getCedula());
-            pst.setString(2, clienteSetGet.getNombre());
-            pst.setString(3, clienteSetGet.getDireccion());
-            pst.setString(4, clienteSetGet.getTelefono());
-            pst.setString(5, clienteSetGet .getEmail());
 
-            int resultado = pst.executeUpdate();
-            if (resultado > 0)
-                JOptionPane.showMessageDialog(null, "Agregado con Exito");
-            else
-                JOptionPane.showMessageDialog(null, "No Agregado con Exito");
-
+            return pst.executeUpdate()>0;
         } catch (SQLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "No Agregado con Exito");
+            return false;
         }
     }
+
     //Eliminar
-    public void eliminar(int id) {
-        Connection con = Conexion.getConnection();
+    public static boolean eliminar(int id) {
 
         String query = "DELETE FROM cliente WHERE id_cliente = ?";
 
-        try {
-            PreparedStatement pst = con.prepareStatement(query);
-            pst.setInt(1, id);
+        try (Connection con = Conexion.getConnection();
+        PreparedStatement stmt = con.prepareStatement(query))
+        {
 
-            int resultado = pst.executeUpdate();
+            stmt.setInt(1, id);
 
-            if (resultado > 0)
+            int filas = stmt.executeUpdate();
+
+            if (filas > 0) {
                 JOptionPane.showMessageDialog(null, "Eliminado con Exito");
-            else
+            return true;
+            }else {
                 JOptionPane.showMessageDialog(null, "No Eliminado con Exito");
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "No Eliminado con Exito");
+            return false;
         }
+
     }
     //actualizar
-    public void actualizar(ClienteSetGet clienteSetGet) {
-        Connection con = Conexion.getConnection();
-        String query = "UPDATE clientes SET id_cliente = ?, cedula = ?, nombre = ?, direccion = ?,telefono = ?, email = ? WHERE id_clientes = ?";
+    public static boolean actualizar(int id_cliente, String cedula, String nombre, String direccion, String telefono, String email) {
+        String query = "UPDATE cliente SET cedula = ?, nombre = ?, direccion = ?, telefono = ?, email = ? WHERE id_cliente = ?";
 
-        try {
-            PreparedStatement pst = con.prepareStatement(query);
-            pst.setInt(0, clienteSetGet.getId_cliente());
-            pst.setString(1, clienteSetGet.getCedula());
-            pst.setString(2, clienteSetGet.getNombre());
-            pst.setString(3, clienteSetGet.getDireccion());
-            pst.setString(4, clienteSetGet.getTelefono());
-            pst.setString(5, clienteSetGet .getEmail());
-            int resultado = pst.executeUpdate();
-            if (resultado > 0)
-                JOptionPane.showMessageDialog(null, "Actualizado con Exito");
-            else
-                JOptionPane.showMessageDialog(null, "No Actualizado con Exito");
+        try (Connection con = Conexion.getConnection();
+             PreparedStatement stmt = con.prepareStatement(query)) {
+
+            stmt.setString(1, cedula);
+            stmt.setString(2, nombre);
+            stmt.setString(3, direccion);
+            stmt.setString(4, telefono);
+            stmt.setString(5, email);
+            stmt.setInt(6, id_cliente);
+
+            int filas = stmt.executeUpdate();
+            if (filas > 0) {
+                JOptionPane.showMessageDialog(null, "Actualizado con Éxito");
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró el cliente para actualizar");
+                return false;
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "No Actualizado con Exito");
+            JOptionPane.showMessageDialog(null, "Error al actualizar");
+            return false;
         }
     }
-    }
+
+}
 
