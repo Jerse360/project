@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class DetalleVentaGUI {
+public class DetalleVentaGUI extends JFrame{
     private JComboBox comboBoxProducto;
     private JTextField precioProducto;
     private JSpinner spinner1;
@@ -12,13 +12,12 @@ public class DetalleVentaGUI {
     private JLabel idOrden;
 
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Detalle de Ventas");
-        frame.setContentPane(new DetalleVentaGUI().Main);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setSize(700, 700);
-        frame.setResizable(false);
-        frame.setVisible(true);
+    public DetalleVentaGUI(){
+        setTitle("Detalle de Ventas");
+        setContentPane(Main);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setSize(700, 700);
+        setResizable(false);
+
     }
 }

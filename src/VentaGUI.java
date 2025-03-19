@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class VentaGUI {
     private JLabel Venta;
@@ -10,6 +12,17 @@ public class VentaGUI {
     private JButton actualizarButton;
     private JButton pedirButton;
 
+    public VentaGUI() {
+        pedirButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                DetalleVentaGUI detalleVenta = new DetalleVentaGUI();
+                detalleVenta.setVisible(true);
+            }
+        });
+    }
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("Ventas");
         frame.setContentPane(new VentaGUI().Main);
@@ -20,3 +33,4 @@ public class VentaGUI {
         frame.setVisible(true);
     }
 }
+
