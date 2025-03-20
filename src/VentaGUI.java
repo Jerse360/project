@@ -27,7 +27,7 @@ public class VentaGUI {
             public void actionPerformed(ActionEvent e) {
 
                 DetalleVentaGUI detalleVenta = new DetalleVentaGUI();
-                detalleVenta.setVisible(true);
+                detalleVenta.main();
             }
         });
 
