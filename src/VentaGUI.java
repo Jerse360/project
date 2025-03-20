@@ -187,7 +187,7 @@ public class VentaGUI {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Ventas");
         frame.setContentPane(new VentaGUI().Main);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setSize(700, 700);
         frame.setResizable(true);

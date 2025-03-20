@@ -154,7 +154,7 @@ public class MovimientoGUI {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Gestión de Movimientos financieros");
         frame.setContentPane(new MovimientoGUI().Main);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setSize(1400, 600);
         frame.setResizable(true);

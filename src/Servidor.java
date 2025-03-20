@@ -105,7 +105,7 @@ public class Servidor {
         JFrame frame = new JFrame("Servidor de Chat");
         Servidor servidor = new Servidor();
         frame.setContentPane(servidor.panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setSize(600, 400);
         frame.setVisible(true);

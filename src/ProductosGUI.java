@@ -204,7 +204,7 @@ public class ProductosGUI {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Gestión de Productos");
         frame.setContentPane(new ProductosGUI().Main);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setSize(700, 700);
         frame.setResizable(false);

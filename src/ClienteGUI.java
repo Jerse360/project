@@ -158,7 +158,7 @@ public class ClienteGUI {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Gestión de Clientes");
         frame.setContentPane(new ClienteGUI().Main);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setSize(700, 700);
         frame.setResizable(false);
