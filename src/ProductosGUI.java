@@ -11,23 +11,24 @@ import java.sql.Statement;
 
 public class ProductosGUI {
     private JTextField txtNombre;
-    private JTextField txtCategoria;
+
     private JTextField txtPrecio;
     private JTextField txtStock;
     private JTextField txtStockMinimo;
     private JButton agregarButton;
-    private JButton verButton;
-    private JButton actualizarButton; // CORREGIDO (antes era "actuaizarButton")
+    private JButton actualizarButton;
     private JButton eliminarButton;
     private JTable table1;
-    private JTextField txtId;
     private JPanel Main;
     private JComboBox comboBox1;
     private JTextField textField1;
-    private ProductosDAO productosDAO; // Se necesita una instancia del DAO
+    private JButton venderButton;
+    private JTextField txtCantidadVenta;
+    private JLabel cantidad;
+    private ProductosDAO productosDAO;
 
     public ProductosGUI() {
-        productosDAO = new ProductosDAO(); // Instanciar DAO
+        productosDAO = new ProductosDAO();
 
         textField1.setEnabled(false);
         agregarButton.addActionListener(new ActionListener() {
@@ -119,6 +120,39 @@ public class ProductosGUI {
 
 
                 }
+            }
+        });
+        venderButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int id = Integer.parseInt(textField1.getText()); // ID del producto seleccionado
+                    int cantidad = Integer.parseInt(txtCantidadVenta.getText()); // Cantidad a vender
+
+                    if (cantidad <= 0) {
+                        JOptionPane.showMessageDialog(null, "Ingrese una cantidad válida.");
+                        return;
+                    }
+
+                    // Intentar restar stock
+                    if (productosDAO.restarStock(id, cantidad)) {
+                        int stockActual = productosDAO.obtenerStock(id);
+                        int stockMinimo = Integer.parseInt(txtStockMinimo.getText());
+
+                        if (stockActual < stockMinimo) {
+                            JOptionPane.showMessageDialog(null, "¡Alerta! Stock bajo para este producto.");
+                        }
+
+                        JOptionPane.showMessageDialog(null, "Venta realizada. Stock actualizado.");
+                        obtenerDatos(); // Refrescar tabla
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No hay suficiente stock disponible.");
+                    }
+
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Ingrese valores numéricos válidos.");
+                }
+
             }
         });
     }
