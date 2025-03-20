@@ -9,6 +9,7 @@ public class Detalle_venta {
         this.precio_total = precio_total;
         this.cantidad = cantidad;
         this.tipo = tipo;
+
     }
 
     public int getId_detalleVenta() {

@@ -3,7 +3,7 @@ package ClienteInterfaz;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class Conexion
+public class  Conexion
 {
     public static Connection getConnection() {
         Connection connection = null;

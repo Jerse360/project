@@ -35,11 +35,14 @@ public class Servidor {
                 String mensaje = textField1.getText();
                 if (mensaje != null && !mensaje.isEmpty()) {
                     if (out != null) {
+
                         out.println(mensaje);
                         actualizarTextArea("Servidor dice: " + mensaje + "\n");
                         textField1.setText("");
                     } else {
+
                         actualizarTextArea("Error: No hay cliente conectado.\n");
+
                     }
                 }
             }

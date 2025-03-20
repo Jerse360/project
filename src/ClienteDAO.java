@@ -2,7 +2,9 @@ import javax.swing.*;
 import java.sql.*;
 
 public class ClienteDAO {
+
 private static Conexion conexion = new Conexion();
+
     public boolean agregar(ClienteSetGet clienteSetGet) {
         String query = "INSERT INTO cliente (nombre, cedula, telefono, direccion, email) VALUES (?, ?, ?, ?, ?)";
         try (Connection con = conexion.getConnection();

@@ -10,6 +10,7 @@ public class Movimiento {
         this.categoria = categoria;
         this.fecha = fecha;
         this.descripcion = descripcion;
+
     }
 
     public int getIdMovimiento() {

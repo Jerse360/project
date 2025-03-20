@@ -28,6 +28,7 @@ public class ClienteGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+
                     String nombre = textField2.getText();
                     String cedula = textField3.getText();
                     String telefono = textField4.getText();

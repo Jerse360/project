@@ -23,6 +23,7 @@ public class DetalleVentaGUI extends JFrame{
     int precio, id_venta, id_producto;
 
     public DetalleVentaGUI(){
+
         precioProducto.setText(null);
         precioProducto.setEditable(false);
         obtenerDatos();

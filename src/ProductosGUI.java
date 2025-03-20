@@ -29,8 +29,8 @@ public class ProductosGUI {
 
     public ProductosGUI() {
         productosDAO = new ProductosDAO();
-
         textField1.setEnabled(false);
+
         agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

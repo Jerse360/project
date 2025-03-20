@@ -9,6 +9,7 @@ public class ProductosDAO {
     public List<Productos> obtenerProductos() {
         List<Productos> lista = new ArrayList<>();
         String query = "SELECT * FROM productos";
+
         try (Connection con = conexion.getConnection();
              PreparedStatement stmt = con.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {

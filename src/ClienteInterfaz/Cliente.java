@@ -36,6 +36,7 @@ public class Cliente {
         enviarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 String mensaje = textField1.getText(); // Obtener el mensaje del JTextField
                 if (mensaje != null && !mensaje.isEmpty()) {
                     if (out != null) {

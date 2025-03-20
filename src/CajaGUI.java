@@ -35,6 +35,7 @@ public class CajaGUI {
         }
 
         try (Statement stmt = con.createStatement();
+
              ResultSet rs = stmt.executeQuery("SELECT * FROM caja")) {
 
             while (rs.next()) {

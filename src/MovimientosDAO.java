@@ -27,6 +27,7 @@ public class MovimientosDAO {
             int filas = pst.executeUpdate();
 
             if (filas > 0){
+
                 JOptionPane.showMessageDialog(null, "Creado con Exito");
 
                 String query2 = "UPDATE `caja` SET Valor = (SELECT SUM(movimiento_financiero.monto) FROM movimiento_financiero)";

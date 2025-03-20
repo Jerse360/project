@@ -5,7 +5,9 @@ import java.util.List;
 
 public class VentaDAO {
     public boolean agregar(Venta venta) {
+
         String sql = "INSERT INTO venta (id_cliente, total_venta, estado, fecha_hora) VALUES (?, 0, 'Preparacion', CURRENT_TIME)";
+
         try (Connection con = Conexion.getConnection();
              PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setInt(1, venta.getId_cliente());

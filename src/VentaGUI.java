@@ -56,7 +56,9 @@ public class VentaGUI {
                 String cliente = comboBox1.getSelectedItem().toString();
                 String estado = comboBox2.getSelectedItem().toString();
                 obtenerIdCliente(cliente);
+
                 Venta venta = new Venta(id_venta,id_cliente,0,estado,"",cliente);
+
                 if (ventaDAO.actualizar(venta)) {
 
                     JOptionPane.showMessageDialog(null, "Venta actualizada exitosamente");

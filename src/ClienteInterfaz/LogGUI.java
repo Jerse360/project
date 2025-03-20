@@ -81,8 +81,10 @@ public boolean validarCedula(String input) {
 
     try {
             if (input == null || input.trim().isEmpty()) {
+
                 JOptionPane.showMessageDialog(null, "Entrada inválida. No se ingresó ningún valor.", "Error", JOptionPane.ERROR_MESSAGE);
                 return false;
+
             }
 
             int cedula = Integer.parseInt(input);

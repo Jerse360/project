@@ -8,6 +8,7 @@ public class Venta {
         this.total_venta = total_venta;
         this.estado = estado;
         this.fecha = fecha;
+
     }
 
     public int getId_venta() {

@@ -25,6 +25,7 @@ public class MovimientoGUI {
     CajaGUI caja = new CajaGUI();
 
     public MovimientoGUI() {
+
         obtenerDatos();
         textField2.setEditable(false);
 

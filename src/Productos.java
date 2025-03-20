@@ -9,6 +9,7 @@ public class Productos {
         this.precio = precio;
         this.stock = stock;
         this.stock_minimo = stock_minimo;
+
     }
 
 
