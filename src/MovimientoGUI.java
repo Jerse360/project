@@ -19,6 +19,7 @@ public class MovimientoGUI {
     private JTextField textField1;
     private JTextField textField2;
     private JButton verCajaButton;
+    private JButton volverButton;
 
     MovimientosDAO movimientosDAO = new MovimientosDAO();
 
@@ -83,6 +84,18 @@ public class MovimientoGUI {
 
                 caja.main(null);
 
+            }
+        });
+
+        volverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                JFrame volverFrame = (JFrame) SwingUtilities.getWindowAncestor(volverButton);
+                volverFrame.dispose();
+
+                MenuGUI menu = new MenuGUI();
+                menu.main(null);
             }
         });
 

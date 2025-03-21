@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.*;
 
 public class DetalleVentaGUI extends JFrame{
@@ -11,16 +13,16 @@ public class DetalleVentaGUI extends JFrame{
     private JButton agregarButton;
     private JTable table1;
     private JButton eliminarButton;
-    private JButton generarVentaButton;
     private JPanel Main;
     private JLabel idOrden;
     private JComboBox comboBox1;
+    private JButton volverButton;
 
     Conexion conexion = new Conexion();
 
     Detalle_ventaDAO detalle_ventaDAO = new Detalle_ventaDAO();
 
-    int precio, id_venta, id_producto;
+    int precio, id_venta, id_producto, id_detalle;
 
     public DetalleVentaGUI(){
 
@@ -109,7 +111,48 @@ public class DetalleVentaGUI extends JFrame{
         }
     });
 
+    eliminarButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            detalle_ventaDAO.restar(id_detalle, id_venta);
+
+            if (detalle_ventaDAO.eliminar(id_detalle))
+            {
+                JOptionPane.showMessageDialog(null, "Pedido eliminado con exito");
+            }
+            obtenerDatos();
+
+
+
+        }
+    });
+
+    volverButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            JFrame volverFrame = (JFrame) SwingUtilities.getWindowAncestor(volverButton);
+            volverFrame.dispose();
+
+            VentaGUI venta = new VentaGUI();
+            venta.main(null);
+        }
+    });
+
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                int selectedRow = table1.getSelectedRow();
+                if (selectedRow != -1) {
+                id_detalle = Integer.parseInt(table1.getValueAt(selectedRow,0).toString());
+
+                }
+            }
+        });
     }
+
 
     public void obtenerIdProducto(String nombre) {
         Connection con = conexion.getConnection();

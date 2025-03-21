@@ -15,6 +15,7 @@ public class VentaGUI {
     private JButton agregarButton;
     private JButton actualizarButton;
     private JButton pedirButton;
+    private JButton volverButton;
 
     Conexion conexion = new Conexion();
     VentaDAO ventaDAO = new VentaDAO();
@@ -26,8 +27,12 @@ public class VentaGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                JFrame ventaFrame = (JFrame) SwingUtilities.getWindowAncestor(volverButton);
+                ventaFrame.dispose();
+
                 DetalleVentaGUI detalleVenta = new DetalleVentaGUI();
                 detalleVenta.main();
+
             }
         });
 
@@ -66,6 +71,20 @@ public class VentaGUI {
                 }
 
                 obtenerTabla();
+
+            }
+        });
+
+        volverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                JFrame ventaFrame = (JFrame) SwingUtilities.getWindowAncestor(volverButton);
+                ventaFrame.dispose();
+
+                MenuGUI menu = new MenuGUI();
+
+                menu.main(null);
 
             }
         });

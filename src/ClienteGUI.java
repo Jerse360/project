@@ -19,11 +19,13 @@ public class ClienteGUI {
     private JButton agregarButton;
     private JButton actualizarButton;
     private JButton eliminarButton;
+    private JButton volverButton;
     private ClienteDAO clienteDAO;
 
     public ClienteGUI() {
         clienteDAO = new ClienteDAO();
         textField1.setEnabled(false);
+
         agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -92,6 +94,21 @@ public class ClienteGUI {
               }
             }
         });
+
+        volverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                JFrame clienteFrame = (JFrame) SwingUtilities.getWindowAncestor(volverButton);
+                clienteFrame.dispose();
+
+                MenuGUI menuGUI = new MenuGUI();
+
+                menuGUI.main(null);
+
+            }
+        });
+
         obtenerDatos();
         table1.addMouseListener(new MouseAdapter() {
             @Override

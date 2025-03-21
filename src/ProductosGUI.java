@@ -23,8 +23,7 @@ public class ProductosGUI {
     private JComboBox comboBox1;
     private JTextField textField1;
     private JButton venderButton;
-    private JTextField txtCantidadVenta;
-    private JLabel cantidad;
+    private JButton volverButton;
     private ProductosDAO productosDAO;
 
     public ProductosGUI() {
@@ -122,37 +121,16 @@ public class ProductosGUI {
                 }
             }
         });
-        venderButton.addActionListener(new ActionListener() {
+
+        volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    int id = Integer.parseInt(textField1.getText()); // ID del producto seleccionado
-                    int cantidad = Integer.parseInt(txtCantidadVenta.getText()); // Cantidad a vender
 
-                    if (cantidad <= 0) {
-                        JOptionPane.showMessageDialog(null, "Ingrese una cantidad válida.");
-                        return;
-                    }
+                JFrame volverFrame = (JFrame) SwingUtilities.getWindowAncestor(volverButton);
+                volverFrame.dispose();
 
-                    // Intentar restar stock
-                    if (productosDAO.restarStock(id, cantidad)) {
-                        int stockActual = productosDAO.obtenerStock(id);
-                        int stockMinimo = Integer.parseInt(txtStockMinimo.getText());
-
-                        if (stockActual < stockMinimo) {
-                            JOptionPane.showMessageDialog(null, "¡Alerta! Stock bajo para este producto.");
-                        }
-
-                        JOptionPane.showMessageDialog(null, "Venta realizada. Stock actualizado.");
-                        obtenerDatos(); // Refrescar tabla
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No hay suficiente stock disponible.");
-                    }
-
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "Ingrese valores numéricos válidos.");
-                }
-
+                MenuGUI menu = new MenuGUI();
+                menu.main(null);
             }
         });
     }
