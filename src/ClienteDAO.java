@@ -12,7 +12,9 @@ private static Conexion conexion = new Conexion();
         LogGUI log = new LogGUI();
 
         if (log.validarCedula(clienteSetGet.getCedula())) {
+
             if (log.validarCedulaEnBaseDeDatos(clienteSetGet.getCedula()) == false) {
+
                 String query = "INSERT INTO cliente (nombre, cedula, telefono, direccion, email) VALUES (?, ?, ?, ?, ?)";
                 try (Connection con = conexion.getConnection();
                      PreparedStatement pst = con.prepareStatement(query)){

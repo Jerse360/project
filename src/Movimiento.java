@@ -1,4 +1,5 @@
 public class Movimiento {
+
     int idMovimiento, idventa,  monto;
     String categoria, fecha, descripcion;
 

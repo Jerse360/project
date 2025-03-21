@@ -20,6 +20,7 @@ public class Servidor {
     private Socket clientSocket;
 
     public Servidor() {
+
         textArea1.setEditable(false);
 
         iniciarServidorButton.addActionListener(new ActionListener() {

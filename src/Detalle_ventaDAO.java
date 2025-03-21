@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Detalle_ventaDAO {
+
     private static Conexion conexion = new Conexion();
 
 

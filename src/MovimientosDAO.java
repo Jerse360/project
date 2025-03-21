@@ -39,9 +39,8 @@ public class MovimientosDAO {
             }
 
             else
+
                 JOptionPane.showMessageDialog(null, "No se Encontró el movimiento en la base de datos");
-
-
 
 
         }

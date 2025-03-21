@@ -10,8 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ProductosGUI {
-    private JTextField txtNombre;
 
+    private JTextField txtNombre;
     private JTextField txtPrecio;
     private JTextField txtStock;
     private JTextField txtStockMinimo;

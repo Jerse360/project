@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.util.ServiceConfigurationError;
 
 public class MenuGUI {
+
     private JButton chatButton;
     private JButton clienteButton;
     private JButton productosButton;

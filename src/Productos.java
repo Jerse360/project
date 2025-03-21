@@ -1,4 +1,5 @@
 public class Productos {
+
     int id_producto, stock, stock_minimo, precio;
     String nombre,categoria;
 

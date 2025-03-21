@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CajaGUI {
+
     private JPanel Main;
     private JTable table1;
 

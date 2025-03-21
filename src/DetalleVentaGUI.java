@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.sql.*;
 
 public class DetalleVentaGUI extends JFrame{
+
     private JComboBox comboBoxProducto;
     private JTextField precioProducto;
     private JSpinner spinner1;

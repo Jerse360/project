@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class CrearCuentaGUI {
+
     private JPanel main;
     private JTextField textField1;
     private JTextField textField2;

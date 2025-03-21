@@ -25,6 +25,7 @@ public class Cliente {
         conectarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 String serverAddress = JOptionPane.showInputDialog("Ingrese la IP del servidor (localhost si es local):");
                 if (serverAddress == null || serverAddress.isEmpty()) serverAddress = "localhost";
                 String finalServerAddress = serverAddress;

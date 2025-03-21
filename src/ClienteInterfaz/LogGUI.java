@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LogGUI {
+
     private JPanel main;
     private JButton iniciarSesionButton;
     private JButton crearCuentaButton;

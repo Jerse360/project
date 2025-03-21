@@ -1,4 +1,5 @@
 public class Detalle_venta {
+
     int id_detalleVenta, id_venta, id_producto,precio_total, cantidad;
     String tipo;
 

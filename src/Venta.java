@@ -1,4 +1,5 @@
 public class Venta {
+
     int id_venta, id_cliente, total_venta ;
     String  estado, fecha, nombreCliente;
 

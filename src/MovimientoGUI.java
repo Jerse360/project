@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MovimientoGUI {
+
     private JPanel Main;
     private JTable table1;
     private JButton agregarButton;

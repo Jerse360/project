@@ -39,6 +39,7 @@ public class VentaGUI {
         agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 String cliente = comboBox1.getSelectedItem().toString();
                 String estado = comboBox2.getSelectedItem().toString();
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductosDAO {
+
     private static Conexion conexion = new Conexion();
 
     public List<Productos> obtenerProductos() {

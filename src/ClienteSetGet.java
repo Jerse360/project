@@ -1,6 +1,7 @@
 
 class ClienteSetGet {
     int id_cliente;
+
     String cedula, nombre, direccion, telefono, email;
 
     public ClienteSetGet(int id_cliente, String nombre,String cedula, String telefono, String direccion, String email) {

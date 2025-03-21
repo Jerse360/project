@@ -61,14 +61,6 @@
           </component>
         </children>
       </scrollpane>
-      <component id="e2a52" class="javax.swing.JButton" binding="agregarButton" default-binding="true">
-        <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Agregar"/>
-        </properties>
-      </component>
       <component id="abb7e" class="javax.swing.JButton" binding="eliminarButton" default-binding="true">
         <constraints>
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -127,6 +119,14 @@
         </constraints>
         <properties>
           <text value="Volver"/>
+        </properties>
+      </component>
+      <component id="e2a52" class="javax.swing.JButton" binding="agregarButton" default-binding="true">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Agregar"/>
         </properties>
       </component>
     </children>

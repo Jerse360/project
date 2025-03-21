@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ClienteGUI {
+
     private JTable table1;
     private JPanel Main;
     private JTextField textField1;
