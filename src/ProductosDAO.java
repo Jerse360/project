@@ -42,11 +42,12 @@ public class ProductosDAO {
             pst.setInt(4, productos.getStock());
             pst.setInt(5, productos.getStock_minimo());
 
-            return pst.executeUpdate() > 0;
+            pst.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
+        return true;
     }
 
 

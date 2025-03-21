@@ -81,6 +81,7 @@ public class MenuGUI {
         JFrame frame = new JFrame("Menu");
         frame.setContentPane(new MenuGUI().main);
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            
         frame.pack();
         frame.setSize(700, 700);
         frame.setResizable(true);
