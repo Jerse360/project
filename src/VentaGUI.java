@@ -1,9 +1,6 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.sql.*;
 
 public class VentaGUI {
@@ -16,6 +13,7 @@ public class VentaGUI {
     private JButton actualizarButton;
     private JButton pedirButton;
     private JButton volverButton;
+    private JScrollPane scroll;
 
     Conexion conexion = new Conexion();
     VentaDAO ventaDAO = new VentaDAO();
@@ -23,6 +21,8 @@ public class VentaGUI {
     public VentaGUI() {
         obtenerTabla();
         obtenerComboBox();
+        table1.setRowSelectionAllowed(true);
+
         pedirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -100,19 +100,34 @@ public class VentaGUI {
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-
+                // Obtener la fila seleccionada
                 int selectedRow = table1.getSelectedRow();
-                if (selectedRow != -1) {
-
+                if (selectedRow != -1) { // Verificar que se haya seleccionado una fila válida
+                    // Obtener los valores de la fila seleccionada
                     id_venta = Integer.parseInt(table1.getValueAt(selectedRow, 0).toString());
                     comboBox1.setSelectedItem(table1.getValueAt(selectedRow, 1).toString());
                     comboBox2.setSelectedItem(table1.getValueAt(selectedRow, 3).toString());
 
+                    // Verificar si fue un doble clic
+                    if (e.getClickCount() == 2) {
+                        // Crear una instancia de ReciboGUI con el id_venta
+                        ReciboGUI reciboGUI = new ReciboGUI(id_venta);
 
+                        // Mostrar la ventana de ReciboGUI
+                        JFrame frame = new JFrame("Recibo");
+                        frame.setContentPane(reciboGUI.Main);
+                        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana
+                        frame.pack();
+                        frame.setSize(700, 700);
+                        frame.setResizable(true);
+                        frame.setVisible(true);
+
+
+                    }
                 }
             }
         });
+
     }
 
 
@@ -190,7 +205,13 @@ public class VentaGUI {
 
     public  void obtenerTabla() {
 
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                // Hacer que la columna "Id_venta" (columna 0) no sea editable
+                return column != 0; // Solo las columnas diferentes a 0 serán editables
+            }
+        };
 
         modelo.addColumn("Id_venta");
         modelo.addColumn("Id_cliente");

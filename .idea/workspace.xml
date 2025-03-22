@@ -4,35 +4,68 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae362301-2bf6-4086-ab97-3c05ba79b108" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Project1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project1.iml" afterDir="false" />
+    <list default="true" id="ae362301-2bf6-4086-ab97-3c05ba79b108" name="Changes" comment="Correccion de bug (Solo se puede cambiar de estado preparado a enviado y no saltar entre estados, tiene que seguir un orden)">
+      <change afterPath="$PROJECT_DIR$/src/ReciboGUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ReciboGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovimientoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovimientoGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VentaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VentaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VentaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/VentaGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VentaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VentaGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Jefferson" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2uKWO4St8sanxpXHkFTAghocMwM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.CajaGUI.executor": "Run",
+    "Application.Cliente.executor": "Run",
+    "Application.InterfazGUI.executor": "Run",
+    "Application.LogGUI.executor": "Run",
+    "Application.MenuGUI.executor": "Run",
+    "Application.MovimientoGUI.executor": "Run",
+    "Application.ProductosGUI.executor": "Run",
+    "Application.Servidor.executor": "Run",
+    "Application.VentaGUI.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "149",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "221",
+    "git-widget-placeholder": "MiniVersionSpring2",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Familia/IdeaProjects/Repositorio/project",
+    "last_opened_file_path": "C:/Users/Famil/Downloads/TrabajoPESAO",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -45,6 +78,72 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager" selected="Application.VentaGUI">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="zuleta" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="zuleta" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InterfazGUI" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Restaurante.InterfazGUI" />
+      <module name="Project1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Restaurante.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InterfazGUI" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Restaurante.InterfazGUI" />
+      <module name="Project1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Restaurante.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VentaGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="VentaGUI" />
+      <module name="Project1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="zuleta" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="zuleta" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.VentaGUI" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -62,10 +161,71 @@
       <option name="presentableId" value="Default" />
       <updated>1741997710753</updated>
       <workItem from="1741997711863" duration="772000" />
+      <workItem from="1742402653201" duration="1464000" />
+      <workItem from="1742534120184" duration="247000" />
+      <workItem from="1742534382082" duration="234000" />
+      <workItem from="1742534642509" duration="634000" />
+      <workItem from="1742535318515" duration="129000" />
+      <workItem from="1742558744773" duration="413000" />
+      <workItem from="1742559169278" duration="4876000" />
+      <workItem from="1742566574613" duration="1740000" />
+      <workItem from="1742571924290" duration="2500000" />
+      <workItem from="1742574957542" duration="4419000" />
+      <workItem from="1742603301297" duration="6223000" />
+      <workItem from="1742668332311" duration="10462000" />
     </task>
+    <task id="LOCAL-00001" summary="Validacion actualizar inventario y estado">
+      <option name="closed" value="true" />
+      <created>1742571892923</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742571892924</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Actualizacion 2 Spring">
+      <option name="closed" value="true" />
+      <created>1742572456685</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742572456685</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Unidad, blister y caja añadidos, se crea un movimiento financiero al cambiar de estado">
+      <option name="closed" value="true" />
+      <created>1742606726501</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742606726502</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Correccion de bug (Cambiar a entregado aunque no haya stock)">
+      <option name="closed" value="true" />
+      <created>1742607441621</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742607441621</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Correccion de bug (Solo se puede cambiar de estado preparado a enviado y no saltar entre estados, tiene que seguir un orden)">
+      <option name="closed" value="true" />
+      <created>1742624702411</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742624702411</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Validacion actualizar inventario y estado" />
+    <MESSAGE value="Actualizacion 2 Spring" />
+    <MESSAGE value="Unidad, blister y caja añadidos, se crea un movimiento financiero al cambiar de estado" />
+    <MESSAGE value="Correccion de bug (Cambiar a entregado aunque no haya stock)" />
+    <MESSAGE value="Correccion de bug (Solo se puede cambiar de estado preparado a enviado y no saltar entre estados, tiene que seguir un orden)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion de bug (Solo se puede cambiar de estado preparado a enviado y no saltar entre estados, tiene que seguir un orden)" />
   </component>
 </project>

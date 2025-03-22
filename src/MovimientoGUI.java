@@ -4,10 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class MovimientoGUI {
 
@@ -106,8 +103,6 @@ public class MovimientoGUI {
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-
 
                 int selectFilas = table1.getSelectedRow();
 
@@ -119,18 +114,35 @@ public class MovimientoGUI {
 
                     textField2.setText((String.valueOf( table1.getValueAt(selectFilas,0))));
 
+                    int id_venta = Integer.parseInt(String.valueOf(table1.getValueAt(selectFilas,1)));
 
+                    if (e.getClickCount() == 2) {
+                        ReciboGUI reciboGUI = new ReciboGUI(id_venta);
 
+                        // Mostrar la ventana de ReciboGUI
+                        JFrame frame = new JFrame("Recibo");
+                        frame.setContentPane(reciboGUI.Main);
+                        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana
+                        frame.pack();
+                        frame.setSize(700, 700);
+                        frame.setResizable(true);
+                        frame.setVisible(true);
+                    }
                 }
             }
         });
     }
 
-
-
-
     public void obtenerDatos() {
-        DefaultTableModel model = new DefaultTableModel();
+
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                // Hacer que la columna "Id_venta" (columna 0) no sea editable
+                return column != 1 && column != 0; // Solo las columnas diferentes a 0 y 1 serán editables
+            }
+        };
+
         model.setRowCount(0);
         model.addColumn("ID_movimiento");
         model.addColumn("ID_venta");

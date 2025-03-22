@@ -107,28 +107,6 @@ public class VentaDAO {
 
             if(estado.equals("Entregado")) {
 
-                String detalleQuery = "SELECT id_producto, cantidad FROM detalle_venta WHERE id_venta = ?";
-                pst = con.prepareStatement(detalleQuery);
-                pst.setInt(1, venta.getId_venta());
-                rs = pst.executeQuery();
-
-                while (rs.next()) {
-                    int idProducto = rs.getInt("id_producto");
-                    int cantidad = rs.getInt("cantidad");
-
-                    // Validar el stock
-                    if (!validarStock(idProducto, cantidad)) {
-                        // Revertir el estado de la venta si no hay suficiente stock
-                        String revertirQuery = "UPDATE venta SET estado = ? WHERE id_venta = ?";
-                        pst = con.prepareStatement(revertirQuery);
-                        pst.setString(1, estadoAntiguo);
-                        pst.setInt(2, venta.getId_venta());
-                        pst.executeUpdate();
-
-                        return false; // No hay suficiente stock
-                    }
-                }
-
                 String movimiento = "INSERT INTO movimiento_financiero( id_venta, categoria, descripcion, monto, fecha) VALUES (?,'Venta','Ingreso',?,CURRENT_TIME)";
 
                 pst = con.prepareStatement(movimiento);
