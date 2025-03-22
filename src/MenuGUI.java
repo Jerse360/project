@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ServiceConfigurationError;
 
 public class MenuGUI {
 
@@ -11,6 +10,7 @@ public class MenuGUI {
     private JButton ventasButton;
     private JButton movimientosFinancierosButton;
     private JPanel main;
+    private JButton reportesButton;
 
     public MenuGUI() {
 
@@ -71,6 +71,19 @@ public class MenuGUI {
 
                 MovimientoGUI mov = new MovimientoGUI();
                 mov.main(null);
+            }
+        });
+
+        reportesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                JFrame menuFrame = (JFrame) SwingUtilities.getWindowAncestor(reportesButton);
+                menuFrame.dispose();
+
+                ReportesGUI rep = new ReportesGUI();
+                rep.main(null);
+
             }
         });
 
