@@ -30,6 +30,8 @@ public class VentaDAO {
         try {
             con = conexion.getConnection();
 
+            CajaGUI caja = new CajaGUI();
+
             // Obtener el estado antiguo de la venta
             String estadoAntiguoQuery = "SELECT estado FROM venta WHERE id_venta = ?";
             pst = con.prepareStatement(estadoAntiguoQuery);
@@ -58,6 +60,18 @@ public class VentaDAO {
             String estado = "";
             if (rs.next()) {
                 estado = rs.getString("estado");
+            }
+
+            if (validarTransicionEstado(estadoAntiguo, venta.getEstado()) == false) {
+                JOptionPane.showMessageDialog(null, "No se puede cambiar de " + estadoAntiguo + " a " + venta.getEstado(), "Error", JOptionPane.ERROR_MESSAGE);
+
+                String revertirQuery = "UPDATE venta SET estado = ? WHERE id_venta = ?";
+                pst = con.prepareStatement(revertirQuery);
+                pst.setString(1, estadoAntiguo);
+                pst.setInt(2, venta.getId_venta());
+                pst.executeUpdate();
+
+                return false;
             }
 
             // Si el estado es "Enviado", validar y restar stock
@@ -121,6 +135,12 @@ public class VentaDAO {
                 pst.setInt(1, venta.getId_venta());
                 pst.setInt(2,venta.getTotal_venta());
                 pst.executeUpdate();
+
+                String query2 = "UPDATE `caja` SET Valor = (SELECT SUM(movimiento_financiero.monto) FROM movimiento_financiero)";
+                pst = con.prepareStatement(query2);
+                pst.executeUpdate();
+
+                caja.obtenerDatos();
             }
 
             return true;
@@ -232,6 +252,19 @@ public class VentaDAO {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public boolean validarTransicionEstado(String estadoAntiguo, String estadoNuevo) {
+        // Validar las transiciones permitidas
+        if (estadoAntiguo.equals("Preparacion") && estadoNuevo.equals("Enviado")) {
+            return true; // De Preparacion a Enviado
+        } else if (estadoAntiguo.equals("Enviado") && estadoNuevo.equals("Entregado")) {
+            return true; // De Enviado a Entregado
+        } else if (estadoAntiguo.equals(estadoNuevo)) {
+            return true; // No hay cambio de estado
+        } else {
+            return false; // Transición no permitida
         }
     }
 }

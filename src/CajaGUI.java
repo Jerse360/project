@@ -1,24 +1,43 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class CajaGUI {
 
     private JPanel Main;
     private JTable table1;
 
+    Conexion conexion = new Conexion();
     public CajaGUI() {
+        actualizarCaja();
         obtenerDatos();
-
 
     }
 
 
 
+    public boolean actualizarCaja() {
+        Connection con = conexion.getConnection();
+
+        try {
+
+        String query = "UPDATE `caja` SET Valor = (SELECT SUM(movimiento_financiero.monto) FROM movimiento_financiero)";
+
+        PreparedStatement pst = con.prepareStatement(query);
+
+        pst.executeUpdate();
+
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return false;
+    }
+
     public void obtenerDatos() {
+
         DefaultTableModel model = new DefaultTableModel();
         model.setRowCount(0);
         model.addColumn("Id_caja");

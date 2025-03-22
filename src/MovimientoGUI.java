@@ -41,7 +41,7 @@ public class MovimientoGUI {
 
                 if (movimientosDAO.agregar(movimiento)) {
                     obtenerDatos();
-
+                    caja.obtenerDatos();
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Error al agregar movimiento");
@@ -63,6 +63,7 @@ public class MovimientoGUI {
 
             movimientosDAO.actualizar(movimiento);
             obtenerDatos();
+            caja.obtenerDatos();
 
             }
         });
@@ -74,7 +75,7 @@ public class MovimientoGUI {
 
                 movimientosDAO.eliminar(id);
                 obtenerDatos();
-
+                caja.obtenerDatos();
 
             }
         });
@@ -84,6 +85,7 @@ public class MovimientoGUI {
             public void actionPerformed(ActionEvent e) {
 
                 caja.main(null);
+
 
             }
         });
