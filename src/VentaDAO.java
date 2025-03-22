@@ -6,8 +6,6 @@ public class VentaDAO {
 
     Conexion conexion = new Conexion();
 
-    String estado, estadoAntiguo;
-
     public boolean agregar(Venta venta) {
 
         String sql = "INSERT INTO venta (id_cliente, total_venta, estado, fecha_hora) VALUES (?, 0, 'Preparacion', CURRENT_TIME)";
@@ -91,6 +89,16 @@ public class VentaDAO {
                     // Verificar si el stock resultante es menor que el mínimo
                     verificarStockMinimo(idProducto);
                 }
+            }
+
+            if(estado.equals("Entregado")) {
+
+                String movimiento = "INSERT INTO movimiento_financiero( id_venta, categoria, descripcion, monto, fecha) VALUES (?,'Venta','Ingreso',?,CURRENT_TIME)";
+
+                pst = con.prepareStatement(movimiento);
+                pst.setInt(1, venta.getId_venta());
+                pst.setInt(2,venta.getTotal_venta());
+                pst.executeUpdate();
             }
 
             return true;

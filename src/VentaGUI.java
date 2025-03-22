@@ -19,7 +19,7 @@ public class VentaGUI {
 
     Conexion conexion = new Conexion();
     VentaDAO ventaDAO = new VentaDAO();
-    int id_cliente, id_venta;
+    int id_cliente, id_venta, total_venta;
     public VentaGUI() {
         obtenerTabla();
         obtenerComboBox();
@@ -62,8 +62,8 @@ public class VentaGUI {
                 String cliente = comboBox1.getSelectedItem().toString();
                 String estado = comboBox2.getSelectedItem().toString();
                 obtenerIdCliente(cliente);
-
-                Venta venta = new Venta(id_venta,id_cliente,0,estado,"",cliente);
+                obtenerTotal(id_venta);
+                Venta venta = new Venta(id_venta,id_cliente,total_venta,estado,"",cliente);
 
                 if (ventaDAO.actualizar(venta)) {
 
@@ -157,7 +157,29 @@ public class VentaGUI {
 
     }
 
+    public void obtenerTotal (int id_venta) {
+        Connection con = conexion.getConnection();
 
+        try
+        {
+
+            String query = "SELECT total_venta FROM venta WHERE id_venta = ?;";
+
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(1,id_venta);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                total_venta = rs.getInt("total_venta");
+            }
+
+
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
+
+    }
 
     public  void obtenerTabla() {
 

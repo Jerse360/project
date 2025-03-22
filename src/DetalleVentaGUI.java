@@ -64,8 +64,43 @@ public class DetalleVentaGUI extends JFrame{
                         }
 
                     }
-                    else {
-                        JOptionPane.showMessageDialog(null,"No funciono");
+
+                    if (tipo.equals("Blister")){
+
+                        String producto = String.valueOf(comboBoxProducto.getSelectedItem());
+                        int cant = (int) spinner1.getValue();
+
+                        obtenerIdProducto(producto);
+
+                        Detalle_venta detalle_venta = new Detalle_venta(0,id_venta,id_producto,0,10*cant,tipo);
+
+                        if (detalle_ventaDAO.agregarDetalleVenta(detalle_venta)){
+                            JOptionPane.showMessageDialog(null,"Detalle venta agregado");
+
+                            detalle_ventaDAO.actualizarTotal(detalle_venta);
+
+                            obtenerDatos();
+
+                        }
+                    }
+
+                    if (tipo.equals("Caja")){
+
+                        String producto = String.valueOf(comboBoxProducto.getSelectedItem());
+                        int cant = (int) spinner1.getValue();
+
+                        obtenerIdProducto(producto);
+
+                        Detalle_venta detalle_venta = new Detalle_venta(0,id_venta,id_producto,0,100*cant,tipo);
+
+                        if (detalle_ventaDAO.agregarDetalleVenta(detalle_venta)){
+                            JOptionPane.showMessageDialog(null,"Detalle venta agregado");
+
+                            detalle_ventaDAO.actualizarTotal(detalle_venta);
+
+                            obtenerDatos();
+
+                        }
                     }
                 }
 
@@ -74,21 +109,7 @@ public class DetalleVentaGUI extends JFrame{
 
 
 
-    comboBox1.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
 
-            String seleccion = (String) comboBox1.getSelectedItem();
-
-            // Bloquear o desbloquear el spinner según la selección
-            if (seleccion.equals("Unidad")) {
-                spinner1.setEnabled(true); // Habilitar el spinner
-            } else {
-                spinner1.setEnabled(false); // Bloquear el spinner
-            }
-
-        }
-    });
 
     comboBoxProducto.addActionListener(new ActionListener() {
         @Override
