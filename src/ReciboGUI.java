@@ -5,8 +5,8 @@ import java.sql.*;
 public class ReciboGUI {
     public JPanel Main;
     private JTable table1;
-    private JLabel Id_orden;
-    private JLabel id_orden;
+    private JLabel IdOrden;
+    private JLabel orden;
 
     Conexion conexion = new Conexion();
 
@@ -14,7 +14,7 @@ public class ReciboGUI {
 
     public ReciboGUI(int id_venta) {
         this.id_venta = id_venta;
-        id_orden.setText(String.valueOf(id_venta));
+        IdOrden.setText(String.valueOf(id_venta));
         obtenerDatos();
 
 

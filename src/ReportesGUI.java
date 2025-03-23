@@ -66,14 +66,16 @@ public class ReportesGUI {
     }
 
     private void obtenerdatosDiarios() {
-        String query = "SELECT YEAR(venta.fecha_hora) AS año, WEEK(venta.fecha_hora, 1) AS semana, MIN(DATE(venta.fecha_hora)) AS inicio_semana, DATE_ADD(MIN(DATE(venta.fecha_hora)), INTERVAL 6 DAY) AS fin_semana, SUM(venta.total_venta) AS venta_semanal FROM venta WHERE venta.estado = 'Entregado' GROUP BY YEAR(venta.fecha_hora), WEEK(venta.fecha_hora, 1) ORDER BY año DESC, semana DESC";
-
-        cargarDatosEnTabla(query, new String[]{"Fecha", "Semana", "Inicio Semana", "Fin Semana", "Venta Semana"});
+        String query = "SELECT DATE(venta.fecha_hora) AS Fecha, SUM(venta.total_venta) AS total_diario FROM venta WHERE estado = 'Entregado' AND DATE(venta.fecha_hora) = CURRENT_DATE GROUP BY venta.fecha_hora ORDER BY venta.fecha_hora DESC;";
+        cargarDatosEnTabla(query, new String[]{"Fecha", "Total"});
     }
 
     public void obtenerdatosSemanales() {
-        String query = "SELECT fecha_hora, total_venta FROM venta ORDER BY fecha_hora DESC";
-        cargarDatosEnTabla(query, new String[]{"Año", "Total"});
+
+
+        String query = "SELECT YEAR(venta.fecha_hora) AS año, WEEK(venta.fecha_hora, 1) AS semana, MIN(DATE(venta.fecha_hora)) AS inicio_semana, DATE_ADD(MIN(DATE(venta.fecha_hora)), INTERVAL 6 DAY) AS fin_semana, SUM(venta.total_venta) AS venta_semanal FROM venta WHERE venta.estado = 'Entregado' GROUP BY YEAR(venta.fecha_hora), WEEK(venta.fecha_hora, 1) ORDER BY año DESC, semana DESC";
+
+        cargarDatosEnTabla(query, new String[]{"Fecha", "Semana", "Inicio Semana", "Fin Semana", "Venta Semana"});
     }
 
     private void obtenerdatosMensuales() {
