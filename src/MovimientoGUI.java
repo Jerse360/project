@@ -18,6 +18,8 @@ public class MovimientoGUI {
     private JTextField textField2;
     private JButton verCajaButton;
     private JButton volverButton;
+    private JComboBox comboBoxCategoria;
+    private JComboBox comboBoxTipo;
 
     MovimientosDAO movimientosDAO = new MovimientosDAO();
 
@@ -28,20 +30,45 @@ public class MovimientoGUI {
         obtenerDatos();
         textField2.setEditable(false);
 
+        comboBoxTipo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String tipoSeleccionado = comboBoxTipo.getSelectedItem().toString();
+                if ("Ingreso".equals(tipoSeleccionado)) {
+                    comboBoxCategoria.setEnabled(true);
+                    comboBox1.setEnabled(false);
+                } else {
+                    comboBoxCategoria.setEnabled(false);
+                    comboBox1.setEnabled(true);
+                }
+            }
+        });
+
         agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String categoria = comboBox1.getSelectedItem().toString();
+                String tipo = comboBoxTipo.getSelectedItem().toString();
+                String categoria = tipo.equals("Ingreso") ? comboBoxCategoria.getSelectedItem().toString() : comboBox1.getSelectedItem().toString();
                 int monto =Integer.parseInt(textField1.getText());
 
-                Movimiento movimiento = new Movimiento(0, 0, monto, categoria, "","Egreso");
+                Movimiento movimiento = new Movimiento(0, 0, monto, categoria, "",tipo);
 
-                if (movimientosDAO.agregar(movimiento)) {
-                    obtenerDatos();
-                    caja.obtenerDatos();
+                if (tipo.equals("Ingreso")) {
+                    if (movimientosDAO.agregarIngreso(movimiento)) {
+
+                        obtenerDatos();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Error al agregar movimiento");
+                    }
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "Error al agregar movimiento");
+                    if (movimientosDAO.agregarEgreso(movimiento)) {
+
+                        obtenerDatos();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Error al agregar movimiento");
+                    }
+
                 }
                 textField1.setText("");
                 obtenerDatos();
@@ -81,7 +108,7 @@ public class MovimientoGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                caja.main(null);
+                caja.main(null  );
 
 
             }
@@ -184,7 +211,7 @@ public class MovimientoGUI {
         frame.setContentPane(new MovimientoGUI().Main);
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setSize(1400, 600);
+        frame.setSize(1800, 600);
         frame.setResizable(true);
         frame.setVisible(true);
     }

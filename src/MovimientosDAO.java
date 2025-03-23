@@ -10,7 +10,51 @@ public class MovimientosDAO {
 
     String validacion;
 
-    public boolean agregar(Movimiento movimiento) {
+    public boolean agregarIngreso(Movimiento movimiento) {
+
+        Connection con = conexion.getConnection();
+
+        CajaGUI caja = new CajaGUI();
+
+        try
+        {
+            String query = "INSERT INTO movimiento_financiero (id_venta, categoria, descripcion, monto, fecha)VALUES (0, ?, 'Ingreso',?,CURRENT_TIME);";
+
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, movimiento.getCategoria());
+            pst.setInt(2, movimiento.getMonto());
+
+            int filas = pst.executeUpdate();
+
+            if (filas > 0){
+
+                JOptionPane.showMessageDialog(null, "Creado con Exito");
+
+                String query2 = "UPDATE `caja` SET Valor = (SELECT SUM(movimiento_financiero.monto) FROM movimiento_financiero)";
+                pst = con.prepareStatement(query2);
+                pst.executeUpdate();
+
+                caja.obtenerDatos();
+
+            }
+
+            else
+
+                JOptionPane.showMessageDialog(null, "No se Encontró el movimiento en la base de datos");
+
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+            return false;
+
+        }
+
+        return true;
+    }
+
+    public boolean agregarEgreso(Movimiento movimiento) {
 
         Connection con = conexion.getConnection();
 
