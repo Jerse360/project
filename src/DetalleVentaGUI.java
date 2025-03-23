@@ -280,7 +280,7 @@ public class DetalleVentaGUI extends JFrame{
         modelo.addColumn("Id_detalleVenta");
         modelo.addColumn("Id_Venta");
         modelo.addColumn("id_producto");
-        modelo.addColumn("Precio Total");
+        modelo.addColumn("Precio Total (IVA)");
         modelo.addColumn("Tipo");
         modelo.addColumn("Cantidad");
 

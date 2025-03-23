@@ -10,16 +10,18 @@ public class Detalle_ventaDAO {
 
 
     public boolean agregarDetalleVenta(Detalle_venta detalle_venta) {
-        String query = "INSERT INTO detalle_venta (id_venta, id_producto, precio_total, tipo, cantidad) VALUES (?, ?, (SELECT precio FROM productos WHERE id_producto = ?) * ?, ?,?)";
+        String query = "INSERT INTO detalle_venta (id_venta, id_producto, precio_total, tipo, cantidad) VALUES (?, ?, ((SELECT precio FROM productos WHERE id_producto = ?) +((SELECT precio FROM productos WHERE id_producto = ?)*0.19)) * ?, ?,?)";
         try (Connection con = conexion.getConnection();
              PreparedStatement pst = con.prepareStatement(query)) {
             pst.setInt(1, detalle_venta.getId_venta());
             pst.setInt(2, detalle_venta.getId_producto());
             pst.setInt(3, detalle_venta.getId_producto());
-            pst.setInt(4,detalle_venta.getCantidad());
+            pst.setInt(4, detalle_venta.getId_producto());
 
-            pst.setString(5, detalle_venta.getTipo());
-            pst.setInt(6, detalle_venta.getCantidad());
+            pst.setInt(5,detalle_venta.getCantidad());
+
+            pst.setString(6, detalle_venta.getTipo());
+            pst.setInt(7, detalle_venta.getCantidad());
 
             pst.executeUpdate();
 
