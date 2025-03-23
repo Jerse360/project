@@ -1,16 +1,31 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 
 public class CajaGUI {
 
     private JPanel Main;
     private JTable table1;
+    private JButton volverButton;
 
     Conexion conexion = new Conexion();
     public CajaGUI() {
         actualizarCaja();
         obtenerDatos();
+
+        volverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                JFrame volverFrame = (JFrame) SwingUtilities.getWindowAncestor(volverButton);
+                volverFrame.dispose();
+
+                MovimientoGUI movimientoGUI = new MovimientoGUI();
+                movimientoGUI.main(null);
+            }
+        });
 
     }
 

@@ -2,6 +2,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,18 +35,15 @@ public class Servidor {
         enviarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String mensaje = textField1.getText();
-                if (mensaje != null && !mensaje.isEmpty()) {
-                    if (out != null) {
+                enviarMensaje();
+            }
+        });
 
-                        out.println(mensaje);
-                        actualizarTextArea("Servidor dice: " + mensaje + "\n");
-                        textField1.setText("");
-                    } else {
-
-                        actualizarTextArea("Error: No hay cliente conectado.\n");
-
-                    }
+        textField1.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    enviarMensaje();
                 }
             }
         });
@@ -68,6 +67,25 @@ public class Servidor {
         } catch (IOException e) {
             actualizarTextArea("Error en el servidor: " + e.getMessage() + "\n");
         }
+    }
+
+    public void enviarMensaje() {
+
+        String mensaje = textField1.getText();
+
+        if (mensaje != null && !mensaje.isEmpty()) {
+            if (out != null) {
+
+                out.println(mensaje);
+                actualizarTextArea("Servidor dice: " + mensaje + "\n");
+                textField1.setText("");
+            } else {
+
+                actualizarTextArea("Error: No hay cliente conectado.\n");
+
+            }
+        }
+
     }
 
     public void recibirMensajes(BufferedReader in) {

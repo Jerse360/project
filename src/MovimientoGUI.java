@@ -108,6 +108,9 @@ public class MovimientoGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                JFrame menuFrame = (JFrame) SwingUtilities.getWindowAncestor(verCajaButton);
+                menuFrame.dispose();
+
                 caja.main(null  );
 
 

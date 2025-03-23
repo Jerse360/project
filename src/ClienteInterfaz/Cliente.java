@@ -3,6 +3,8 @@ package ClienteInterfaz;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -37,19 +39,34 @@ public class Cliente {
         enviarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                enviarMensaje();
+            }
+        });
 
-                String mensaje = textField1.getText(); // Obtener el mensaje del JTextField
-                if (mensaje != null && !mensaje.isEmpty()) {
-                    if (out != null) {
-                        out.println(mensaje); // Enviar el mensaje al servidor
-                        actualizarTextArea("Cliente dice: " + mensaje + "\n");
-                        textField1.setText(""); // Limpiar el JTextField
-                    } else {
-                        actualizarTextArea("Error: No estás conectado al servidor.\n");
-                    }
+        textField1.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    enviarMensaje();
                 }
             }
         });
+    }
+
+    public void enviarMensaje() {
+
+        String mensaje = textField1.getText(); // Obtener el mensaje del JTextField
+
+        if (mensaje != null && !mensaje.isEmpty()) {
+            if (out != null) {
+                out.println(mensaje); // Enviar el mensaje al servidor
+                actualizarTextArea("Cliente dice: " + mensaje + "\n");
+                textField1.setText(""); // Limpiar el JTextField
+            } else {
+                actualizarTextArea("Error: No estás conectado al servidor.\n");
+            }
+        }
+
     }
 
     public void conectarAlServidor(String serverAddress) {
