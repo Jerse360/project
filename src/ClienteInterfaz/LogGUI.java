@@ -44,6 +44,9 @@ public class LogGUI {
         crearCuentaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JFrame menuFrame = (JFrame) SwingUtilities.getWindowAncestor(crearCuentaButton);
+                menuFrame.dispose();
+
                 CrearCuentaGUI crearCuentaGUI = new CrearCuentaGUI();
                 crearCuentaGUI.main(null);
 

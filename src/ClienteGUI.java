@@ -136,7 +136,7 @@ public class ClienteGUI {
         model.addColumn("Cedula");
         model.addColumn("Telefono");
         model.addColumn("Direccion");
-        model.addColumn("Email");
+        model.addColumn("ClienteInterfaz.Email");
 
         table1.setModel(model);
 

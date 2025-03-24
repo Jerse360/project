@@ -35,6 +35,11 @@ public class CrearCuentaGUI {
                     if (agregar(nombre,cedula,telefono,direccion,email)) {
                         JOptionPane.showMessageDialog(null, "Cuenta agregada correctamente");
 
+                        JFrame volverFrame = (JFrame) SwingUtilities.getWindowAncestor(crearCuentaButton);
+                        volverFrame.dispose();
+
+                        LogGUI log = new LogGUI();
+                        log.main(null);
                     }
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Ingrese datos válidos del Cliente");
@@ -64,8 +69,9 @@ public class CrearCuentaGUI {
             pst.setString(4, direccion);
             pst.setString(5, email);
 
-
+            Email.enviarCorreo(email,nombre);
             return pst.executeUpdate()>0;
+
         } catch (SQLException e) {
 
                 e.printStackTrace();
