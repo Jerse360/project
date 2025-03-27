@@ -113,7 +113,7 @@ public class CrearCuentaGUI {
 
     /**
      * Método principal para iniciar la interfaz de creación de cuenta.
-     *
+     *@param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
         // Configurar y mostrar la ventana principal

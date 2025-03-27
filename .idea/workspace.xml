@@ -4,14 +4,77 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae362301-2bf6-4086-ab97-3c05ba79b108" name="Changes" comment="Correccion de bug (Solo se puede cambiar de estado preparado a enviado y no saltar entre estados, tiene que seguir un orden)">
-      <change afterPath="$PROJECT_DIR$/src/ReciboGUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ReciboGUI.java" afterDir="false" />
+    <list default="true" id="ae362301-2bf6-4086-ab97-3c05ba79b108" name="Changes" comment="Documentacion Javadoc">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovimientoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovimientoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VentaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VentaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VentaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/VentaGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VentaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VentaGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/Socket/ChatClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/Socket/ChatServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/Sockets.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/ChatClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/ChatServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Cliente$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Cliente$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Cliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Servidor$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Servidor$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Servidor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Sockets.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CajaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/CajaGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CajaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/CajaGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteInterfaz/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteInterfaz/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteInterfaz/CrearCuentaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteInterfaz/CrearCuentaGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteInterfaz/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteInterfaz/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteInterfaz/LogGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteInterfaz/LogGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteSetGet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteSetGet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Conexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DetalleVentaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/DetalleVentaGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DetalleVentaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/DetalleVentaGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Detalle_venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Detalle_venta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Detalle_ventaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Detalle_ventaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MenuGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MenuGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Movimiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Movimiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovimientoGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientoGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovimientoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientoGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovimientosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientosDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Productos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductosGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductosGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReciboGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReciboGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReciboGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReciboGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReportesGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReportesGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReportesGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReportesGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Servidor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Servidor.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Servidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Venta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VentaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/VentaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VentaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/VentaGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VentaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/VentaGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +96,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Microsoft/Windows/INetCache/IE/QX8U6XFB/MovimientoGUI[1].form" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -45,40 +111,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CajaGUI.executor": "Run",
-    "Application.Cliente.executor": "Run",
-    "Application.InterfazGUI.executor": "Run",
-    "Application.LogGUI.executor": "Run",
-    "Application.MenuGUI.executor": "Run",
-    "Application.MovimientoGUI.executor": "Run",
-    "Application.ProductosGUI.executor": "Run",
-    "Application.Servidor.executor": "Run",
-    "Application.VentaGUI.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "149",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "221",
-    "git-widget-placeholder": "MiniVersionSpring2",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Famil/Downloads/TrabajoPESAO",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CajaGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Cliente.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ClienteGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CrearCuentaGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.InterfazGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LogGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MenuGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MovimientoGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProductosGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ReportesGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Servidor.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VentaGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path&quot;: &quot;C:\\Users\\Famil\\Downloads\\Librerias&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;149&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;221&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;MiniVersionSpring2&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Famil/Downloads/Librerias/jakarta.mail-2.0.1.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.VentaGUI">
+}</component>
+  <component name="RunManager" selected="Application.InterfazGUI">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="zuleta" />
       <method v="2">
@@ -172,7 +243,11 @@
       <workItem from="1742571924290" duration="2500000" />
       <workItem from="1742574957542" duration="4419000" />
       <workItem from="1742603301297" duration="6223000" />
-      <workItem from="1742668332311" duration="10462000" />
+      <workItem from="1742668332311" duration="13734000" />
+      <workItem from="1742712652806" duration="1524000" />
+      <workItem from="1742756057086" duration="15920000" />
+      <workItem from="1743041231427" duration="12416000" />
+      <workItem from="1743054101652" duration="981000" />
     </task>
     <task id="LOCAL-00001" summary="Validacion actualizar inventario y estado">
       <option name="closed" value="true" />
@@ -214,11 +289,86 @@
       <option name="project" value="LOCAL" />
       <updated>1742624702411</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Agregue la funcion de poder ver el detalle de la venta dando doble click sobre la venta">
+      <option name="closed" value="true" />
+      <created>1742681614552</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742681614553</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Añadidos de reportes &#10;&#10;Por: Nicolas Zuleta">
+      <option name="closed" value="true" />
+      <created>1742685288723</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1742685288723</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Añadidos de reportes (Arreglo de reportes diarios) &#10;&#10;Por: Nicolas Zuleta">
+      <option name="closed" value="true" />
+      <created>1742756728694</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1742756728694</updated>
+    </task>
+    <task id="LOCAL-00009" summary="añadido Ingresos y egresos manuales&#10;&#10;Por: Shirley Molina">
+      <option name="closed" value="true" />
+      <created>1742759177222</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1742759177222</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Añadido el ingreso del IVA">
+      <option name="closed" value="true" />
+      <created>1742762010909</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742762010909</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Se envian mensajes con presionar enter">
+      <option name="closed" value="true" />
+      <created>1742762947395</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1742762947395</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Funcion Enviar correo al crear cuenta">
+      <option name="closed" value="true" />
+      <created>1742779723240</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1742779723240</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Documentacion Javadoc">
+      <option name="closed" value="true" />
+      <created>1743054054092</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743054054092</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Validacion actualizar inventario y estado" />
@@ -226,6 +376,14 @@
     <MESSAGE value="Unidad, blister y caja añadidos, se crea un movimiento financiero al cambiar de estado" />
     <MESSAGE value="Correccion de bug (Cambiar a entregado aunque no haya stock)" />
     <MESSAGE value="Correccion de bug (Solo se puede cambiar de estado preparado a enviado y no saltar entre estados, tiene que seguir un orden)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion de bug (Solo se puede cambiar de estado preparado a enviado y no saltar entre estados, tiene que seguir un orden)" />
+    <MESSAGE value="Agregue la funcion de poder ver el detalle de la venta dando doble click sobre la venta" />
+    <MESSAGE value="Añadidos de reportes &#10;&#10;Por: Nicolas Zuleta" />
+    <MESSAGE value="Añadidos de reportes (Arreglo de reportes diarios) &#10;&#10;Por: Nicolas Zuleta" />
+    <MESSAGE value="añadido Ingresos y egresos manuales&#10;&#10;Por: Shirley Molina" />
+    <MESSAGE value="Añadido el ingreso del IVA" />
+    <MESSAGE value="Se envian mensajes con presionar enter" />
+    <MESSAGE value="Funcion Enviar correo al crear cuenta" />
+    <MESSAGE value="Documentacion Javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Documentacion Javadoc" />
   </component>
 </project>

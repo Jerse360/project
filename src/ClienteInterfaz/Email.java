@@ -18,7 +18,7 @@ public class Email {
      */
     public static void enviarCorreo(String destinoemail) {
         final String enviarEmail = "Jefferroacarrillo.JR@gmail.com";
-        final String appContraseña = "dhmn erva ofop jqaj";
+        final String appContrasena = "dhmn erva ofop jqaj";
 
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -29,7 +29,7 @@ public class Email {
         Session session = Session.getInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(enviarEmail, appContraseña);
+                return new PasswordAuthentication(enviarEmail, appContrasena);
             }
         });
 

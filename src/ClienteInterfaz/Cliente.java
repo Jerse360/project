@@ -138,6 +138,7 @@ public class Cliente {
 
     /**
      * Método principal que inicia la aplicación cliente.
+     * @param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
         // Configurar y mostrar la ventana principal
