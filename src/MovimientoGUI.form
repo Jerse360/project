@@ -147,6 +147,7 @@
         </constraints>
         <properties>
           <model>
+            <item value="---"/>
             <item value="Ingreso"/>
             <item value="Egreso"/>
           </model>

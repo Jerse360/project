@@ -6,11 +6,19 @@ import jakarta.mail.internet.MimeMessage;
 
 import java.util.Properties;
 
+/**
+ * Clase que gestiona el envío de correos electrónicos.
+ */
 public class Email {
 
-    public static void enviarCorreo(String destinoemail, String nombreCliente) {
-        final String enviarEmail= "Jefferroacarrillo.JR@gmail.com";  //Pones tu correo si quieres
-        final String appContraseña= "dhmn erva ofop jqaj";  //Aca dentro va la contraseña de aplicación de Gmail
+    /**
+     * Envía un correo electrónico de bienvenida al cliente.
+     *
+     * @param destinoemail La dirección de correo electrónico del cliente.
+     */
+    public static void enviarCorreo(String destinoemail) {
+        final String enviarEmail = "Jefferroacarrillo.JR@gmail.com";
+        final String appContraseña = "dhmn erva ofop jqaj";
 
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -21,7 +29,7 @@ public class Email {
         Session session = Session.getInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(enviarEmail, appContraseña );
+                return new PasswordAuthentication(enviarEmail, appContraseña);
             }
         });
 
@@ -39,6 +47,4 @@ public class Email {
             System.out.println("Error al enviar el correo.");
         }
     }
-
-
 }
