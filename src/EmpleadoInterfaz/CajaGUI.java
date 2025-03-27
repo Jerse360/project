@@ -5,7 +5,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
-
 /**
  * Interfaz gráfica para la gestión y visualización del estado de la caja.
  * Muestra el saldo actual y permite volver a la interfaz de movimientos.
@@ -13,21 +12,36 @@ import java.sql.*;
 public class CajaGUI {
 
     // Componentes de la interfaz gráfica
-    private JPanel Main;          // Panel principal
-    private JTable table1;        // Tabla para mostrar datos de caja
-    private JButton volverButton; // Botón para volver al menú anterior
+    private JPanel Main;          // Panel principal que contiene todos los componentes
+
+    /**
+     * Tabla para visualizar los datos del estado de caja.
+     * Muestra las columnas: Id_caja, Concepto y Total.
+     */
+    private JTable table1;
+
+    /**
+     * Botón para regresar a la interfaz de movimientos.
+     * @see MovimientoGUI
+     */
+    private JButton volverButton;
 
     private Conexion conexion = new Conexion(); // Objeto para conexión a BD
 
     /**
      * Constructor de la clase CajaGUI.
      * Inicializa la interfaz, actualiza el saldo y carga los datos.
+     * Configura el ActionListener para el botón volverButton.
      */
     public CajaGUI() {
         actualizarCaja();  // Actualiza el saldo en caja
         obtenerDatos();    // Carga los datos en la tabla
 
-        // Configuración del listener para el botón de volver
+        /**
+         * ActionListener para el botón volverButton.
+         * @action Cierra la ventana actual y abre la interfaz de movimientos
+         * @see MovimientoGUI
+         */
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

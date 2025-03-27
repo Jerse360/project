@@ -19,12 +19,50 @@ public class DetalleVentaGUI extends JFrame {
     private JComboBox comboBoxProducto;  // Combo box para seleccionar productos
     private JTextField precioProducto;   // Campo para mostrar el precio del producto
     private JSpinner spinner1;           // Selector de cantidad
+    /**
+     * Botón para agregar productos a la venta actual.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Verifica que se haya seleccionado un producto válido</li>
+     *   <li>Obtiene el tipo de empaque seleccionado (Unidad, Blister, Caja)</li>
+     *   <li>Calcula la cantidad según el factor de empaque (1, 10, 100)</li>
+     *   <li>Agrega el detalle de venta a la base de datos</li>
+     *   <li>Actualiza el total de la venta</li>
+     *   <li>Muestra mensaje de confirmación</li>
+     *   <li>Actualiza la tabla de detalles</li>
+     * </ol>
+     */
     private JButton agregarButton;       // Botón para agregar producto a la venta
     private JTable table1;               // Tabla para mostrar los detalles de venta
+
+    /**
+     * Botón para eliminar un detalle de venta seleccionado.
+     * <p>
+     * Requiere que se seleccione un detalle en la tabla primero.
+     * Al hacer clic:
+     * <ol>
+     *   <li>Resta el monto del detalle del total de la venta</li>
+     *   <li>Elimina el registro de la base de datos</li>
+     *   <li>Muestra mensaje de confirmación</li>
+     *   <li>Actualiza la tabla de detalles</li>
+     * </ol>
+     */
     private JButton eliminarButton;      // Botón para eliminar detalle de venta
     private JPanel Main;                 // Panel principal de la interfaz
     private JLabel idOrden;              // Etiqueta para mostrar el ID de la venta
     private JComboBox comboBox1;         // Combo box para seleccionar tipo de empaque
+
+    /**
+     * Botón para volver a la interfaz de gestión de ventas.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual de detalles de venta</li>
+     *   <li>Abre la interfaz principal de ventas</li>
+     * </ol>
+     * @see VentaGUI
+     */
     private JButton volverButton;        // Botón para volver al menú anterior
 
     // Objetos para conexión y acceso a datos

@@ -11,9 +11,28 @@ import java.sql.*;
 public class ReciboGUI {
     // Componentes de la interfaz gráfica
     public JPanel Main;
+
+    /**
+     * Tabla que muestra los detalles de los productos vendidos en la orden.
+     * <p>
+     * Columnas mostradas:
+     * <ol>
+     *   <li>ID del detalle de venta</li>
+     *   <li>ID de la venta</li>
+     *   <li>Nombre del producto</li>
+     *   <li>Precio total (incluye IVA)</li>
+     *   <li>Tipo de empaque/venta</li>
+     *   <li>Cantidad vendida</li>
+     * </ol>
+     */
     private JTable table1;      // Tabla para mostrar los detalles de la venta
+
+    /**
+     * Etiqueta que muestra el número de orden/venta.
+     * <p>
+     * Muestra el ID de la venta que se está visualizando.
+     */
     private JLabel IdOrden;     // Etiqueta para mostrar el ID de la orden
-    private JLabel orden;       // Etiqueta adicional (no utilizada directamente en el código mostrado)
 
     // Objeto para manejar la conexión a la base de datos
     Conexion conexion = new Conexion();

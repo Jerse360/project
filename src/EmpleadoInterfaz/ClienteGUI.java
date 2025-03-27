@@ -23,9 +23,57 @@ public class ClienteGUI {
     private JTextField textField4;        // Campo para Teléfono
     private JTextField textField5;        // Campo para Dirección
     private JTextField textField6;        // Campo para Email
+    /**
+     * Boton para agregar nuevos clientes al sistema.
+     * <p>
+     * Al hacer click:
+     * <ol>
+     *   <li>Recoge los datos de los campos de texto</li>
+     *   <li>Crea un nuevo objeto Cliente</li>
+     *   <li>Intenta guardarlo en la base de datos</li>
+     *   <li>Muestra mensaje de exito o error</li>
+     *   <li>Actualiza la tabla y limpia los campos</li>
+     * </ol>
+     */
     private JButton agregarButton;        // Botón para agregar cliente
+    /**
+     * Boton para modificar los datos de un cliente existente.
+     * <p>
+     * Requiere que se seleccione un cliente de la tabla primero.
+     * Al hacer click:
+     * <ol>
+     *   <li>Recoge los datos de los campos de texto</li>
+     *   <li>Actualiza el registro en la base de datos</li>
+     *   <li>Muestra mensaje de exito o error</li>
+     *   <li>Actualiza la tabla y limpia los campos</li>
+     * </ol>
+     */
     private JButton actualizarButton;     // Botón para actualizar cliente
+
+    /**
+     * Boton para eliminar clientes del sistema.
+     * <p>
+     * Requiere que se seleccione un cliente de la tabla primero.
+     * Al hacer click:
+     * <ol>
+     *   <li>Obtiene el ID del cliente seleccionado</li>
+     *   <li>Elimina el registro de la base de datos</li>
+     *   <li>Muestra mensaje de exito o error</li>
+     *   <li>Actualiza la tabla y limpia los campos</li>
+     * </ol>
+     */
     private JButton eliminarButton;       // Botón para eliminar cliente
+
+    /**
+     * Boton para volver al menu principal.
+     * <p>
+     * Al hacer click:
+     * <ol>
+     *   <li>Cierra la ventana actual de gestion de clientes</li>
+     *   <li>Abre la interfaz del menu principal</li>
+     * </ol>
+     * @see MenuGUI
+     */
     private JButton volverButton;         // Botón para volver al menú
     private ClienteDAO clienteDAO;        // Objeto para acceso a datos de clientes
 

@@ -20,9 +20,35 @@ public class Servidor {
 
     // Componentes de la interfaz gráfica
     private JTextField textField1;          // Campo para escribir mensajes
+
+    /**
+     * Botón para enviar mensajes al cliente conectado.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Obtiene el texto del campo de mensaje</li>
+     *   <li>Verifica que haya un cliente conectado</li>
+     *   <li>Envía el mensaje a través del socket</li>
+     *   <li>Muestra el mensaje en el área de chat</li>
+     *   <li>Limpia el campo de texto</li>
+     * </ol>
+     * <p>
+     * También se activa al presionar Enter en el campo de texto.
+     */
     private JButton enviarButton;          // Botón para enviar mensajes
     private JTextArea textArea1;           // Area para mostrar la conversacion
     private JPanel panel;                  // Panel principal
+    /**
+     * Botón para iniciar el servidor de chat.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Inicia un nuevo hilo para el servidor</li>
+     *   <li>Crea un ServerSocket en el puerto 12345</li>
+     *   <li>Espera conexiones entrantes de clientes</li>
+     *   <li>Muestra el estado en el área de texto</li>
+     * </ol>
+     */
     private JButton iniciarServidorButton; // Botón para iniciar el servidor
 
     // Objetos para la comunicación con el cliente

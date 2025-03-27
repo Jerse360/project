@@ -11,12 +11,77 @@ import java.awt.event.ActionListener;
 public class MenuGUI {
 
     // Componentes de la interfaz gráfica
+    /**
+     * Botón para acceder al sistema de chat interno.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Inicia el servidor de chat</li>
+     *   <li>Abre la interfaz de comunicación</li>
+     * </ol>
+     * @see Servidor
+     */
     private JButton chatButton;                     // Botón para acceder al chat
+
+    /**
+     * Botón para acceder al módulo de gestión de clientes.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual del menú</li>
+     *   <li>Abre la interfaz de gestión de clientes</li>
+     * </ol>
+     * @see ClienteGUI
+     */
     private JButton clienteButton;                  // Botón para gestión de clientes
+
+    /**
+     * Botón para acceder al módulo de gestión de productos.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual del menú</li>
+     *   <li>Abre la interfaz de gestión de productos</li>
+     * </ol>
+     * @see ProductosGUI
+     */
     private JButton productosButton;                // Botón para gestión de productos
+
+    /**
+     * Botón para acceder al módulo de gestión de ventas.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual del menú</li>
+     *   <li>Abre la interfaz de gestión de ventas</li>
+     * </ol>
+     * @see VentaGUI
+     */
     private JButton ventasButton;                   // Botón para gestión de ventas
+
+    /**
+     * Botón para acceder al módulo de movimientos financieros.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual del menú</li>
+     *   <li>Abre la interfaz de movimientos financieros</li>
+     * </ol>
+     * @see MovimientoGUI
+     */
     private JButton movimientosFinancierosButton;   // Botón para movimientos financieros
     private JPanel main;                            // Panel principal
+
+    /**
+     * Botón para acceder al módulo de reportes y estadísticas.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual del menú</li>
+     *   <li>Abre la interfaz de reportes</li>
+     * </ol>
+     * @see ReportesGUI
+     */
     private JButton reportesButton;                 // Botón para reportes
 
     /**

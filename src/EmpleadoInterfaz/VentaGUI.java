@@ -16,9 +16,57 @@ public class VentaGUI {
     private JComboBox comboBox1;         // ComboBox para seleccionar clientes
     private JPanel Main;                 // Panel principal
     private JComboBox comboBox2;         // ComboBox para seleccionar estado de venta
+    /**
+     * Botón para agregar nuevas ventas al sistema.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Obtiene el cliente y estado seleccionados</li>
+     *   <li>Crea un nuevo objeto Venta</li>
+     *   <li>Registra la venta en la base de datos</li>
+     *   <li>Muestra mensaje de confirmación</li>
+     *   <li>Actualiza la tabla de ventas</li>
+     * </ol>
+     */
     private JButton agregarButton;       // Botón para agregar ventas
+
+    /**
+     * Botón para actualizar ventas existentes.
+     * <p>
+     * Requiere que se seleccione una venta de la tabla primero.
+     * Al hacer clic:
+     * <ol>
+     *   <li>Obtiene los datos modificados</li>
+     *   <li>Actualiza el registro en la base de datos</li>
+     *   <li>Muestra mensaje de confirmación</li>
+     *   <li>Actualiza la tabla de ventas</li>
+     * </ol>
+     */
     private JButton actualizarButton;    // Botón para actualizar ventas
+
+    /**
+     * Botón para acceder a los detalles de una venta.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual de gestión de ventas</li>
+     *   <li>Abre la interfaz de detalles de venta</li>
+     *   <li>Permite gestionar los productos de la venta</li>
+     * </ol>
+     * @see DetalleVentaGUI
+     */
     private JButton pedirButton;         // Botón para acceder a detalles de venta
+
+    /**
+     * Botón para volver al menú principal.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual</li>
+     *   <li>Abre la interfaz del menú principal</li>
+     * </ol>
+     * @see MenuGUI
+     */
     private JButton volverButton;        // Botón para volver al menú principal
     private JScrollPane scroll;          // Panel de desplazamiento para la tabla
 

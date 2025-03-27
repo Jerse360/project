@@ -17,13 +17,74 @@ public class MovimientoGUI {
     // Componentes de la interfaz gráfica
     private JPanel Main;                    // Panel principal
     private JTable table1;                  // Tabla para mostrar movimientos
+    /**
+     * Botón para agregar nuevos movimientos financieros (ingresos/egresos).
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Valida que se haya seleccionado un tipo de movimiento</li>
+     *   <li>Obtiene los datos de los campos del formulario</li>
+     *   <li>Determina si es ingreso o egreso</li>
+     *   <li>Llama al método correspondiente del DAO</li>
+     *   <li>Actualiza la tabla de movimientos</li>
+     *   <li>Muestra mensaje de confirmación o error</li>
+     * </ol>
+     */
     private JButton agregarButton;          // Botón para agregar movimiento
+
+    /**
+     * Botón para actualizar movimientos existentes (solo egresos).
+     * <p>
+     * Requiere que se seleccione un movimiento de la tabla primero.
+     * Al hacer clic:
+     * <ol>
+     *   <li>Obtiene el ID del movimiento seleccionado</li>
+     *   <li>Actualiza los datos en la base de datos</li>
+     *   <li>Actualiza la tabla de movimientos</li>
+     *   <li>Actualiza el estado de caja</li>
+     * </ol>
+     */
     private JButton actualizarButton;       // Botón para actualizar movimiento
+
+    /**
+     * Botón para eliminar movimientos existentes.
+     * <p>
+     * Requiere que se seleccione un movimiento de la tabla primero.
+     * Al hacer clic:
+     * <ol>
+     *   <li>Obtiene el ID del movimiento seleccionado</li>
+     *   <li>Elimina el registro de la base de datos</li>
+     *   <li>Actualiza la tabla de movimientos</li>
+     *   <li>Actualiza el estado de caja</li>
+     * </ol>
+     */
     private JButton eliminarButton;         // Botón para eliminar movimiento
     private JComboBox comboBox1;            // Combo box para categorías de egresos
     private JTextField textField1;          // Campo para monto
     private JTextField textField2;          // Campo para ID (no editable)
+
+    /**
+     * Botón para visualizar el estado actual de la caja.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual de movimientos</li>
+     *   <li>Abre la interfaz de estado de caja</li>
+     * </ol>
+     * @see CajaGUI
+     */
     private JButton verCajaButton;          // Botón para ver estado de caja
+
+    /**
+     * Botón para volver al menú principal.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual de movimientos</li>
+     *   <li>Abre la interfaz del menú principal</li>
+     * </ol>
+     * @see MenuGUI
+     */
     private JButton volverButton;           // Botón para volver al menú
     private JComboBox comboBoxCategoria;    // Combo box para categorías de ingresos
     private JComboBox comboBoxTipo;         // Combo box para tipo (Ingreso/Egreso)

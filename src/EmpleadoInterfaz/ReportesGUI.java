@@ -13,12 +13,79 @@ import java.sql.*;
 public class ReportesGUI {
     // Componentes de la interfaz gráfica
     private JPanel main;                // Panel principal que contiene todos los componentes
+    /**
+     * Botón para generar reportes de ventas diarias.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Consulta las ventas completadas en el día actual</li>
+     *   <li>Muestra el total de ventas por fecha</li>
+     *   <li>Actualiza la tabla con los resultados</li>
+     * </ol>
+     */
     private JButton diariosButton;      // Botón para generar reportes diarios
+
+    /**
+     * Botón para generar reportes de ventas semanales.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Agrupa las ventas por semana</li>
+     *   <li>Muestra el rango de fechas de cada semana</li>
+     *   <li>Muestra el total de ventas por semana</li>
+     *   <li>Actualiza la tabla con los resultados</li>
+     * </ol>
+     */
     private JButton semanalesButton;    // Botón para generar reportes semanales
+
+    /**
+     * Botón para generar reportes de ventas mensuales.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Agrupa las ventas por mes</li>
+     *   <li>Muestra el total de ventas por mes</li>
+     *   <li>Actualiza la tabla con los resultados</li>
+     * </ol>
+     */
     private JButton mensualButton;      // Botón para generar reportes mensuales
     private JTable table1;              // Tabla para mostrar los resultados de los reportes
+
+    /**
+     * Botón para generar reportes de ventas por cliente.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Muestra las ventas asociadas a cada cliente</li>
+     *   <li>Ordena los resultados por monto total descendente</li>
+     *   <li>Actualiza la tabla con los resultados</li>
+     * </ol>
+     */
     private JButton clienteButton;      // Botón para generar reportes por cliente
+
+    /**
+     * Botón para generar reportes de ventas por producto.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Muestra los productos vendidos</li>
+     *   <li>Incluye información del cliente comprador</li>
+     *   <li>Muestra las cantidades vendidas</li>
+     *   <li>Actualiza la tabla con los resultados</li>
+     * </ol>
+     */
     private JButton productosButton;    // Botón para generar reportes por producto
+
+    /**
+     * Botón para volver al menú principal.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual de reportes</li>
+     *   <li>Abre la interfaz del menú principal</li>
+     * </ol>
+     * @see MenuGUI
+     */
     private JButton volverButton;       // Botón para volver al menú principal
 
     // Objeto para manejar la conexión a la base de datos

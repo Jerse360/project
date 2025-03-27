@@ -4,77 +4,88 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae362301-2bf6-4086-ab97-3c05ba79b108" name="Changes" comment="Documentacion Javadoc">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/.gitignore" afterDir="false" />
+    <list default="true" id="ae362301-2bf6-4086-ab97-3c05ba79b108" name="Changes" comment="Correccion total Javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/Socket/ChatClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/Socket/ChatServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/Sockets.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/ChatClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/ChatServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Cliente$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Cliente$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Cliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Servidor$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Servidor$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Socket/Servidor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/Sockets.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sockets (1)/Sockets/out/production/Sockets/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CajaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/CajaGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CajaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/CajaGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClienteGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClienteGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClienteInterfaz/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteInterfaz/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClienteInterfaz/CrearCuentaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteInterfaz/CrearCuentaGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClienteInterfaz/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteInterfaz/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClienteInterfaz/LogGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteInterfaz/LogGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClienteSetGet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteSetGet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Conexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DetalleVentaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/DetalleVentaGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DetalleVentaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/DetalleVentaGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Detalle_venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Detalle_venta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Detalle_ventaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Detalle_ventaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MenuGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MenuGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Movimiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Movimiento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovimientoGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientoGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovimientoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovimientosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientosDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Productos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductosGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductosGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReciboGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReciboGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReciboGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReciboGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReportesGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReportesGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReportesGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReportesGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Servidor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Servidor.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Servidor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Venta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VentaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/VentaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VentaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/VentaGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VentaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/VentaGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/CajaGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/CajaGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ClienteDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ClienteGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ClienteGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ClienteGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ClienteGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ClienteGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ClienteGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ClienteInterfaz/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/ClienteInterfaz/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ClienteInterfaz/Email.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/ClienteInterfaz/Email.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ClienteSetGet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/Conexion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/DetalleVentaGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/DetalleVentaGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/DetalleVentaGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/DetalleVentaGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/DetalleVentaGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/DetalleVentaGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/Detalle_venta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/Detalle_ventaDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MenuGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MenuGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MenuGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MenuGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MenuGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MenuGUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MenuGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/Movimiento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MovimientoGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MovimientoGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MovimientoGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MovimientoGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MovimientoGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MovimientoGUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MovimientoGUI$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MovimientoGUI$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MovimientoGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/MovimientosDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/Productos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ProductosDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ProductosGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ProductosGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ProductosGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ProductosGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ProductosGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ProductosGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ReciboGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ReportesGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ReportesGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ReportesGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ReportesGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ReportesGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ReportesGUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ReportesGUI$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/ReportesGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/Servidor$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/Servidor$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/Servidor$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/Servidor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/Venta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/VentaDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/VentaGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/VentaGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/VentaGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/VentaGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/VentaGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/VentaGUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/VentaGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/CajaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/CajaGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/DetalleVentaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/DetalleVentaGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/MenuGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MenuGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientoGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReciboGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReciboGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReportesGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReportesGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Servidor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +160,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.InterfazGUI">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Famil\IdeaProjects\Project\src\EmpleadoInterfaz" />
+    </key>
+  </component>
+  <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="zuleta" />
       <method v="2">
@@ -247,7 +263,7 @@
       <workItem from="1742712652806" duration="1524000" />
       <workItem from="1742756057086" duration="15920000" />
       <workItem from="1743041231427" duration="12416000" />
-      <workItem from="1743054101652" duration="981000" />
+      <workItem from="1743054101652" duration="4089000" />
     </task>
     <task id="LOCAL-00001" summary="Validacion actualizar inventario y estado">
       <option name="closed" value="true" />
@@ -353,7 +369,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743054054092</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Correccion total Javadoc">
+      <option name="closed" value="true" />
+      <created>1743055143786</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1743055143786</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,6 +408,7 @@
     <MESSAGE value="Se envian mensajes con presionar enter" />
     <MESSAGE value="Funcion Enviar correo al crear cuenta" />
     <MESSAGE value="Documentacion Javadoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Documentacion Javadoc" />
+    <MESSAGE value="Correccion total Javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion total Javadoc" />
   </component>
 </project>

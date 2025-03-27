@@ -22,14 +22,63 @@ public class ProductosGUI {
     private JTextField txtPrecio;
     private JTextField txtStock;
     private JTextField txtStockMinimo;
+    /**
+     * Botón para agregar nuevos productos al sistema.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Recoge los datos de los campos del formulario</li>
+     *   <li>Crea un nuevo objeto Producto</li>
+     *   <li>Intenta guardarlo en la base de datos</li>
+     *   <li>Muestra mensaje de confirmación o error</li>
+     *   <li>Limpia los campos y actualiza la tabla</li>
+     * </ol>
+     */
     private JButton agregarButton;
+
+    /**
+     * Botón para modificar productos existentes.
+     * <p>
+     * Requiere que se seleccione un producto de la tabla primero.
+     * Al hacer clic:
+     * <ol>
+     *   <li>Obtiene el ID del producto seleccionado</li>
+     *   <li>Recoge los nuevos datos de los campos</li>
+     *   <li>Actualiza el registro en la base de datos</li>
+     *   <li>Muestra mensaje de confirmación o error</li>
+     *   <li>Limpia los campos y actualiza la tabla</li>
+     * </ol>
+     */
     private JButton actualizarButton;
+
+    /**
+     * Botón para eliminar productos del sistema.
+     * <p>
+     * Requiere que se seleccione un producto de la tabla primero.
+     * Al hacer clic:
+     * <ol>
+     *   <li>Obtiene el ID del producto seleccionado</li>
+     *   <li>Elimina el registro de la base de datos</li>
+     *   <li>Muestra mensaje de confirmación o error</li>
+     *   <li>Limpia los campos y actualiza la tabla</li>
+     * </ol>
+     */
     private JButton eliminarButton;
     private JTable table1;
     private JPanel Main;
     private JComboBox comboBox1;
     private JTextField textField1;  // Campo para el ID (no editable)
-    private JButton venderButton;
+
+    /**
+     * Botón para volver al menú principal.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Cierra la ventana actual de gestión de productos</li>
+     *   <li>Abre la interfaz del menú principal</li>
+     * </ol>
+     * @see MenuGUI
+     */
     private JButton volverButton;
 
     // Objeto para acceder a la capa de datos de productos
