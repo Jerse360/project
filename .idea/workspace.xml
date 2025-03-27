@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae362301-2bf6-4086-ab97-3c05ba79b108" name="Changes" comment="Documentacion Javadoc" />
+    <list default="true" id="ae362301-2bf6-4086-ab97-3c05ba79b108" name="Changes" comment="html javadoc">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,7 +183,7 @@
       <workItem from="1742712652806" duration="1524000" />
       <workItem from="1742756057086" duration="15920000" />
       <workItem from="1743041231427" duration="12416000" />
-      <workItem from="1743054101652" duration="4482000" />
+      <workItem from="1743054101652" duration="5135000" />
     </task>
     <task id="LOCAL-00001" summary="Validacion actualizar inventario y estado">
       <option name="closed" value="true" />
@@ -311,7 +313,23 @@
       <option name="project" value="LOCAL" />
       <updated>1743058462011</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Documentacion Javadoc 2">
+      <option name="closed" value="true" />
+      <created>1743058747450</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1743058747450</updated>
+    </task>
+    <task id="LOCAL-00018" summary="html javadoc">
+      <option name="closed" value="true" />
+      <created>1743058810860</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1743058810860</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,6 +362,8 @@
     <MESSAGE value="Correccion total Javadoc" />
     <MESSAGE value="Correccion total Javadoc 2" />
     <MESSAGE value="Documentacion Javadoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Documentacion Javadoc" />
+    <MESSAGE value="Documentacion Javadoc 2" />
+    <MESSAGE value="html javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="html javadoc" />
   </component>
 </project>
