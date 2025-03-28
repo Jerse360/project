@@ -90,7 +90,7 @@ public class ProductosGUI {
      */
     public ProductosGUI() {
         productosDAO = new ProductosDAO();
-        textField1.setEnabled(false);  // El campo ID no es editable directamente
+        textField1.setEditable(false);  // El campo ID no es editable directamente
 
         // Listener para el botón Agregar
         agregarButton.addActionListener(new ActionListener() {

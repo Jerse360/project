@@ -1,6 +1,7 @@
 package EmpleadoInterfaz;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -89,6 +90,50 @@ public class MenuGUI {
      * Cada botón abre una interfaz diferente del sistema.
      */
     public MenuGUI() {
+        // Panel con imagen de fondo escalable
+        main = new JPanel() {
+            private Image fondo = new ImageIcon(getClass().getResource("/imagenes/fondo.jpg")).getImage();
+
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(fondo, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        main.setLayout(new BorderLayout()); // Usar BorderLayout para agregar el menú arriba
+
+        // Crear el panel de botones tipo menú en la parte superior
+        JPanel topMenu = new JPanel();
+        topMenu.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10)); // Centrado con espacio entre botones
+        topMenu.setOpaque(false); // Hacerlo transparente para que se vea el fondo
+
+        // Inicializar botones
+        chatButton = new JButton("Chat");
+        clienteButton = new JButton("Clientes");
+        productosButton = new JButton("Productos");
+        ventasButton = new JButton("Ventas");
+        movimientosFinancierosButton = new JButton("Movimientos");
+        reportesButton = new JButton("Reportes");
+
+        Color buttonColor = Color.decode("#80F3ED");
+        JButton[] botones = {chatButton, clienteButton, productosButton, ventasButton, movimientosFinancierosButton, reportesButton};
+        for (JButton boton : botones) {
+            boton.setBackground(buttonColor);
+            boton.setForeground(Color.BLACK); // Texto blanco
+            boton.setFocusPainted(false); // Quitar borde de selección al hacer clic
+            boton.setBorderPainted(false); // Quitar borde del botón
+        }
+
+        // Agregar botones al menú superior
+        topMenu.add(chatButton);
+        topMenu.add(clienteButton);
+        topMenu.add(productosButton);
+        topMenu.add(ventasButton);
+        topMenu.add(movimientosFinancierosButton);
+        topMenu.add(reportesButton);
+
+        // Agregar el panel de botones al panel principal en la parte superior
+        main.add(topMenu, BorderLayout.NORTH);
 
         // Listener para el botón de Chat
         chatButton.addActionListener(new ActionListener() {
