@@ -311,7 +311,8 @@ public class DetalleVentaGUI extends JFrame {
         JFrame frame = new JFrame("Pedido");
         frame.setContentPane(new DetalleVentaGUI().Main);
         frame.pack();
-        frame.setSize(600, 600);
+        // Maximizar la ventana (pero con bordes visibles)
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setResizable(true);
         frame.setVisible(true);
     }

@@ -266,9 +266,9 @@ public class ProductosGUI {
         // Configurar y mostrar la ventana principal
         JFrame frame = new JFrame("Gestión de Productos");
         frame.setContentPane(new ProductosGUI().Main);
-        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // Comentado por alguna razón
         frame.pack();
-        frame.setSize(700, 700);
+        // Maximizar la ventana (pero con bordes visibles)
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setResizable(false);
         frame.setVisible(true);
     }

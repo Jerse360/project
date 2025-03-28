@@ -256,7 +256,8 @@ public class ClienteGUI {
         frame.setContentPane(new ClienteGUI().Main);
         // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Comentado para evitar cierre completo
         frame.pack();
-        frame.setSize(700, 700);
+        // Maximizar la ventana (pero con bordes visibles)
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setResizable(false);
         frame.setVisible(true);
     }

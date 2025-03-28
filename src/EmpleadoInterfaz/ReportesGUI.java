@@ -259,11 +259,13 @@ public class ReportesGUI {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                // Configurar y mostrar la ventana principal
                 JFrame frame = new JFrame("Reportes de Ventas");
                 frame.setContentPane(new ReportesGUI().main);
+
+                // Solo maximiza (conserva bordes)
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.pack();
                 frame.setVisible(true);
             }
         });

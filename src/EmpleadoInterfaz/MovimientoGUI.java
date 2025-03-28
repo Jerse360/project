@@ -290,7 +290,8 @@ public class MovimientoGUI {
         JFrame frame = new JFrame("Gestión de Movimientos financieros");
         frame.setContentPane(new MovimientoGUI().Main);
         frame.pack();
-        frame.setSize(1800, 600);
+        // Maximizar la ventana (pero con bordes visibles)
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setResizable(true);
         frame.setVisible(true);
     }

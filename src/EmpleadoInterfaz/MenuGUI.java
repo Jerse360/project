@@ -220,14 +220,13 @@ public class MenuGUI {
      * @param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
-        // Configuración de la ventana principal
         JFrame frame = new JFrame("Menu");
         frame.setContentPane(new MenuGUI().main);
-        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Comentado para evitar cierre completo
 
-        frame.pack();
-        frame.setSize(700, 700);
-        frame.setResizable(true);
+        // Maximizar la ventana (pero con bordes visibles)
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
     }
 }

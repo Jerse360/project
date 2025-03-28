@@ -154,7 +154,7 @@
         <properties>
           <background color="-3290934"/>
           <model>
-            <item value="Servicios Publicos"/>
+            <item value="Prestamo"/>
           </model>
         </properties>
       </component>

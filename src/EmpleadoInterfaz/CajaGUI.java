@@ -131,7 +131,8 @@ public class CajaGUI {
         frame.setContentPane(new CajaGUI().Main);
         // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Comentado para evitar cierre completo
         frame.pack();
-        frame.setSize(400, 150);
+        // Maximizar la ventana (pero con bordes visibles)
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setResizable(true);
         frame.setVisible(true);
     }

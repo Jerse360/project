@@ -300,7 +300,8 @@ public class VentaGUI {
         frame.setContentPane(new VentaGUI().Main);
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Comentado por alguna razón
         frame.pack();
-        frame.setSize(700, 700);
+        // Maximizar la ventana (pero con bordes visibles)
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setResizable(true);
         frame.setVisible(true);
     }

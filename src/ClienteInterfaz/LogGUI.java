@@ -39,6 +39,9 @@ public class LogGUI {
                     // Verificar existencia en base de datos
                     if (validarCedulaEnBaseDeDatos(input)) {
                         // Si es válida, abrir interfaz de cliente
+                        JFrame log = (JFrame) SwingUtilities.getWindowAncestor(iniciarSesionButton);
+                        log.dispose();
+
                         Cliente cliente = new Cliente();
                         cliente.main(null);
                     } else {
