@@ -1,6 +1,8 @@
 package EmpleadoInterfaz;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Clase Data Access Object (DAO) para gestionar operaciones CRUD de detalles de venta.
@@ -114,6 +116,52 @@ public class Detalle_ventaDAO {
             e.printStackTrace();
             return false;
         }
+    }
+
+
+    public List<String> obtenerProductosPorPedido(int idVenta) {
+        List<String> detalles = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+
+        String query = "SELECT cliente.nombre AS cliente, productos.nombre AS producto, " +
+                "detalle_venta.cantidad, detalle_venta.tipo, detalle_venta.precio_total " +
+                "FROM detalle_venta " +
+                "JOIN productos ON detalle_venta.id_producto = productos.id_producto " +
+                "JOIN venta ON detalle_venta.id_venta = venta.id_venta " +
+                "JOIN cliente ON venta.id_cliente = cliente.id_cliente " +
+                "WHERE detalle_venta.id_venta = ?";
+
+        try {
+            con = conexion.getConnection();
+            pst = con.prepareStatement(query);
+            pst.setInt(1, idVenta);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                String fila = rs.getString("cliente") + "|" +
+                        rs.getString("producto") + "|" +
+                        rs.getInt("cantidad") + "|" +
+                        rs.getString("tipo") + "|" +
+                        rs.getInt("precio_total");
+                detalles.add(fila);
+            }
+
+            // Agregar el total
+            String totalQuery = "SELECT total_venta FROM venta WHERE id_venta = ?";
+            pst = con.prepareStatement(totalQuery);
+            pst.setInt(1, idVenta);
+            ResultSet totalRs = pst.executeQuery();
+            if (totalRs.next()) {
+                detalles.add("|||Total:|" + totalRs.getInt("total_venta"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Cerrar recursos (rs, pst, con)
+        }
+        return detalles;
     }
 }
 

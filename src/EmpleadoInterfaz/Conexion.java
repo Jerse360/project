@@ -2,6 +2,7 @@ package EmpleadoInterfaz;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 /**
  * Clase que gestiona la conexión a la base de datos MySQL.
@@ -22,4 +23,6 @@ public class Conexion {
         }
         return connection;
     }
+
+
 }

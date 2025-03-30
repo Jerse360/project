@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="github.dandelion.datatables.export.itext" type="repository">
+    <properties maven-id="com.github.dandelion:datatables-export-itext:1.1.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/dandelion/datatables-export-itext/1.1.0/datatables-export-itext-1.1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/dandelion/datatables-core/1.1.0/datatables-core-1.1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/dandelion/dandelion-core/1.1.0/dandelion-core-1.1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.4/commons-io-2.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.3.1/jackson-core-2.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.3.1/jackson-annotations-2.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.3.1/jackson-databind-2.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.10/junit-4.10.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/itextpdf/5.4.5/itextpdf-5.4.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

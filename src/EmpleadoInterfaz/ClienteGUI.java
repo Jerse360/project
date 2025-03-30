@@ -7,104 +7,57 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.table.TableRowSorter;
 
 /**
- * Interfaz gráfica para la gestión de clientes.
- * Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los clientes.
+ * Interfaz gráfica para la gestión de clientes en el sistema.
+ * Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre clientes.
  */
 public class ClienteGUI {
-
-    // Componentes de la interfaz gráfica
-    private JTable table1;                // Tabla para mostrar los clientes
-    private JPanel Main;                  // Panel principal
-    private JTextField textField1;        // Campo para ID (no editable)
-    private JTextField textField2;        // Campo para Nombre
-    private JTextField textField3;        // Campo para Cédula
-    private JTextField textField4;        // Campo para Teléfono
-    private JTextField textField5;        // Campo para Dirección
-    private JTextField textField6;        // Campo para Email
-    /**
-     * Boton para agregar nuevos clientes al sistema.
-     * <p>
-     * Al hacer click:
-     * <ol>
-     *   <li>Recoge los datos de los campos de texto</li>
-     *   <li>Crea un nuevo objeto Cliente</li>
-     *   <li>Intenta guardarlo en la base de datos</li>
-     *   <li>Muestra mensaje de exito o error</li>
-     *   <li>Actualiza la tabla y limpia los campos</li>
-     * </ol>
-     */
-    private JButton agregarButton;        // Botón para agregar cliente
-    /**
-     * Boton para modificar los datos de un cliente existente.
-     * <p>
-     * Requiere que se seleccione un cliente de la tabla primero.
-     * Al hacer click:
-     * <ol>
-     *   <li>Recoge los datos de los campos de texto</li>
-     *   <li>Actualiza el registro en la base de datos</li>
-     *   <li>Muestra mensaje de exito o error</li>
-     *   <li>Actualiza la tabla y limpia los campos</li>
-     * </ol>
-     */
-    private JButton actualizarButton;     // Botón para actualizar cliente
+    private JTable table1;
+    private JPanel Main;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JTextField textField6;
+    private TableRowSorter<DefaultTableModel> sorter;
+    private NonEditableTableModel model;
+    private JButton agregarButton;
+    private JButton actualizarButton;
+    private JButton eliminarButton;
+    private JButton volverButton;
+    private JTextField buscar;
+    private ClienteDAO clienteDAO;
 
     /**
-     * Boton para eliminar clientes del sistema.
-     * <p>
-     * Requiere que se seleccione un cliente de la tabla primero.
-     * Al hacer click:
-     * <ol>
-     *   <li>Obtiene el ID del cliente seleccionado</li>
-     *   <li>Elimina el registro de la base de datos</li>
-     *   <li>Muestra mensaje de exito o error</li>
-     *   <li>Actualiza la tabla y limpia los campos</li>
-     * </ol>
-     */
-    private JButton eliminarButton;       // Botón para eliminar cliente
-
-    /**
-     * Boton para volver al menu principal.
-     * <p>
-     * Al hacer click:
-     * <ol>
-     *   <li>Cierra la ventana actual de gestion de clientes</li>
-     *   <li>Abre la interfaz del menu principal</li>
-     * </ol>
-     * @see MenuGUI
-     */
-    private JButton volverButton;         // Botón para volver al menú
-    private ClienteDAO clienteDAO;        // Objeto para acceso a datos de clientes
-
-    /**
-     * Constructor de la clase ClienteGUI.
-     * Configura los listeners y carga los datos iniciales.
+     * Constructor que inicializa los componentes y configura los listeners.
      */
     public ClienteGUI() {
         clienteDAO = new ClienteDAO();
-        textField1.setEnabled(false);  // El campo ID no es editable
+        textField1.setEnabled(false);
+        table1.setRowSelectionAllowed(true);
+        sorter = new TableRowSorter<>(model);
+        table1.setRowSorter(sorter);
 
-        // Configuración del listener para el botón Agregar
         agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    // Obtener datos de los campos de texto
                     String nombre = textField2.getText();
                     String cedula = textField3.getText();
                     String telefono = textField4.getText();
                     String direccion = textField5.getText();
                     String email = textField6.getText();
 
-                    // Crear objeto cliente y agregarlo a la base de datos
                     ClienteSetGet clienteSetGet = new ClienteSetGet(0, nombre, cedula, telefono, direccion, email);
                     ClienteDAO clienteDAO = new ClienteDAO();
 
                     if (clienteDAO.agregar(clienteSetGet)) {
                         JOptionPane.showMessageDialog(null, "Cliente agregado correctamente");
                         limpiarCampos();
-                        obtenerDatos();  // Actualizar tabla
+                        obtenerDatos();
                     } else {
                         JOptionPane.showMessageDialog(null, "Error al agregar Cliente");
                     }
@@ -114,12 +67,10 @@ public class ClienteGUI {
             }
         });
 
-        // Configuración del listener para el botón Actualizar
         actualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    // Obtener datos de los campos de texto
                     int id = Integer.parseInt(textField1.getText());
                     String nombre = textField2.getText();
                     String cedula = textField3.getText();
@@ -129,7 +80,7 @@ public class ClienteGUI {
 
                     if (clienteDAO.actualizar(id, cedula, nombre, direccion, telefono, email)) {
                         limpiarCampos();
-                        obtenerDatos();  // Actualizar tabla
+                        obtenerDatos();
                     } else {
                         JOptionPane.showMessageDialog(null, "Error al actualizar Cliente");
                     }
@@ -141,7 +92,6 @@ public class ClienteGUI {
             }
         });
 
-        // Configuración del listener para el botón Eliminar
         eliminarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -149,7 +99,7 @@ public class ClienteGUI {
                     int id = Integer.parseInt(textField1.getText());
                     if (clienteDAO.eliminar(id)) {
                         limpiarCampos();
-                        obtenerDatos();  // Actualizar tabla
+                        obtenerDatos();
                     } else {
                         JOptionPane.showMessageDialog(null, "Error al eliminar el Cliente");
                     }
@@ -159,27 +109,21 @@ public class ClienteGUI {
             }
         });
 
-        // Configuración del listener para el botón Volver
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Cerrar ventana actual
                 JFrame clienteFrame = (JFrame) SwingUtilities.getWindowAncestor(volverButton);
                 clienteFrame.dispose();
-
-                // Abrir menú principal
                 MenuGUI menuGUI = new MenuGUI();
                 menuGUI.main(null);
             }
         });
 
-        // Cargar datos iniciales y configurar selección en tabla
         obtenerDatos();
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                // Llenar campos con datos del cliente seleccionado
                 int fila = table1.getSelectedRow();
                 if (fila >= 0) {
                     textField1.setText(String.valueOf(table1.getValueAt(fila, 0).toString()));
@@ -191,15 +135,40 @@ public class ClienteGUI {
                 }
             }
         });
+
+        buscar.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                String buscarText = buscar.getText().trim().toLowerCase();
+
+                if (sorter != null) {
+                    RowFilter<DefaultTableModel, Object> filter = new RowFilter<DefaultTableModel, Object>() {
+                        @Override
+                        public boolean include(Entry<? extends DefaultTableModel, ? extends Object> entry) {
+                            for (int i = 0; i < entry.getValueCount(); i++) {
+                                if (entry.getStringValue(i).toLowerCase().contains(buscarText)) {
+                                    return true;
+                                }
+                            }
+                            return false;
+                        }
+                    };
+                    sorter.setRowFilter(filter);
+                }
+            }
+        });
     }
 
     /**
      * Obtiene los datos de clientes desde la base de datos y los muestra en la tabla.
      */
     public void obtenerDatos() {
-        DefaultTableModel model = new DefaultTableModel();
-        model.setRowCount(0);  // Limpiar tabla
-        // Configurar columnas
+        if (sorter != null) {
+            table1.setRowSorter(null);
+        }
+
+        NonEditableTableModel model = new NonEditableTableModel();
+        model.setRowCount(0);
         model.addColumn("ID");
         model.addColumn("Nombre");
         model.addColumn("Cedula");
@@ -207,7 +176,7 @@ public class ClienteGUI {
         model.addColumn("Direccion");
         model.addColumn("Email");
 
-        table1.setModel(model);  // Asignar modelo a la tabla
+        table1.setModel(model);
 
         Connection con = Conexion.getConnection();
         if (con == null) {
@@ -218,7 +187,6 @@ public class ClienteGUI {
         try (Statement stmt = con.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM cliente")) {
 
-            // Llenar tabla con datos de la consulta
             while (rs.next()) {
                 Object[] fila = {
                         rs.getInt("id_cliente"),
@@ -230,13 +198,35 @@ public class ClienteGUI {
                 };
                 model.addRow(fila);
             }
+            sorter = new TableRowSorter<>(model);
+            table1.setRowSorter(sorter);
+
+            if (!buscar.getText().trim().isEmpty()) {
+                buscar.setText(buscar.getText());
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * Limpia los campos de texto del formulario.
+     * Modelo de tabla personalizado que impide la edición directa de celdas.
+     */
+    public class NonEditableTableModel extends DefaultTableModel {
+        /**
+         * Determina si una celda es editable.
+         * @param row el índice de la fila
+         * @param column el índice de la columna
+         * @return siempre false para bloquear la edición
+         */
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    }
+
+    /**
+     * Limpia todos los campos de entrada de datos.
      */
     public void limpiarCampos() {
         textField2.setText("");
@@ -247,16 +237,13 @@ public class ClienteGUI {
     }
 
     /**
-     * Método principal para iniciar la interfaz de gestión de clientes.
-     * @param args Argumentos de línea de comandos (no utilizados)
+     * Método principal para ejecutar la interfaz de gestión de clientes.
+     * @param args argumentos de línea de comandos
      */
     public static void main(String[] args) {
-        // Configuración de la ventana principal
         JFrame frame = new JFrame("Gestión de Clientes");
         frame.setContentPane(new ClienteGUI().Main);
-        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Comentado para evitar cierre completo
         frame.pack();
-        // Maximizar la ventana (pero con bordes visibles)
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setResizable(false);
         frame.setVisible(true);

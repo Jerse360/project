@@ -2,6 +2,8 @@ package EmpleadoInterfaz;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 
 /**
@@ -33,12 +35,14 @@ public class ReciboGUI {
      * Muestra el ID de la venta que se está visualizando.
      */
     private JLabel IdOrden;     // Etiqueta para mostrar el ID de la orden
+    private JButton descargarFacturaButton;
 
     // Objeto para manejar la conexión a la base de datos
     Conexion conexion = new Conexion();
 
     // Variable para almacenar el ID de la venta que se está mostrando
     int id_venta;
+    String fecha;
 
     /**
      * Constructor de la clase ReciboGUI.
@@ -47,10 +51,44 @@ public class ReciboGUI {
      */
     public ReciboGUI(int id_venta) {
         this.id_venta = id_venta;
-        // Mostrar el ID de la orden en la interfaz
         IdOrden.setText(String.valueOf(id_venta));
-        // Cargar los datos de la venta
+
         obtenerDatos();
+
+        descargarFacturaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Detalle_ventaDAO detalle_venta = new Detalle_ventaDAO();
+                GenerarPDF generarPDF = new GenerarPDF();
+                obtenerFecha(id_venta);
+                java.util.List<String> productos = detalle_venta.obtenerProductosPorPedido(id_venta);
+
+                generarPDF.generarFacturaPDF(id_venta,productos,fecha);
+            }
+        });
+
+    }
+
+    public String obtenerFecha(int id_venta) {
+
+        Connection con = conexion.getConnection();
+
+        try {
+            String query = "SELECT fecha_hora FROM venta WHERE id_venta = ?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1, id_venta);
+
+            try (ResultSet rs = pst.executeQuery()) {
+                if (rs.next()) {
+                    fecha = rs.getString("fecha_hora");
+                }
+            }
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener la fecha: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return fecha;
     }
 
     /**

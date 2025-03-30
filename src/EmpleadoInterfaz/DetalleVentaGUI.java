@@ -64,6 +64,7 @@ public class DetalleVentaGUI extends JFrame {
      * @see VentaGUI
      */
     private JButton volverButton;        // Botón para volver al menú anterior
+    private JButton generarFacturaPDFButton;
 
     // Objetos para conexión y acceso a datos
     Conexion conexion = new Conexion();
@@ -74,6 +75,7 @@ public class DetalleVentaGUI extends JFrame {
     int id_venta;       // ID de la venta actual
     int id_producto;    // ID del producto seleccionado
     int id_detalle;     // ID del detalle de venta seleccionado
+    String fecha;
 
     /**
      * Constructor de la clase DetalleVentaGUI.
@@ -178,6 +180,17 @@ public class DetalleVentaGUI extends JFrame {
                 }
             }
         });
+
+        generarFacturaPDFButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GenerarPDF generarPDF = new GenerarPDF();
+                obtenerFecha(id_venta);
+                java.util.List<String> productos = detalle_ventaDAO.obtenerProductosPorPedido(id_venta);
+
+                generarPDF.generarFacturaPDF(id_venta,productos,fecha);
+            }
+        });
     }
 
     /**
@@ -262,6 +275,28 @@ public class DetalleVentaGUI extends JFrame {
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
+    }
+
+    public String obtenerFecha(int id_venta) {
+
+        Connection con = conexion.getConnection();
+
+        try {
+            String query = "SELECT fecha_hora FROM venta WHERE id_venta = ?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1, id_venta);
+
+            try (ResultSet rs = pst.executeQuery()) {
+                if (rs.next()) {
+                    fecha = rs.getString("fecha_hora");
+                }
+            }
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener la fecha: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return fecha;
     }
 
     /**
