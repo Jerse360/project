@@ -19,7 +19,6 @@ public class VentaGUI {
     private TableRowSorter<DefaultTableModel> sorter;
     private NonEditableTableModel modelo;
     private JButton agregarButton;
-    private JButton actualizarButton;
     private JButton pedirButton;
     private JButton volverButton;
     private JScrollPane scroll;
@@ -27,7 +26,7 @@ public class VentaGUI {
     private Conexion conexion = new Conexion();
     private VentaDAO ventaDAO = new VentaDAO();
     private int id_cliente, id_venta, total_venta;
-
+    private boolean cambioManual = true;
     /**
      * Constructor principal que inicializa los componentes y configura los listeners.
      */
@@ -62,22 +61,6 @@ public class VentaGUI {
             }
         });
 
-        actualizarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String cliente = comboBox1.getSelectedItem().toString();
-                String estado = comboBox2.getSelectedItem().toString();
-                obtenerIdCliente(cliente);
-                obtenerTotal(id_venta);
-                Venta venta = new Venta(id_venta, id_cliente, total_venta, estado, "", cliente);
-                if (ventaDAO.actualizar(venta)) {
-                    JOptionPane.showMessageDialog(null, "Venta actualizada exitosamente");
-                    obtenerTabla();
-                }
-                obtenerTabla();
-            }
-        });
-
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,11 +74,14 @@ public class VentaGUI {
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                cambioManual = false;
                 int selectedRow = table1.getSelectedRow();
                 if (selectedRow != -1) {
                     id_venta = Integer.parseInt(table1.getValueAt(selectedRow, 0).toString());
                     comboBox1.setSelectedItem(table1.getValueAt(selectedRow, 1).toString());
                     comboBox2.setSelectedItem(table1.getValueAt(selectedRow, 3).toString());
+                    cambioManual = true;
+
                     if (e.getClickCount() == 2) {
                         ReciboGUI reciboGUI = new ReciboGUI(id_venta);
                         JFrame frame = new JFrame("Recibo");
@@ -130,6 +116,43 @@ public class VentaGUI {
 
                     sorter.setRowFilter(filter);
                 }
+            }
+        });
+        comboBox2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (!cambioManual) return;
+
+                String cliente = comboBox1.getSelectedItem().toString();
+                String estado = comboBox2.getSelectedItem().toString();
+                obtenerIdCliente(cliente);
+                obtenerTotal(id_venta);
+                Venta venta = new Venta(id_venta, id_cliente, total_venta, estado, "", cliente);
+                if (ventaDAO.actualizar(venta)) {
+                    JOptionPane.showMessageDialog(null, "Venta actualizada exitosamente");
+                    obtenerTabla();
+                }
+                obtenerTabla();
+            }
+        });
+
+        comboBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (!cambioManual) return;
+
+                String cliente = comboBox1.getSelectedItem().toString();
+                String estado = comboBox2.getSelectedItem().toString();
+                obtenerIdCliente(cliente);
+                obtenerTotal(id_venta);
+                Venta venta = new Venta(id_venta, id_cliente, total_venta, estado, "", cliente);
+                if (ventaDAO.actualizar(venta)) {
+                    JOptionPane.showMessageDialog(null, "Venta actualizada exitosamente");
+                    obtenerTabla();
+                }
+                obtenerTabla();
             }
         });
     }

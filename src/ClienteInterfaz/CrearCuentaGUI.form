@@ -7,7 +7,6 @@
     </constraints>
     <properties>
       <background color="-917505"/>
-      <foreground color="-917505"/>
     </properties>
     <border type="none"/>
     <children>
@@ -58,7 +57,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-3290934"/>
+          <background color="-1"/>
         </properties>
       </component>
       <component id="84c4b" class="javax.swing.JTextField" binding="textField2" default-binding="true">
@@ -68,7 +67,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-3290934"/>
+          <background color="-1"/>
         </properties>
       </component>
       <component id="ffec3" class="javax.swing.JTextField" binding="textField3" default-binding="true">
@@ -78,7 +77,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-3290934"/>
+          <background color="-1"/>
         </properties>
       </component>
       <component id="649f" class="javax.swing.JTextField" binding="textField4" default-binding="true">
@@ -88,7 +87,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-3290934"/>
+          <background color="-1"/>
         </properties>
       </component>
       <component id="ecc20" class="javax.swing.JTextField" binding="textField5" default-binding="true">
@@ -98,7 +97,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-3290934"/>
+          <background color="-1"/>
         </properties>
       </component>
       <component id="5786f" class="javax.swing.JButton" binding="crearCuentaButton" default-binding="true">
@@ -107,7 +106,6 @@
         </constraints>
         <properties>
           <background color="-8326163"/>
-          <foreground color="-16777216"/>
           <text value="Crear Cuenta"/>
         </properties>
       </component>

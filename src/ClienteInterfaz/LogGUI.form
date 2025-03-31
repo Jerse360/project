@@ -16,7 +16,6 @@
         </constraints>
         <properties>
           <background color="-8326163"/>
-          <foreground color="-16777216"/>
           <text value="Iniciar Sesion"/>
         </properties>
       </component>
@@ -26,7 +25,6 @@
         </constraints>
         <properties>
           <background color="-8326163"/>
-          <foreground color="-16777216"/>
           <text value="Crear Cuenta"/>
         </properties>
       </component>

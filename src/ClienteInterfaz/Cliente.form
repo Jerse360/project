@@ -16,7 +16,6 @@
         </constraints>
         <properties>
           <background color="-8326163"/>
-          <foreground color="-16777216"/>
           <text value="Enviar"/>
         </properties>
       </component>
@@ -27,7 +26,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-3290934"/>
+          <background color="-1"/>
         </properties>
       </component>
       <component id="21958" class="javax.swing.JButton" binding="conectarButton" default-binding="true">
@@ -36,7 +35,6 @@
         </constraints>
         <properties>
           <background color="-8326163"/>
-          <foreground color="-16777216"/>
           <text value="Conectar"/>
         </properties>
       </component>

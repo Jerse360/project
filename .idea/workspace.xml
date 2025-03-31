@@ -4,59 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae362301-2bf6-4086-ab97-3c05ba79b108" name="Changes" comment="Spring 3">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/github_dandelion_datatables_export_itext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ae362301-2bf6-4086-ab97-3c05ba79b108" name="Changes" comment="Metodo de busqueda y impresion de PDF">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ClienteGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/Conexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/Conexion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/DetalleVentaGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/Detalle_ventaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/Detalle_ventaDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/MovimientoGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ProductosGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/VentaGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ReciboGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project1/EmpleadoInterfaz/ReciboGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteInterfaz/Cliente.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteInterfaz/Cliente.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteInterfaz/CrearCuentaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteInterfaz/CrearCuentaGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClienteInterfaz/LogGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClienteInterfaz/LogGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ClienteGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Conexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/DetalleVentaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/DetalleVentaGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/DetalleVentaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/DetalleVentaGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/Detalle_ventaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/Detalle_ventaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientoGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientoGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/MovimientoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ProductosGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReciboGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReciboGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReciboGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/ReciboGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/VentaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/VentaGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmpleadoInterfaz/VentaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoInterfaz/VentaGUI.java" afterDir="false" />
     </list>
@@ -96,46 +51,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CajaGUI.executor": "Run",
-    "Application.Cliente.executor": "Run",
-    "Application.ClienteGUI.executor": "Debug",
-    "Application.CrearCuentaGUI.executor": "Run",
-    "Application.EmpleadoInterfaz.VentaGUI.executor": "Run",
-    "Application.InterfazGUI.executor": "Run",
-    "Application.LogGUI.executor": "Run",
-    "Application.MenuGUI.executor": "Run",
-    "Application.MovimientoGUI.executor": "Run",
-    "Application.ProductosGUI.executor": "Run",
-    "Application.ReportesGUI.executor": "Run",
-    "Application.Servidor.executor": "Run",
-    "Application.VentaGUI.executor": "Run",
-    "Downloaded.Files.Path": "C:\\Users\\Famil\\Downloads\\Librerias",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "149",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "221",
-    "git-widget-placeholder": "Spring3",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Famil/Downloads/Librerias/jakarta.mail-2.0.1.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CajaGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Cliente.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ClienteGUI.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.CrearCuentaGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EmpleadoInterfaz.VentaGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.InterfazGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LogGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MenuGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MovimientoGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProductosGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ReportesGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Servidor.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VentaGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path&quot;: &quot;C:\\Users\\Famil\\Downloads\\Librerias&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;149&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;221&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Spring3&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Famil/Downloads/Librerias/jakarta.mail-2.0.1.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="EmpleadoInterfaz" />
@@ -247,7 +202,8 @@
       <workItem from="1743102613929" duration="18837000" />
       <workItem from="1743164282523" duration="3419000" />
       <workItem from="1743177691714" duration="1956000" />
-      <workItem from="1743270195795" duration="19251000" />
+      <workItem from="1743270195795" duration="20213000" />
+      <workItem from="1743353793384" duration="10517000" />
     </task>
     <task id="LOCAL-00001" summary="Validacion actualizar inventario y estado">
       <option name="closed" value="true" />
@@ -433,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743134408466</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Metodo de busqueda y impresion de PDF">
+      <option name="closed" value="true" />
+      <created>1743305334993</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1743305334994</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,6 +436,7 @@
     <MESSAGE value="Proyecto final Viernes" />
     <MESSAGE value="Proyecto final Viernes 2" />
     <MESSAGE value="Spring 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spring 3" />
+    <MESSAGE value="Metodo de busqueda y impresion de PDF" />
+    <option name="LAST_COMMIT_MESSAGE" value="Metodo de busqueda y impresion de PDF" />
   </component>
 </project>
