@@ -9,10 +9,17 @@ import java.sql.*;
 /**
  * Clase que representa la interfaz gráfica para mostrar el recibo de una venta.
  * Muestra los detalles de los productos vendidos en una orden específica.
+ *
+ * <p>Funcionalidades principales:
+ * <ul>
+ *   <li>Visualización detallada de productos vendidos</li>
+ *   <li>Generación de facturas en formato PDF</li>
+ *   <li>Consulta de información histórica de ventas</li>
+ * </ul>
  */
 public class ReciboGUI {
     // Componentes de la interfaz gráfica
-    public JPanel Main;
+    public JPanel Main;  // Panel principal que contiene todos los componentes
 
     /**
      * Tabla que muestra los detalles de los productos vendidos en la orden.
@@ -35,14 +42,20 @@ public class ReciboGUI {
      * Muestra el ID de la venta que se está visualizando.
      */
     private JLabel IdOrden;     // Etiqueta para mostrar el ID de la orden
+
+    /**
+     * Botón para descargar la factura en formato PDF.
+     * <p>
+     * Al hacer clic, genera un archivo PDF con los detalles de la venta.
+     */
     private JButton descargarFacturaButton;
 
     // Objeto para manejar la conexión a la base de datos
-    Conexion conexion = new Conexion();
+    private Conexion conexion = new Conexion();
 
-    // Variable para almacenar el ID de la venta que se está mostrando
-    int id_venta;
-    String fecha;
+    // Variables de estado
+    private int id_venta;       // ID de la venta que se está mostrando
+    private String fecha;       // Fecha en que se realizó la venta
 
     /**
      * Constructor de la clase ReciboGUI.
@@ -53,8 +66,18 @@ public class ReciboGUI {
         this.id_venta = id_venta;
         IdOrden.setText(String.valueOf(id_venta));
 
+        // Cargar los datos iniciales
         obtenerDatos();
 
+        /**
+         * Listener para el botón de descarga de factura.
+         * <p>
+         * Al activarse:
+         * <ol>
+         *   <li>Obtiene los productos de la venta</li>
+         *   <li>Genera un archivo PDF con la factura</li>
+         * </ol>
+         */
         descargarFacturaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,11 +89,14 @@ public class ReciboGUI {
                 generarPDF.generarFacturaPDF(id_venta,productos,fecha);
             }
         });
-
     }
 
+    /**
+     * Obtiene la fecha de una venta específica desde la base de datos.
+     * @param id_venta ID de la venta cuya fecha se desea obtener
+     * @return Fecha de la venta en formato String
+     */
     public String obtenerFecha(int id_venta) {
-
         Connection con = conexion.getConnection();
 
         try {
@@ -93,7 +119,16 @@ public class ReciboGUI {
 
     /**
      * Método para obtener y mostrar los datos de la venta desde la base de datos.
-     * Consulta los detalles de la venta y los muestra en la tabla.
+     * <p>
+     * Consulta los detalles de la venta y los muestra en la tabla con el formato:
+     * <ol>
+     *   <li>ID Detalle Venta</li>
+     *   <li>ID Venta</li>
+     *   <li>Producto</li>
+     *   <li>Precio Total</li>
+     *   <li>Tipo</li>
+     *   <li>Cantidad</li>
+     * </ol>
      */
     public void obtenerDatos() {
         // Crear el modelo de tabla con las columnas necesarias

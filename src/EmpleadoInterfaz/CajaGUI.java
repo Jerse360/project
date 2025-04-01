@@ -5,9 +5,16 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+
 /**
  * Interfaz gráfica para la gestión y visualización del estado de la caja.
+ * <p>
  * Muestra el saldo actual y permite volver a la interfaz de movimientos.
+ * Proporciona funcionalidad para:
+ * - Visualizar el estado actual de la caja
+ * - Actualizar el saldo sumando todos los movimientos financieros
+ * - Navegar de vuelta a la interfaz de movimientos
+ * </p>
  */
 public class CajaGUI {
 
@@ -16,7 +23,9 @@ public class CajaGUI {
 
     /**
      * Tabla para visualizar los datos del estado de caja.
+     * <p>
      * Muestra las columnas: Id_caja, Concepto y Total.
+     * </p>
      */
     private JTable table1;
 
@@ -30,8 +39,10 @@ public class CajaGUI {
 
     /**
      * Constructor de la clase CajaGUI.
+     * <p>
      * Inicializa la interfaz, actualiza el saldo y carga los datos.
      * Configura el ActionListener para el botón volverButton.
+     * </p>
      */
     public CajaGUI() {
         actualizarCaja();  // Actualiza el saldo en caja
@@ -39,8 +50,10 @@ public class CajaGUI {
 
         /**
          * ActionListener para el botón volverButton.
+         * <p>
          * @action Cierra la ventana actual y abre la interfaz de movimientos
          * @see MovimientoGUI
+         * </p>
          */
         volverButton.addActionListener(new ActionListener() {
             @Override
@@ -58,6 +71,11 @@ public class CajaGUI {
 
     /**
      * Actualiza el valor total en caja sumando todos los movimientos financieros.
+     * <p>
+     * Ejecuta una consulta SQL que calcula el sumatorio de todos los montos
+     * en la tabla movimiento_financiero y actualiza el valor en la tabla caja.
+     * </p>
+     *
      * @return true si la actualización fue exitosa, false en caso de error
      */
     public boolean actualizarCaja() {
@@ -86,6 +104,10 @@ public class CajaGUI {
 
     /**
      * Obtiene los datos de caja desde la base de datos y los muestra en la tabla.
+     * <p>
+     * Consulta la tabla caja y carga los resultados en el JTable.
+     * Configura un modelo de tabla con las columnas Id_caja, Concepto y Total.
+     * </p>
      */
     public void obtenerDatos() {
         // Configuración del modelo de tabla
@@ -123,7 +145,14 @@ public class CajaGUI {
 
     /**
      * Método principal para iniciar la interfaz de caja.
-     *@param args Argumentos de línea de comandos (no utilizados)
+     * <p>
+     * Configura y muestra la ventana principal con las siguientes características:
+     * - Título "Caja"
+     * - Maximizada pero con bordes visibles
+     * - Redimensionable
+     * </p>
+     *
+     * @param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
         // Configuración de la ventana principal

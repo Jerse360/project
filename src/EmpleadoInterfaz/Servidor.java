@@ -15,6 +15,14 @@ import java.net.Socket;
 /**
  * Clase que implementa un servidor de chat con interfaz gráfica.
  * Permite recibir conexiones de clientes y enviar/recibir mensajes.
+ *
+ * <p>Características principales:
+ * <ul>
+ *   <li>Interfaz gráfica para visualización de mensajes</li>
+ *   <li>Comunicación bidireccional con clientes</li>
+ *   <li>Manejo de múltiples conexiones (una a la vez)</li>
+ *   <li>Ejecución en hilos separados para no bloquear la interfaz</li>
+ * </ul>
  */
 public class Servidor {
 
@@ -36,8 +44,24 @@ public class Servidor {
      * También se activa al presionar Enter en el campo de texto.
      */
     private JButton enviarButton;          // Botón para enviar mensajes
+
+    /**
+     * Área de texto para mostrar la conversación.
+     * <p>
+     * Muestra:
+     * <ul>
+     *   <li>Mensajes enviados y recibidos</li>
+     *   <li>Estados del servidor</li>
+     *   <li>Errores de conexión</li>
+     * </ul>
+     */
     private JTextArea textArea1;           // Area para mostrar la conversacion
+
+    /**
+     * Panel principal que contiene todos los componentes de la interfaz.
+     */
     private JPanel panel;                  // Panel principal
+
     /**
      * Botón para iniciar el servidor de chat.
      * <p>
@@ -58,12 +82,23 @@ public class Servidor {
     /**
      * Constructor de la clase Servidor.
      * Configura los listeners y la interfaz gráfica.
+     *
+     * <p>Realiza las siguientes configuraciones:
+     * <ol>
+     *   <li>Establece el área de texto como no editable</li>
+     *   <li>Configura los listeners para los botones</li>
+     *   <li>Habilita el envío de mensajes con Enter</li>
+     * </ol>
      */
     public Servidor() {
         // Configurar el área de texto como no editable (solo lectura)
         textArea1.setEditable(false);
 
-        // Listener para el botón de iniciar servidor
+        /**
+         * Listener para el botón de iniciar servidor.
+         * <p>
+         * Inicia el servidor en un hilo separado para no bloquear la interfaz.
+         */
         iniciarServidorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -72,7 +107,11 @@ public class Servidor {
             }
         });
 
-        // Listener para el botón de enviar mensaje
+        /**
+         * Listener para el botón de enviar mensaje.
+         * <p>
+         * Ejecuta el método para enviar mensajes al cliente.
+         */
         enviarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -80,7 +119,11 @@ public class Servidor {
             }
         });
 
-        // Listener para detectar la tecla Enter en el campo de texto
+        /**
+         * Listener para detectar la tecla Enter en el campo de texto.
+         * <p>
+         * Permite enviar mensajes presionando Enter.
+         */
         textField1.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -93,7 +136,16 @@ public class Servidor {
 
     /**
      * Método para iniciar el servidor y aceptar conexiones de clientes.
+     * <p>
      * Se ejecuta en un hilo separado para no bloquear la interfaz gráfica.
+     *
+     * <p>Funcionamiento:
+     * <ol>
+     *   <li>Crea un ServerSocket en el puerto 12345</li>
+     *   <li>Espera conexiones entrantes</li>
+     *   <li>Configura flujos de entrada/salida</li>
+     *   <li>Inicia hilo para recibir mensajes</li>
+     * </ol>
      */
     public void iniciar() {
         try (ServerSocket serverSocket = new ServerSocket(12345)) {
@@ -118,6 +170,15 @@ public class Servidor {
 
     /**
      * Método para enviar mensajes al cliente conectado.
+     * <p>
+     * Realiza las siguientes acciones:
+     * <ol>
+     *   <li>Obtiene el mensaje del campo de texto</li>
+     *   <li>Verifica que haya un cliente conectado</li>
+     *   <li>Envía el mensaje a través del socket</li>
+     *   <li>Actualiza el área de texto</li>
+     *   <li>Limpia el campo de entrada</li>
+     * </ol>
      */
     public void enviarMensaje() {
         String mensaje = textField1.getText();
@@ -136,6 +197,9 @@ public class Servidor {
 
     /**
      * Método para recibir mensajes del cliente.
+     * <p>
+     * Se ejecuta en un hilo separado para no bloquear la interfaz.
+     *
      * @param in BufferedReader para leer mensajes del cliente
      */
     public void recibirMensajes(BufferedReader in) {
@@ -158,6 +222,12 @@ public class Servidor {
 
     /**
      * Método para cerrar los recursos de conexión.
+     * <p>
+     * Cierra:
+     * <ul>
+     *   <li>Flujo de salida (PrintWriter)</li>
+     *   <li>Socket del cliente</li>
+     * </ul>
      */
     private void cerrarRecursos() {
         try {
@@ -171,6 +241,7 @@ public class Servidor {
 
     /**
      * Método para actualizar el área de texto de forma segura desde cualquier hilo.
+     *
      * @param mensaje Texto a mostrar en el área de texto
      */
     private void actualizarTextArea(String mensaje) {
@@ -179,6 +250,7 @@ public class Servidor {
 
     /**
      * Método principal para iniciar la aplicación del servidor.
+     *
      * @param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {

@@ -7,6 +7,14 @@ import java.sql.*;
  * Clase DAO (Data Access Object) para gestionar las operaciones CRUD de ventas
  * en la base de datos. Maneja la lógica de transiciones de estado, control de stock
  * y registro financiero asociado a las ventas.
+ * <p>
+ * Esta clase implementa:
+ * - Creación de nuevas ventas con estado inicial "Preparacion"
+ * - Actualización de ventas con validación de transiciones de estado
+ * - Gestión de inventario (validación y descuento de stock)
+ * - Registro automático de movimientos financieros
+ * - Validación de operaciones según el estado de la venta
+ * </p>
  */
 public class VentaDAO {
 
@@ -14,6 +22,11 @@ public class VentaDAO {
 
     /**
      * Agrega una nueva venta a la base de datos con estado "Preparacion".
+     * <p>
+     * Crea un registro inicial de venta con estado "Preparacion" y total 0.
+     * El total se actualizará posteriormente al agregar productos.
+     * </p>
+     *
      * @param venta Objeto Venta con los datos del cliente asociado
      * @return true si la operación fue exitosa, false en caso de error
      */
@@ -35,7 +48,13 @@ public class VentaDAO {
 
     /**
      * Actualiza los datos de una venta existente, validando transiciones de estado.
-     * Realiza operaciones adicionales según el estado (control de stock, registro financiero).
+     * <p>
+     * Realiza operaciones adicionales según el estado:
+     * - Para estado "Enviado": valida y descuenta stock
+     * - Para estado "Entregado": registra movimiento financiero
+     * Valida que las transiciones entre estados sean válidas.
+     * </p>
+     *
      * @param venta Objeto Venta con los datos actualizados
      * @return true si la actualización fue exitosa, false en caso de error o validación fallida
      */
@@ -159,7 +178,12 @@ public class VentaDAO {
     }
 
     /**
-     * Valida si hay suficiente stock para un producto específico.
+     * Válida sí hay suficiente stock para un producto específico.
+     * <p>
+     * Verifica que la cantidad solicitada esté disponible en inventario.
+     * Muestra mensaje de error si no hay stock suficiente.
+     * </p>
+     *
      * @param idProducto Identificador del producto a validar
      * @param cantidad Cantidad requerida
      * @return true si hay stock suficiente, false en caso contrario
@@ -201,6 +225,10 @@ public class VentaDAO {
 
     /**
      * Reduce el stock de un producto en la cantidad especificada.
+     * <p>
+     * Actualiza el inventario descontando la cantidad vendida.
+     * </p>
+     *
      * @param idProducto Identificador del producto
      * @param cantidad Cantidad a descontar
      * @return true si la operación fue exitosa, false en caso de error
@@ -233,7 +261,10 @@ public class VentaDAO {
 
     /**
      * Verifica si el stock de un producto está por debajo del mínimo establecido.
-     * Muestra una alerta gráfica si es necesario.
+     * <p>
+     * Muestra una alerta gráfica si el stock actual es menor al mínimo configurado.
+     * </p>
+     *
      * @param idProducto Identificador del producto a verificar
      * @return true si la operación fue exitosa, false en caso de error
      */
@@ -273,7 +304,14 @@ public class VentaDAO {
     }
 
     /**
-     * Valida si una transición entre estados de venta es permitida.
+     * Válida si una transición entre estados de venta es permitida.
+     * <p>
+     * Las transiciones válidas son:
+     * - De "Preparacion" a "Enviado"
+     * - De "Enviado" a "Entregado"
+     * - Mantener el mismo estado
+     * </p>
+     *
      * @param estadoAntiguo Estado actual de la venta
      * @param estadoNuevo Estado deseado
      * @return true si la transición es válida, false en caso contrario

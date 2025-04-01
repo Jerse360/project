@@ -12,74 +12,49 @@ import java.sql.*;
  * Interfaz gráfica para la gestión de detalles de venta.
  * Permite agregar productos a una venta con diferentes tipos de empaque (Unidad, Blister, Caja)
  * y realizar operaciones CRUD sobre los detalles de venta.
+ *
+ * <p>La interfaz incluye funcionalidades para:
+ * <ul>
+ *   <li>Seleccionar productos disponibles</li>
+ *   <li>Especificar cantidad y tipo de empaque</li>
+ *   <li>Agregar/eliminar detalles de venta</li>
+ *   <li>Generar facturas en PDF</li>
+ *   <li>Volver al menú principal de ventas</li>
+ * </ul>
+ *
  */
 public class DetalleVentaGUI extends JFrame {
 
     // Componentes de la interfaz gráfica
-    private JComboBox comboBoxProducto;  // Combo box para seleccionar productos
-    private JTextField precioProducto;   // Campo para mostrar el precio del producto
-    private JSpinner spinner1;           // Selector de cantidad
-    /**
-     * Botón para agregar productos a la venta actual.
-     * <p>
-     * Al hacer clic:
-     * <ol>
-     *   <li>Verifica que se haya seleccionado un producto válido</li>
-     *   <li>Obtiene el tipo de empaque seleccionado (Unidad, Blister, Caja)</li>
-     *   <li>Calcula la cantidad según el factor de empaque (1, 10, 100)</li>
-     *   <li>Agrega el detalle de venta a la base de datos</li>
-     *   <li>Actualiza el total de la venta</li>
-     *   <li>Muestra mensaje de confirmación</li>
-     *   <li>Actualiza la tabla de detalles</li>
-     * </ol>
-     */
-    private JButton agregarButton;       // Botón para agregar producto a la venta
-    private JTable table1;               // Tabla para mostrar los detalles de venta
-
-    /**
-     * Botón para eliminar un detalle de venta seleccionado.
-     * <p>
-     * Requiere que se seleccione un detalle en la tabla primero.
-     * Al hacer clic:
-     * <ol>
-     *   <li>Resta el monto del detalle del total de la venta</li>
-     *   <li>Elimina el registro de la base de datos</li>
-     *   <li>Muestra mensaje de confirmación</li>
-     *   <li>Actualiza la tabla de detalles</li>
-     * </ol>
-     */
-    private JButton eliminarButton;      // Botón para eliminar detalle de venta
-    private JPanel Main;                 // Panel principal de la interfaz
-    private JLabel idOrden;              // Etiqueta para mostrar el ID de la venta
-    private JComboBox comboBox1;         // Combo box para seleccionar tipo de empaque
-
-    /**
-     * Botón para volver a la interfaz de gestión de ventas.
-     * <p>
-     * Al hacer clic:
-     * <ol>
-     *   <li>Cierra la ventana actual de detalles de venta</li>
-     *   <li>Abre la interfaz principal de ventas</li>
-     * </ol>
-     * @see VentaGUI
-     */
-    private JButton volverButton;        // Botón para volver al menú anterior
-    private JButton generarFacturaPDFButton;
+    private JComboBox comboBoxProducto;  // Combo box para seleccionar productos disponibles
+    private JTextField precioProducto;   // Campo de texto para mostrar el precio unitario del producto seleccionado
+    private JSpinner spinner1;           // Selector de cantidad de productos
+    private JButton agregarButton;       // Botón para agregar producto a la venta actual
+    private JTable table1;               // Tabla para mostrar los detalles de la venta actual
+    private JButton eliminarButton;      // Botón para eliminar un detalle de venta seleccionado
+    private JPanel Main;                 // Panel principal que contiene todos los componentes
+    private JLabel idOrden;              // Etiqueta que muestra el ID de la venta actual
+    private JComboBox comboBox1;         // Combo box para seleccionar tipo de empaque (Unidad, Blister, Caja)
+    private JButton volverButton;        // Botón para volver al menú de gestión de ventas
+    private JButton generarFacturaPDFButton; // Botón para generar factura en PDF y enviarla por correo
 
     // Objetos para conexión y acceso a datos
-    Conexion conexion = new Conexion();
-    Detalle_ventaDAO detalle_ventaDAO = new Detalle_ventaDAO();
+    private Conexion conexion = new Conexion();
+    private Detalle_ventaDAO detalle_ventaDAO = new Detalle_ventaDAO();
 
     // Variables de estado
-    int precio;         // Precio unitario del producto seleccionado
-    int id_venta;       // ID de la venta actual
-    int id_producto;    // ID del producto seleccionado
-    int id_detalle;     // ID del detalle de venta seleccionado
-    String fecha;
+    private int precio;         // Precio unitario del producto seleccionado
+    private int id_venta;       // ID de la venta actual
+    private int id_producto;    // ID del producto seleccionado
+    private int id_detalle;     // ID del detalle de venta seleccionado
+    private String fecha;       // Fecha de la venta
+    private String nombreCliente; // Nombre del cliente asociado a la venta
+    private String email;       // Email del cliente para envío de factura
 
     /**
      * Constructor de la clase DetalleVentaGUI.
-     * Inicializa la interfaz y configura los listeners de los componentes.
+     * Inicializa la interfaz gráfica, configura los componentes
+     * y establece los listeners para los eventos.
      */
     public DetalleVentaGUI() {
         // Configuración inicial de componentes
@@ -181,14 +156,29 @@ public class DetalleVentaGUI extends JFrame {
             }
         });
 
+        /**
+         * Listener para el botón de generar factura PDF.
+         * <p>
+         * Al hacer clic:
+         * <ol>
+         *   <li>Obtiene los datos necesarios del cliente y la venta</li>
+         *   <li>Genera un archivo PDF con la factura</li>
+         *   <li>Envía la factura por correo electrónico al cliente</li>
+         * </ol>
+         */
         generarFacturaPDFButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GenerarPDF generarPDF = new GenerarPDF();
+                ClienteDAO clienteDAO = new ClienteDAO();
+                obtenerNombreCliente(id_venta);
+                obtenerEmailCliente(id_venta);
                 obtenerFecha(id_venta);
                 java.util.List<String> productos = detalle_ventaDAO.obtenerProductosPorPedido(id_venta);
+                String directorio = System.getProperty("user.home") + "\\FacturasPinillos\\Venta_"+id_venta+".pdf";
 
                 generarPDF.generarFacturaPDF(id_venta,productos,fecha);
+                clienteDAO.enviarFacturaPorCorreo(directorio,nombreCliente,email);
             }
         });
     }
@@ -197,7 +187,7 @@ public class DetalleVentaGUI extends JFrame {
      * Obtiene el ID de un producto a partir de su nombre.
      * @param nombre Nombre del producto a buscar
      */
-    public void obtenerIdProducto(String nombre) {
+    private void obtenerIdProducto(String nombre) {
         Connection con = conexion.getConnection();
 
         try {
@@ -216,8 +206,11 @@ public class DetalleVentaGUI extends JFrame {
 
     /**
      * Carga los nombres de productos disponibles en el ComboBox.
+     * <p>
+     * Los productos se obtienen directamente de la base de datos
+     * y se agregan al componente comboBoxProducto.
      */
-    public void obtenerComboBox() {
+    private void obtenerComboBox() {
         Connection con = conexion.getConnection();
 
         try {
@@ -235,10 +228,11 @@ public class DetalleVentaGUI extends JFrame {
 
     /**
      * Obtiene el precio de un producto por su nombre.
-     * @param nombre Nombre del producto
-     * @return Precio del producto
+     * @param nombre Nombre del producto cuyo precio se desea obtener
+     * @return Precio unitario del producto
+     * @throws RuntimeException Si ocurre un error al acceder a la base de datos
      */
-    public int obtenerPrecio(String nombre) {
+    private int obtenerPrecio(String nombre) {
         Connection con = conexion.getConnection();
 
         try {
@@ -261,8 +255,11 @@ public class DetalleVentaGUI extends JFrame {
 
     /**
      * Obtiene el ID de la última venta creada.
+     * <p>
+     * Este método se usa para asociar los nuevos detalles de venta
+     * a la venta actual.
      */
-    public void obtenerIdVenta() {
+    private void obtenerIdVenta() {
         Connection con = conexion.getConnection();
 
         try {
@@ -277,8 +274,12 @@ public class DetalleVentaGUI extends JFrame {
         }
     }
 
-    public String obtenerFecha(int id_venta) {
-
+    /**
+     * Obtiene la fecha de una venta específica.
+     * @param id_venta ID de la venta cuya fecha se desea obtener
+     * @return Fecha de la venta en formato String
+     */
+    private String obtenerFecha(int id_venta) {
         Connection con = conexion.getConnection();
 
         try {
@@ -300,9 +301,58 @@ public class DetalleVentaGUI extends JFrame {
     }
 
     /**
-     * Carga los detalles de venta en la tabla.
+     * Obtiene el nombre del cliente asociado a una venta.
+     * @param id_venta ID de la venta para la que se busca el cliente
      */
-    public void obtenerDatos() {
+    private void obtenerNombreCliente(int id_venta) {
+        Connection con = conexion.getConnection();
+        try {
+            String query = "SELECT cliente.nombre FROM cliente JOIN venta ON cliente.id_cliente =venta.id_cliente WHERE venta.id_venta = ?;";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(1, id_venta);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                nombreCliente = rs.getString("nombre");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Obtiene el email del cliente asociado a una venta.
+     * @param id_venta ID de la venta para la que se busca el email
+     */
+    private void obtenerEmailCliente(int id_venta) {
+        Connection con = conexion.getConnection();
+        try {
+            String query = "SELECT cliente.email FROM cliente JOIN venta ON cliente.id_cliente =venta.id_cliente WHERE venta.id_venta = ?;";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(1, id_venta);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                email = rs.getString("email");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Carga los detalles de venta en la tabla.
+     * <p>
+     * Obtiene los detalles de la venta actual desde la base de datos
+     * y los muestra en la tabla con el siguiente formato:
+     * <ul>
+     *   <li>ID Detalle Venta</li>
+     *   <li>ID Venta</li>
+     *   <li>Producto</li>
+     *   <li>Precio Total (con IVA)</li>
+     *   <li>Tipo de empaque</li>
+     *   <li>Cantidad</li>
+     * </ul>
+     */
+    private void obtenerDatos() {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Id_detalleVenta");
         modelo.addColumn("Id_Venta");
@@ -341,6 +391,9 @@ public class DetalleVentaGUI extends JFrame {
 
     /**
      * Método principal para iniciar la interfaz.
+     * <p>
+     * Crea y muestra la ventana de gestión de detalles de venta,
+     * maximizada y con bordes visibles.
      */
     public static void main() {
         JFrame frame = new JFrame("Pedido");
@@ -353,7 +406,17 @@ public class DetalleVentaGUI extends JFrame {
     }
 
     /**
-     * Procesa la adición de un producto a la venta.
+     * Procesa la adición de un producto a la venta actual.
+     * <p>
+     * Realiza las siguientes acciones:
+     * <ol>
+     *   <li>Valida el stock disponible</li>
+     *   <li>Crea un nuevo detalle de venta</li>
+     *   <li>Agrega el detalle a la base de datos</li>
+     *   <li>Actualiza el total de la venta</li>
+     *   <li>Refresca la tabla de detalles</li>
+     * </ol>
+     *
      * @param nombreProducto Nombre del producto a agregar
      * @param tipo Tipo de empaque (Unidad, Blister, Caja)
      * @param factor Multiplicador para la cantidad según el tipo de empaque
@@ -361,14 +424,17 @@ public class DetalleVentaGUI extends JFrame {
     private void procesarAgregarProducto(String nombreProducto, String tipo, int factor) {
         int cant = (int) spinner1.getValue();
         obtenerIdProducto(nombreProducto);
+        VentaDAO ventaDAO = new VentaDAO();
+        if (ventaDAO.validarStock(id_producto,cant*factor)){
 
-        Detalle_venta detalle_venta = new Detalle_venta(
-                0, id_venta, id_producto, 0, factor * cant, tipo);
+            Detalle_venta detalle_venta = new Detalle_venta(
+                    0, id_venta, id_producto, 0, factor * cant, tipo);
 
-        if (detalle_ventaDAO.agregarDetalleVenta(detalle_venta)) {
-            JOptionPane.showMessageDialog(null, "Detalle venta agregado");
-            detalle_ventaDAO.actualizarTotal(detalle_venta);
-            obtenerDatos();
+            if (detalle_ventaDAO.agregarDetalleVenta(detalle_venta)) {
+                JOptionPane.showMessageDialog(null, "Detalle venta agregado");
+                detalle_ventaDAO.actualizarTotal(detalle_venta);
+                obtenerDatos();
+            }
         }
     }
 }

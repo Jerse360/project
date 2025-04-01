@@ -9,26 +9,51 @@ import javax.swing.table.TableRowSorter;
 /**
  * Interfaz gráfica para la gestión de ventas en el sistema.
  * Permite realizar operaciones CRUD sobre ventas y visualizar registros.
+ *
+ * <p>Funcionalidades principales:
+ * <ul>
+ *   <li>Registro de nuevas ventas</li>
+ *   <li>Actualización del estado de ventas</li>
+ *   <li>Visualización de historial de ventas</li>
+ *   <li>Generación de detalles de venta</li>
+ *   <li>Búsqueda y filtrado de ventas</li>
+ * </ul>
  */
 public class VentaGUI {
-    private JLabel Venta;
-    private JTable table1;
-    private JComboBox comboBox1;
-    private JPanel Main;
-    private JComboBox comboBox2;
-    private TableRowSorter<DefaultTableModel> sorter;
-    private NonEditableTableModel modelo;
-    private JButton agregarButton;
-    private JButton pedirButton;
-    private JButton volverButton;
-    private JScrollPane scroll;
-    private JTextField buscar;
+    // Componentes de la interfaz gráfica
+    private JLabel Venta;                    // Etiqueta del título
+    private JTable table1;                   // Tabla para mostrar las ventas
+    private JComboBox comboBox1;             // Combo box para selección de clientes
+    private JPanel Main;                     // Panel principal
+    private JComboBox comboBox2;             // Combo box para estado de venta
+    private TableRowSorter<DefaultTableModel> sorter; // Ordenador para la tabla
+    private NonEditableTableModel modelo;    // Modelo de tabla no editable
+    private JButton agregarButton;           // Botón para agregar ventas
+    private JButton pedirButton;             // Botón para gestionar detalles de venta
+    private JButton volverButton;            // Botón para volver al menú
+    private JScrollPane scroll;              // Panel de desplazamiento para la tabla
+    private JTextField buscar;              // Campo de búsqueda
+
+    // Objetos para conexión y acceso a datos
     private Conexion conexion = new Conexion();
     private VentaDAO ventaDAO = new VentaDAO();
-    private int id_cliente, id_venta, total_venta;
-    private boolean cambioManual = true;
+
+    // Variables de estado
+    private int id_cliente;                  // ID del cliente seleccionado
+    private int id_venta;                    // ID de la venta seleccionada
+    private int total_venta;                 // Total de la venta
+    private boolean cambioManual = true;     // Bandera para control de cambios
+
     /**
      * Constructor principal que inicializa los componentes y configura los listeners.
+     *
+     * <p>Realiza las siguientes configuraciones:
+     * <ol>
+     *   <li>Carga los clientes en el ComboBox</li>
+     *   <li>Configura la tabla con ordenamiento</li>
+     *   <li>Carga los datos iniciales</li>
+     *   <li>Establece todos los listeners necesarios</li>
+     * </ol>
      */
     public VentaGUI() {
         obtenerComboBox();
@@ -37,6 +62,15 @@ public class VentaGUI {
         table1.setRowSorter(sorter);
         obtenerTabla();
 
+        /**
+         * Listener para el botón de gestionar detalles de venta.
+         * <p>
+         * Al activarse:
+         * <ol>
+         *   <li>Cierra la ventana actual</li>
+         *   <li>Abre la interfaz de detalles de venta</li>
+         * </ol>
+         */
         pedirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -47,6 +81,16 @@ public class VentaGUI {
             }
         });
 
+        /**
+         * Listener para el botón de agregar venta.
+         * <p>
+         * Al activarse:
+         * <ol>
+         *   <li>Obtiene los datos de los combobox</li>
+         *   <li>Crea un nuevo registro de venta</li>
+         *   <li>Actualiza la tabla si la operación es exitosa</li>
+         * </ol>
+         */
         agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -61,6 +105,15 @@ public class VentaGUI {
             }
         });
 
+        /**
+         * Listener para el botón de volver al menú.
+         * <p>
+         * Al activarse:
+         * <ol>
+         *   <li>Cierra la ventana actual</li>
+         *   <li>Abre la interfaz del menú principal</li>
+         * </ol>
+         */
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,6 +124,15 @@ public class VentaGUI {
             }
         });
 
+        /**
+         * Listener para eventos de ratón en la tabla.
+         * <p>
+         * Maneja:
+         * <ul>
+         *   <li>Selección de filas para mostrar detalles</li>
+         *   <li>Doble clic para generar recibo</li>
+         * </ul>
+         */
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -96,6 +158,11 @@ public class VentaGUI {
             }
         });
 
+        /**
+         * Listener para el campo de búsqueda.
+         * <p>
+         * Filtra las ventas según el texto ingresado.
+         */
         buscar.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -118,41 +185,50 @@ public class VentaGUI {
                 }
             }
         });
+
+        /**
+         * Listener para cambios en el estado de venta.
+         * <p>
+         * Actualiza el registro cuando se modifica el estado.
+         */
         comboBox2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (!cambioManual || table1.getSelectedRow() == -1) return;
 
-                if (!cambioManual) return;
-
-                String cliente = comboBox1.getSelectedItem().toString();
                 String estado = comboBox2.getSelectedItem().toString();
+                String cliente = comboBox1.getSelectedItem().toString();
                 obtenerIdCliente(cliente);
                 obtenerTotal(id_venta);
                 Venta venta = new Venta(id_venta, id_cliente, total_venta, estado, "", cliente);
+
                 if (ventaDAO.actualizar(venta)) {
                     JOptionPane.showMessageDialog(null, "Venta actualizada exitosamente");
                     obtenerTabla();
                 }
-                obtenerTabla();
             }
         });
 
+        /**
+         * Listener para cambios en la selección de cliente.
+         * <p>
+         * Actualiza el registro cuando se modifica el cliente.
+         */
         comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                if (!cambioManual) return;
+                if (!cambioManual || table1.getSelectedRow() == -1) return;
 
                 String cliente = comboBox1.getSelectedItem().toString();
                 String estado = comboBox2.getSelectedItem().toString();
                 obtenerIdCliente(cliente);
                 obtenerTotal(id_venta);
                 Venta venta = new Venta(id_venta, id_cliente, total_venta, estado, "", cliente);
+
                 if (ventaDAO.actualizar(venta)) {
                     JOptionPane.showMessageDialog(null, "Venta actualizada exitosamente");
                     obtenerTabla();
                 }
-                obtenerTabla();
             }
         });
     }
@@ -214,9 +290,17 @@ public class VentaGUI {
 
     /**
      * Carga y muestra los datos de ventas en la tabla principal.
+     *
+     * <p>Las columnas mostradas son:
+     * <ol>
+     *   <li>ID Venta</li>
+     *   <li>Cliente</li>
+     *   <li>Total Venta</li>
+     *   <li>Estado</li>
+     *   <li>Fecha y hora</li>
+     * </ol>
      */
     public void obtenerTabla() {
-
         if (sorter != null) {
             table1.setRowSorter(null);
         }

@@ -8,7 +8,13 @@ import java.sql.SQLException;
 
 /**
  * Clase Data Access Object (DAO) para gestionar operaciones CRUD de movimientos financieros.
- * Proporciona métodos para agregar, actualizar y eliminar ingresos y egresos.
+ * <p>
+ * Proporciona métodos para:
+ * - Registrar ingresos y egresos
+ * - Actualizar y eliminar movimientos (solo egresos)
+ * - Mantener actualizado el saldo total en caja
+ * - Validar tipos de movimientos
+ * </p>
  */
 public class MovimientosDAO {
 
@@ -17,7 +23,9 @@ public class MovimientosDAO {
 
     /**
      * Agrega un nuevo ingreso financiero a la base de datos.
-     * Actualiza automáticamente el total en caja.
+     * <p>
+     * Registra un movimiento positivo y actualiza automáticamente el total en caja.
+     * </p>
      *
      * @param movimiento Objeto Movimiento con los datos del ingreso
      * @return true si la operación fue exitosa, false en caso contrario
@@ -54,7 +62,9 @@ public class MovimientosDAO {
 
     /**
      * Agrega un nuevo egreso financiero a la base de datos.
-     * Actualiza automáticamente el total en caja.
+     * <p>
+     * Registra un movimiento negativo y actualiza automáticamente el total en caja.
+     * </p>
      *
      * @param movimiento Objeto Movimiento con los datos del egreso
      * @return true si la operación fue exitosa, false en caso contrario
@@ -90,6 +100,9 @@ public class MovimientosDAO {
 
     /**
      * Actualiza un movimiento financiero existente (solo egresos).
+     * <p>
+     * Permite modificar categoría y monto de egresos, actualizando el total en caja.
+     * </p>
      *
      * @param movimiento Objeto Movimiento con los datos actualizados
      * @return true si la actualización fue exitosa, false en caso contrario
@@ -129,6 +142,9 @@ public class MovimientosDAO {
 
     /**
      * Elimina un movimiento financiero (solo egresos).
+     * <p>
+     * Elimina el registro y actualiza el total en caja.
+     * </p>
      *
      * @param id ID del movimiento a eliminar
      * @return true si la eliminación fue exitosa, false en caso contrario
@@ -164,7 +180,10 @@ public class MovimientosDAO {
     }
 
     /**
-     * Método privado para actualizar el total en caja.
+     * Actualiza el total en caja sumando todos los movimientos registrados.
+     * <p>
+     * Método privado llamado automáticamente después de cada operación CRUD.
+     * </p>
      *
      * @param con Conexión a la base de datos
      * @throws SQLException Si ocurre un error al ejecutar la consulta
@@ -177,7 +196,10 @@ public class MovimientosDAO {
     }
 
     /**
-     * Valida el tipo de movimiento (Ingreso/Egreso).
+     * Válida el tipo de movimiento (Ingreso/Egreso).
+     * <p>
+     * Método privado usado para restringir ciertas operaciones solo a egresos.
+     * </p>
      *
      * @param con Conexión a la base de datos
      * @param id ID del movimiento a validar

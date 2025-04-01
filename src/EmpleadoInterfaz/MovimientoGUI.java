@@ -8,39 +8,68 @@ import javax.swing.table.TableRowSorter;
 
 /**
  * Interfaz gráfica para la gestión de movimientos financieros (ingresos y egresos).
+ *
+ * <p>Proporciona funcionalidades para:
+ * <ul>
+ *   <li>Agregar nuevos movimientos (ingresos/egresos)</li>
+ *   <li>Actualizar movimientos existentes</li>
+ *   <li>Eliminar movimientos</li>
+ *   <li>Visualizar el estado de caja</li>
+ *   <li>Filtrar y buscar movimientos</li>
+ *   <li>Generar recibos</li>
+ * </ul>
  */
 public class MovimientoGUI {
-    private JPanel Main;
-    private TableRowSorter<DefaultTableModel> sorter;
-    private NonEditableTableModel model;
-    private JTable table1;
-    private JButton agregarButton;
-    private JButton actualizarButton;
-    private JButton eliminarButton;
-    private JComboBox comboBox1;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JButton verCajaButton;
-    private JButton volverButton;
-    private JComboBox comboBoxCategoria;
-    private JComboBox comboBoxTipo;
-    private JTextField buscar;
+    // Componentes de la interfaz
+    private JPanel Main;                         // Panel principal
+    private TableRowSorter<DefaultTableModel> sorter; // Ordenador para la tabla
+    private NonEditableTableModel model;         // Modelo de tabla no editable
+    private JTable table1;                       // Tabla para mostrar movimientos
+    private JButton agregarButton;               // Botón para agregar movimientos
+    private JButton actualizarButton;            // Botón para actualizar movimientos
+    private JButton eliminarButton;              // Botón para eliminar movimientos
+    private JComboBox comboBox1;                 // Combo box para categorías de egreso
+    private JTextField textField1;               // Campo para monto del movimiento
+    private JTextField textField2;               // Campo para ID del movimiento
+    private JButton verCajaButton;               // Botón para ver estado de caja
+    private JButton volverButton;                // Botón para volver al menú principal
+    private JComboBox comboBoxCategoria;         // Combo box para categorías de ingreso
+    private JComboBox comboBoxTipo;              // Combo box para tipo de movimiento
+    private JTextField buscar;                   // Campo para búsqueda/filtrado
+
+    // Objetos de acceso a datos
     private MovimientosDAO movimientosDAO = new MovimientosDAO();
     private CajaGUI caja = new CajaGUI();
 
     /**
      * Constructor que inicializa la interfaz y configura los listeners.
+     *
+     * <p>Realiza las siguientes configuraciones:
+     * <ol>
+     *   <li>Prepara la tabla con modelo no editable</li>
+     *   <li>Configura el ordenador de filas</li>
+     *   <li>Carga los datos iniciales</li>
+     *   <li>Establece el comportamiento de los componentes</li>
+     *   <li>Configura todos los listeners necesarios</li>
+     * </ol>
      */
     public MovimientoGUI() {
+        // Configuración inicial de la tabla
         table1.setRowSelectionAllowed(true);
         sorter = new TableRowSorter<>(model);
         table1.setRowSorter(sorter);
         obtenerDatos();
 
+        // Configuración de componentes
         textField2.setEditable(false);
         comboBox1.setEnabled(false);
         comboBoxCategoria.setEnabled(false);
 
+        /**
+         * Listener para cambios en el tipo de movimiento.
+         * <p>
+         * Habilita/deshabilita los combobox de categoría según el tipo seleccionado.
+         */
         comboBoxTipo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,6 +84,11 @@ public class MovimientoGUI {
             }
         });
 
+        /**
+         * Listener para el botón Agregar.
+         * <p>
+         * Válida los datos y agrega un nuevo movimiento financiero.
+         */
         agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,6 +118,11 @@ public class MovimientoGUI {
             }
         });
 
+        /**
+         * Listener para el botón Actualizar.
+         * <p>
+         * Actualiza un movimiento existente con los nuevos valores.
+         */
         actualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,6 +137,11 @@ public class MovimientoGUI {
             }
         });
 
+        /**
+         * Listener para el botón Eliminar.
+         * <p>
+         * Elimina el movimiento seleccionado.
+         */
         eliminarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -108,6 +152,11 @@ public class MovimientoGUI {
             }
         });
 
+        /**
+         * Listener para el botón Ver Caja.
+         * <p>
+         * Abre la interfaz de visualización de estado de caja.
+         */
         verCajaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -117,6 +166,11 @@ public class MovimientoGUI {
             }
         });
 
+        /**
+         * Listener para el botón Volver.
+         * <p>
+         * Regresa al menú principal.
+         */
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -127,6 +181,15 @@ public class MovimientoGUI {
             }
         });
 
+        /**
+         * Listener para eventos de ratón en la tabla.
+         * <p>
+         * Maneja:
+         * <ul>
+         *   <li>Selección de filas para mostrar detalles</li>
+         *   <li>Doble clic para generar recibo</li>
+         * </ul>
+         */
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -161,6 +224,11 @@ public class MovimientoGUI {
             }
         });
 
+        /**
+         * Listener para el campo de búsqueda.
+         * <p>
+         * Filtra los movimientos según el texto ingresado.
+         */
         buscar.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -185,6 +253,16 @@ public class MovimientoGUI {
 
     /**
      * Obtiene los movimientos financieros desde la base de datos y los muestra en la tabla.
+     *
+     * <p>Las columnas mostradas son:
+     * <ol>
+     *   <li>ID_movimiento</li>
+     *   <li>ID_venta</li>
+     *   <li>Categoria</li>
+     *   <li>Descripcion</li>
+     *   <li>Monto</li>
+     *   <li>Fecha</li>
+     * </ol>
      */
     public void obtenerDatos() {
         if (sorter != null) {
@@ -246,7 +324,7 @@ public class MovimientoGUI {
 
     /**
      * Método principal para iniciar la aplicación.
-     * @param args argumentos de línea de comandos
+     * @param args argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
         JFrame frame = new JFrame("Gestión de Movimientos financieros");

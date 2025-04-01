@@ -11,27 +11,46 @@ import java.sql.Statement;
 
 /**
  * Interfaz gráfica para la gestión de productos en el sistema.
+ *
+ * <p>Proporciona funcionalidades para:
+ * <ul>
+ *   <li>Agregar nuevos productos al inventario</li>
+ *   <li>Actualizar información de productos existentes</li>
+ *   <li>Eliminar productos del sistema</li>
+ *   <li>Visualizar y buscar productos</li>
+ *   <li>Gestionar niveles de stock</li>
+ * </ul>
  */
 public class ProductosGUI {
-    private JTextField txtNombre;
-    private JTextField txtPrecio;
-    private JTextField txtStock;
-    private TableRowSorter<DefaultTableModel> sorter;
-    private NonEditableTableModel model;
-    private JTextField txtStockMinimo;
-    private JButton agregarButton;
-    private JButton actualizarButton;
-    private JButton eliminarButton;
-    private JTable table1;
-    private JPanel Main;
-    private JComboBox comboBox1;
-    private JTextField textField1;
-    private JButton volverButton;
-    private JTextField buscar;
-    private ProductosDAO productosDAO;
+    // Componentes de la interfaz
+    private JTextField txtNombre;            // Campo para nombre del producto
+    private JTextField txtPrecio;           // Campo para precio del producto
+    private JTextField txtStock;            // Campo para cantidad en stock
+    private TableRowSorter<DefaultTableModel> sorter; // Ordenador para la tabla
+    private NonEditableTableModel model;    // Modelo de tabla no editable
+    private JTextField txtStockMinimo;      // Campo para stock mínimo requerido
+    private JButton agregarButton;          // Botón para agregar productos
+    private JButton actualizarButton;       // Botón para actualizar productos
+    private JButton eliminarButton;         // Botón para eliminar productos
+    private JTable table1;                  // Tabla para mostrar productos
+    private JPanel Main;                    // Panel principal
+    private JComboBox comboBox1;            // Combo box para categorías
+    private JTextField textField1;          // Campo para ID del producto
+    private JButton volverButton;           // Botón para volver al menú
+    private JTextField buscar;              // Campo para búsqueda de productos
+    private ProductosDAO productosDAO;      // Objeto para acceso a datos de productos
 
     /**
      * Constructor que inicializa la interfaz y configura los listeners.
+     *
+     * <p>Realiza las siguientes configuraciones:
+     * <ol>
+     *   <li>Inicializa el DAO para productos</li>
+     *   <li>Configura la tabla con modelo no editable</li>
+     *   <li>Establece el ordenador de filas</li>
+     *   <li>Carga los datos iniciales</li>
+     *   <li>Configura todos los listeners necesarios</li>
+     * </ol>
      */
     public ProductosGUI() {
         productosDAO = new ProductosDAO();
@@ -40,6 +59,11 @@ public class ProductosGUI {
         sorter = new TableRowSorter<>(model);
         table1.setRowSorter(sorter);
 
+        /**
+         * Listener para el botón Agregar.
+         * <p>
+         * Valida los datos y agrega un nuevo producto al sistema.
+         */
         agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -65,6 +89,11 @@ public class ProductosGUI {
             }
         });
 
+        /**
+         * Listener para el botón Actualizar.
+         * <p>
+         * Actualiza un producto existente con los nuevos valores.
+         */
         actualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,6 +117,11 @@ public class ProductosGUI {
             }
         });
 
+        /**
+         * Listener para el botón Eliminar.
+         * <p>
+         * Elimina el producto seleccionado del sistema.
+         */
         eliminarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -107,6 +141,11 @@ public class ProductosGUI {
 
         obtenerDatos();
 
+        /**
+         * Listener para eventos de ratón en la tabla.
+         * <p>
+         * Al seleccionar una fila, carga los datos del producto en los campos correspondientes.
+         */
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -124,6 +163,11 @@ public class ProductosGUI {
             }
         });
 
+        /**
+         * Listener para el botón Volver.
+         * <p>
+         * Regresa al menú principal.
+         */
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -134,6 +178,11 @@ public class ProductosGUI {
             }
         });
 
+        /**
+         * Listener para el campo de búsqueda.
+         * <p>
+         * Filtra los productos según el texto ingresado.
+         */
         buscar.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -159,6 +208,16 @@ public class ProductosGUI {
 
     /**
      * Obtiene los datos de productos desde la base de datos y los muestra en la tabla.
+     *
+     * <p>Las columnas mostradas son:
+     * <ol>
+     *   <li>ID</li>
+     *   <li>Nombre</li>
+     *   <li>Categoría</li>
+     *   <li>Precio</li>
+     *   <li>Stock</li>
+     *   <li>Stock Mínimo</li>
+     * </ol>
      */
     public void obtenerDatos() {
         if (sorter != null) {
@@ -208,7 +267,7 @@ public class ProductosGUI {
     }
 
     /**
-     * Modelo de tabla que impide la edición directa de celdas.
+     * Modelo de tabla personalizado que impide la edición directa de celdas.
      */
     public class NonEditableTableModel extends DefaultTableModel {
         /**
@@ -235,7 +294,7 @@ public class ProductosGUI {
 
     /**
      * Método principal para ejecutar la interfaz.
-     * @param args argumentos de línea de comandos
+     * @param args argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
         JFrame frame = new JFrame("Gestión de Productos");

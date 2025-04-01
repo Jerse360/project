@@ -8,11 +8,20 @@ import java.sql.*;
 
 /**
  * Clase que representa la interfaz gráfica para generar diferentes tipos de reportes de ventas.
- * Permite visualizar reportes diarios, semanales, mensuales, por cliente y por producto.
+ * Permite visualizar reportes diarios, semanales, mensuales, por cliente, por producto y de stock mínimo.
+ *
+ * <p>La interfaz proporciona:
+ * <ul>
+ *   <li>Generación de reportes con diferentes criterios de agrupación</li>
+ *   <li>Visualización tabular de resultados</li>
+ *   <li>Integración con la base de datos para obtener datos actualizados</li>
+ *   <li>Navegación de regreso al menú principal</li>
+ * </ul>
  */
 public class ReportesGUI {
     // Componentes de la interfaz gráfica
     private JPanel main;                // Panel principal que contiene todos los componentes
+
     /**
      * Botón para generar reportes de ventas diarias.
      * <p>
@@ -49,6 +58,12 @@ public class ReportesGUI {
      * </ol>
      */
     private JButton mensualButton;      // Botón para generar reportes mensuales
+
+    /**
+     * Tabla para mostrar los resultados de los reportes.
+     * <p>
+     * Muestra los datos según el tipo de reporte seleccionado.
+     */
     private JTable table1;              // Tabla para mostrar los resultados de los reportes
 
     /**
@@ -88,12 +103,31 @@ public class ReportesGUI {
      */
     private JButton volverButton;       // Botón para volver al menú principal
 
+    /**
+     * Botón para generar reportes de productos con stock mínimo.
+     * <p>
+     * Al hacer clic:
+     * <ol>
+     *   <li>Muestra productos con stock por debajo del mínimo requerido</li>
+     *   <li>Incluye información de stock actual y mínimo</li>
+     *   <li>Actualiza la tabla con los resultados</li>
+     * </ol>
+     */
+    private JButton stockMinimoButton;  // Botón para reporte de stock mínimo
+
     // Objeto para manejar la conexión a la base de datos
-    Conexion conexion = new Conexion();
+    private Conexion conexion = new Conexion();
 
     /**
      * Constructor de la clase ReportesGUI.
      * Configura los listeners para los botones y prepara la interfaz.
+     *
+     * <p>Inicializa:
+     * <ol>
+     *   <li>Listeners para todos los botones de reportes</li>
+     *   <li>Configuración de acciones para cada tipo de reporte</li>
+     *   <li>Listener para el botón de volver al menú</li>
+     * </ol>
      */
     public ReportesGUI() {
         // Configurar acción para el botón de reportes diarios
@@ -136,6 +170,14 @@ public class ReportesGUI {
             }
         });
 
+        // Configurar acción para el botón de reportes de stock mínimo
+        stockMinimoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                stockminimo();
+            }
+        });
+
         // Configurar acción para el botón de volver al menú principal
         volverButton.addActionListener(new ActionListener() {
             @Override
@@ -152,8 +194,29 @@ public class ReportesGUI {
     }
 
     /**
+     * Genera un reporte de productos con stock por debajo del mínimo requerido.
+     * <p>
+     * Muestra:
+     * <ul>
+     *   <li>ID del producto</li>
+     *   <li>Nombre del producto</li>
+     *   <li>Stock actual</li>
+     *   <li>Stock mínimo requerido</li>
+     * </ul>
+     */
+    public void stockminimo(){
+        String query = "SELECT id_producto, nombre, stock, stock_minimo FROM productos WHERE stock < stock_minimo;";
+        cargarDatosEnTabla(query, new String[]{"id_producto", "nombre", "stock", "stock_minimo"});
+    }
+
+    /**
      * Método para obtener y mostrar los reportes de ventas diarias.
-     * Consulta las ventas completadas en el día actual.
+     * <p>
+     * Consulta las ventas completadas en el día actual y muestra:
+     * <ul>
+     *   <li>Fecha de la venta</li>
+     *   <li>Total de ventas del día</li>
+     * </ul>
      */
     private void obtenerdatosDiarios() {
         // Consulta SQL para obtener ventas del día actual
@@ -165,7 +228,14 @@ public class ReportesGUI {
 
     /**
      * Método para obtener y mostrar los reportes de ventas semanales.
-     * Agrupa las ventas por semana mostrando el total semanal.
+     * <p>
+     * Agrupa las ventas por semana mostrando:
+     * <ul>
+     *   <li>Año y número de semana</li>
+     *   <li>Fecha de inicio de semana</li>
+     *   <li>Fecha de fin de semana</li>
+     *   <li>Total de ventas semanales</li>
+     * </ul>
      */
     public void obtenerdatosSemanales() {
         // Consulta SQL para obtener ventas agrupadas por semana
@@ -177,12 +247,17 @@ public class ReportesGUI {
                 "GROUP BY YEAR(venta.fecha_hora), WEEK(venta.fecha_hora, 1) " +
                 "ORDER BY año DESC, semana DESC";
 
-        cargarDatosEnTabla(query, new String[]{"Fecha", "Semana", "Inicio Semana", "Fin Semana", "Venta Semana"});
+        cargarDatosEnTabla(query, new String[]{"Año", "Semana", "Inicio Semana", "Fin Semana", "Venta Semana"});
     }
 
     /**
      * Método para obtener y mostrar los reportes de ventas mensuales.
-     * Agrupa las ventas por mes mostrando el total mensual.
+     * <p>
+     * Agrupa las ventas por mes mostrando:
+     * <ul>
+     *   <li>Mes y año (formato YYYY-MM)</li>
+     *   <li>Total de ventas mensuales</li>
+     * </ul>
      */
     private void obtenerdatosMensuales() {
         // Consulta SQL para obtener ventas agrupadas por mes
@@ -195,19 +270,32 @@ public class ReportesGUI {
 
     /**
      * Método para obtener y mostrar reportes de ventas por cliente.
-     * Muestra las ventas asociadas a cada cliente.
+     * <p>
+     * Muestra:
+     * <ul>
+     *   <li>Nombre del cliente</li>
+     *   <li>ID de la venta</li>
+     *   <li>Total de la venta</li>
+     * </ul>
+     * Los resultados están ordenados por monto total descendente.
      */
     private void obtenerdatosClientes() {
         // Consulta SQL para obtener ventas por cliente
         String query = "SELECT cliente.nombre, venta.id_venta, venta.total_venta " +
                 "FROM cliente JOIN venta ON cliente.id_cliente = venta.id_cliente " +
                 "ORDER BY venta.total_venta DESC;";
-        cargarDatosEnTabla(query, new String[]{"cliente", "id_venta", "Total"});
+        cargarDatosEnTabla(query, new String[]{"Cliente", "ID Venta", "Total"});
     }
 
     /**
      * Método para obtener y mostrar reportes de ventas por producto.
-     * Muestra los productos vendidos y sus cantidades.
+     * <p>
+     * Muestra:
+     * <ul>
+     *   <li>Nombre del producto</li>
+     *   <li>Nombre del cliente comprador</li>
+     *   <li>Cantidad vendida</li>
+     * </ul>
      */
     private void obtenerdatosProductos() {
         // Consulta SQL para obtener ventas por producto
@@ -216,7 +304,7 @@ public class ReportesGUI {
                 "JOIN productos ON detalle_venta.id_producto = productos.id_producto " +
                 "JOIN venta ON detalle_venta.id_venta = venta.id_venta " +
                 "JOIN cliente ON venta.id_cliente = cliente.id_cliente";
-        cargarDatosEnTabla(query, new String[]{"productos", "cliente", "cantidad"});
+        cargarDatosEnTabla(query, new String[]{"Producto", "Cliente", "Cantidad"});
     }
 
     /**
@@ -253,7 +341,7 @@ public class ReportesGUI {
 
     /**
      * Método principal para ejecutar la interfaz de reportes.
-     *@param args Argumentos de línea de comandos (no utilizados)
+     * @param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {

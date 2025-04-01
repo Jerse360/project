@@ -8,6 +8,13 @@ import java.awt.event.ActionListener;
 /**
  * Interfaz gráfica principal del sistema que muestra el menú de opciones.
  * Desde aquí se puede acceder a todas las funcionalidades del sistema.
+ *
+ * <p>La interfaz incluye:
+ * <ul>
+ *   <li>Botones para acceder a todos los módulos del sistema</li>
+ *   <li>Fondo con imagen personalizada</li>
+ *   <li>Diseño responsivo que se adapta al tamaño de la ventana</li>
+ * </ul>
  */
 public class MenuGUI {
 
@@ -71,6 +78,12 @@ public class MenuGUI {
      * @see MovimientoGUI
      */
     private JButton movimientosFinancierosButton;   // Botón para movimientos financieros
+
+    /**
+     * Panel principal que contiene todos los componentes de la interfaz.
+     * <p>
+     * Incluye un fondo personalizado y el menú de botones.
+     */
     private JPanel main;                            // Panel principal
 
     /**
@@ -86,14 +99,25 @@ public class MenuGUI {
     private JButton reportesButton;                 // Botón para reportes
 
     /**
-     * Constructor que configura los listeners para los botones del menú.
-     * Cada botón abre una interfaz diferente del sistema.
+     * Constructor que configura la interfaz gráfica del menú principal.
+     * <p>
+     * Realiza las siguientes acciones:
+     * <ol>
+     *   <li>Configura el panel principal con imagen de fondo</li>
+     *   <li>Crea y estiliza los botones del menú</li>
+     *   <li>Configura los listeners para cada botón</li>
+     *   <li>Organiza los componentes en el layout</li>
+     * </ol>
      */
     public MenuGUI() {
         // Panel con imagen de fondo escalable
         main = new JPanel() {
             private Image fondo = new ImageIcon(getClass().getResource("/imagenes/fondo.jpg")).getImage();
 
+            /**
+             * Método para dibujar el fondo de la interfaz.
+             * @param g Objeto Graphics usado para dibujar
+             */
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -115,6 +139,7 @@ public class MenuGUI {
         movimientosFinancierosButton = new JButton("Movimientos");
         reportesButton = new JButton("Reportes");
 
+        // Configurar estilo de los botones
         Color buttonColor = Color.decode("#80F3ED");
         JButton[] botones = {chatButton, clienteButton, productosButton, ventasButton, movimientosFinancierosButton, reportesButton};
         for (JButton boton : botones) {
@@ -135,7 +160,15 @@ public class MenuGUI {
         // Agregar el panel de botones al panel principal en la parte superior
         main.add(topMenu, BorderLayout.NORTH);
 
-        // Listener para el botón de Chat
+        /**
+         * Listener para el botón de Chat.
+         * <p>
+         * Al activarse:
+         * <ol>
+         *   <li>Inicia una nueva instancia del servidor de chat</li>
+         *   <li>Muestra la interfaz del chat</li>
+         * </ol>
+         */
         chatButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -144,7 +177,15 @@ public class MenuGUI {
             }
         });
 
-        // Listener para el botón de Clientes
+        /**
+         * Listener para el botón de Clientes.
+         * <p>
+         * Al activarse:
+         * <ol>
+         *   <li>Cierra la ventana actual del menú</li>
+         *   <li>Abre la interfaz de gestión de clientes</li>
+         * </ol>
+         */
         clienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -158,7 +199,15 @@ public class MenuGUI {
             }
         });
 
-        // Listener para el botón de Productos
+        /**
+         * Listener para el botón de Productos.
+         * <p>
+         * Al activarse:
+         * <ol>
+         *   <li>Cierra la ventana actual del menú</li>
+         *   <li>Abre la interfaz de gestión de productos</li>
+         * </ol>
+         */
         productosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -172,7 +221,15 @@ public class MenuGUI {
             }
         });
 
-        // Listener para el botón de Ventas
+        /**
+         * Listener para el botón de Ventas.
+         * <p>
+         * Al activarse:
+         * <ol>
+         *   <li>Cierra la ventana actual del menú</li>
+         *   <li>Abre la interfaz de gestión de ventas</li>
+         * </ol>
+         */
         ventasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -186,7 +243,15 @@ public class MenuGUI {
             }
         });
 
-        // Listener para el botón de Movimientos Financieros
+        /**
+         * Listener para el botón de Movimientos Financieros.
+         * <p>
+         * Al activarse:
+         * <ol>
+         *   <li>Cierra la ventana actual del menú</li>
+         *   <li>Abre la interfaz de movimientos financieros</li>
+         * </ol>
+         */
         movimientosFinancierosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -200,7 +265,15 @@ public class MenuGUI {
             }
         });
 
-        // Listener para el botón de Reportes
+        /**
+         * Listener para el botón de Reportes.
+         * <p>
+         * Al activarse:
+         * <ol>
+         *   <li>Cierra la ventana actual del menú</li>
+         *   <li>Abre la interfaz de reportes</li>
+         * </ol>
+         */
         reportesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

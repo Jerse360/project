@@ -6,7 +6,11 @@ import java.util.List;
 
 /**
  * Clase Data Access Object (DAO) para gestionar operaciones CRUD de detalles de venta.
- * Proporciona métodos para interactuar con la base de datos relacionada a detalles de venta.
+ * <p>
+ * Proporciona métodos para interactuar con la tabla detalle_venta en la base de datos,
+ * incluyendo operaciones para agregar, actualizar y eliminar detalles de venta, así como
+ * consultas para obtener información específica.
+ * </p>
  */
 public class Detalle_ventaDAO {
 
@@ -14,7 +18,10 @@ public class Detalle_ventaDAO {
 
     /**
      * Agrega un nuevo detalle de venta a la base de datos.
-     * Calcula automáticamente el precio total incluyendo el 19% de IVA.
+     * <p>
+     * Calcula automáticamente el precio total incluyendo el 19% de IVA basado en el precio
+     * del producto y la cantidad vendida.
+     * </p>
      *
      * @param detalle_venta Objeto Detalle_venta con los datos a insertar
      * @return true si la operación fue exitosa, false en caso contrario
@@ -47,6 +54,10 @@ public class Detalle_ventaDAO {
 
     /**
      * Actualiza el total de una venta sumando todos los detalles asociados.
+     * <p>
+     * Recalcula el total de la venta basado en la suma de todos los precios totales
+     * de los detalles de venta asociados a esa venta.
+     * </p>
      *
      * @param detalle_venta Objeto Detalle_venta que contiene el ID de venta a actualizar
      * @return true si la actualización fue exitosa, false en caso contrario
@@ -94,6 +105,9 @@ public class Detalle_ventaDAO {
 
     /**
      * Resta el monto de un detalle de venta específico del total de la venta.
+     * <p>
+     * Actualiza el total de la venta restando el precio total del detalle eliminado.
+     * </p>
      *
      * @param id_detalle ID del detalle de venta a restar
      * @param id_venta ID de la venta a actualizar
@@ -118,7 +132,17 @@ public class Detalle_ventaDAO {
         }
     }
 
-
+    /**
+     * Obtiene los productos asociados a un pedido específico.
+     * <p>
+     * Devuelve una lista de cadenas formateadas con la información de cada producto
+     * en el pedido, incluyendo cliente, producto, cantidad, tipo y precio total.
+     * La última línea contiene el total general de la venta.
+     * </p>
+     *
+     * @param idVenta ID de la venta a consultar
+     * @return Lista de cadenas con los detalles del pedido
+     */
     public List<String> obtenerProductosPorPedido(int idVenta) {
         List<String> detalles = new ArrayList<>();
         Connection con = null;
@@ -164,4 +188,3 @@ public class Detalle_ventaDAO {
         return detalles;
     }
 }
-

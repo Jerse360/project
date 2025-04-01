@@ -11,14 +11,36 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+/**
+ * Clase para generar documentos PDF de facturas con diseño personalizado.
+ * <p>
+ * Proporciona funcionalidad para crear facturas con:
+ * - Encabezado y pie de página personalizados
+ * - Logo de la empresa
+ * - Tabla de productos con sus detalles
+ * - Estilos y colores consistentes
+ * - Apertura automática del PDF generado
+ * </p>
+ */
 public class GenerarPDF {
 
-    // Colores (mantenemos los que tenías)
+    // Colores para el diseño del PDF
     private static final BaseColor COLOR_FONDO = new BaseColor(101, 201, 195);
     private static final BaseColor COLOR_FONDO_DOC = new BaseColor(225, 234, 236);
 
-    // Primero definimos la clase interna como static
+    /**
+     * Clase interna para manejar eventos de página (header y footer).
+     * <p>
+     * Define el contenido que aparecerá en todas las páginas del documento PDF.
+     * </p>
+     */
     private static class PdfHeaderFooter extends PdfPageEventHelper {
+        /**
+         * Método que se ejecuta al finalizar cada página.
+         *
+         * @param writer El escritor PDF
+         * @param document El documento PDF
+         */
         @Override
         public void onEndPage(PdfWriter writer, Document document) {
             PdfContentByte cb = writer.getDirectContent();
@@ -51,10 +73,20 @@ public class GenerarPDF {
         }
     }
 
-
+    /**
+     * Genera un archivo PDF con la factura de una venta.
+     * <p>
+     * Crea un documento PDF profesional con todos los detalles de la venta,
+     * incluyendo información del cliente, productos comprados y totales.
+     * </p>
+     *
+     * @param idVenta ID de la venta a facturar
+     * @param productos Lista de productos en la venta (formato: cliente|producto|cantidad|tipo|precio)
+     * @param fecha Fecha de la venta
+     */
     public void generarFacturaPDF(int idVenta, List<String> productos, String fecha) {
         try {
-            // Configuración inicial del documento (igual que antes)
+            // Configuración inicial del documento
             String directorio = System.getProperty("user.home") + "\\FacturasPinillos";
             if (!Files.exists(Paths.get(directorio))) {
                 Files.createDirectories(Paths.get(directorio));
@@ -65,7 +97,7 @@ public class GenerarPDF {
             Document documento = new Document();
             PdfWriter writer = PdfWriter.getInstance(documento, new FileOutputStream(ruta));
 
-            // Configurar header, footer y fondo (igual que antes)
+            // Configurar header, footer y fondo
             writer.setPageEvent(new PdfHeaderFooter() {
                 @Override
                 public void onEndPage(PdfWriter writer, Document document) {
@@ -81,7 +113,7 @@ public class GenerarPDF {
 
             documento.open();
 
-            // Agregar logo (igual que antes)
+            // Agregar logo
             try {
                 Image logo = Image.getInstance(getClass().getResource("/imagenes/PngLogo.png"));
                 logo.scaleToFit(100, 100);
@@ -91,7 +123,7 @@ public class GenerarPDF {
                 System.out.println("No se pudo cargar el logo: " + e.getMessage());
             }
 
-            // Título e información (igual que antes)
+            // Título e información
             Paragraph titulo = new Paragraph("FACTURA #" + idVenta,
                     new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD));
             titulo.setAlignment(Element.ALIGN_CENTER);

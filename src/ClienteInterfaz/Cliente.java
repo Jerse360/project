@@ -13,7 +13,11 @@ import java.net.Socket;
 
 /**
  * Clase que implementa un cliente de chat con interfaz gráfica.
- * Permite conectarse a un servidor de chat, enviar y recibir mensajes.
+ * Permite conectarse a un servidor de chat, enviar y recibir mensajes en tiempo real.
+ * <p>
+ * La clase maneja la conexión mediante sockets TCP y actualiza la interfaz de usuario
+ * de manera segura usando el hilo de eventos de Swing.
+ * </p>
  */
 public class Cliente {
 
@@ -30,7 +34,12 @@ public class Cliente {
 
     /**
      * Constructor de la clase Cliente.
-     * Configura los listeners y acciones de los componentes.
+     * <p>
+     * Configura los listeners para los componentes de la interfaz:
+     * - Botón de conexión
+     * - Botón de envío de mensajes
+     * - Campo de texto para enviar con Enter
+     * </p>
      */
     public Cliente() {
         textArea1.setEditable(false);  // El área de texto no es editable directamente
@@ -71,7 +80,10 @@ public class Cliente {
 
     /**
      * Envía un mensaje al servidor.
-     * Verifica la conexión antes de enviar y actualiza el área de texto.
+     * <p>
+     * Verifica que exista conexión activa antes de enviar el mensaje.
+     * Actualiza el área de texto con el mensaje enviado.
+     * </p>
      */
     public void enviarMensaje() {
         String mensaje = textField1.getText(); // Obtener el mensaje del JTextField
@@ -89,6 +101,10 @@ public class Cliente {
 
     /**
      * Establece conexión con el servidor de chat.
+     * <p>
+     * Crea un socket TCP en el puerto 12345 y configura los flujos de entrada/salida.
+     * Inicia un hilo separado para recibir mensajes del servidor.
+     * </p>
      * @param serverAddress Dirección IP del servidor
      */
     public void conectarAlServidor(String serverAddress) {
@@ -111,6 +127,10 @@ public class Cliente {
 
     /**
      * Recibe mensajes del servidor de forma continua.
+     * <p>
+     * Escucha constantemente mensajes entrantes y actualiza la interfaz.
+     * Maneja el cierre de conexión cuando recibe el comando "salir".
+     * </p>
      * @param in BufferedReader para leer mensajes del servidor
      */
     public void recibirMensajes(BufferedReader in) {
@@ -130,6 +150,9 @@ public class Cliente {
 
     /**
      * Actualiza el área de texto de forma segura desde el hilo de eventos.
+     * <p>
+     * Usa SwingUtilities.invokeLater para garantizar la seguridad del hilo de eventos.
+     * </p>
      * @param mensaje Mensaje a mostrar en el área de texto
      */
     private void actualizarTextArea(String mensaje) {
@@ -138,6 +161,9 @@ public class Cliente {
 
     /**
      * Método principal que inicia la aplicación cliente.
+     * <p>
+     * Crea y muestra la ventana principal con la interfaz de chat.
+     * </p>
      * @param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {

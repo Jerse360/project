@@ -11,7 +11,15 @@ import javax.swing.table.TableRowSorter;
 
 /**
  * Interfaz gráfica para la gestión de clientes en el sistema.
+ * <p>
  * Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre clientes.
+ * Incluye funcionalidades para:
+ * - Agregar nuevos clientes con validación de datos
+ * - Actualizar información de clientes existentes
+ * - Eliminar clientes del sistema
+ * - Buscar y filtrar clientes en la tabla
+ * - Navegar entre la interfaz de clientes y el menú principal
+ * </p>
  */
 public class ClienteGUI {
     private JTable table1;
@@ -33,6 +41,12 @@ public class ClienteGUI {
 
     /**
      * Constructor que inicializa los componentes y configura los listeners.
+     * <p>
+     * Configura:
+     * - La tabla de clientes con ordenamiento y búsqueda
+     * - Los listeners para los botones de acción
+     * - La carga inicial de datos desde la base de datos
+     * </p>
      */
     public ClienteGUI() {
         clienteDAO = new ClienteDAO();
@@ -41,6 +55,13 @@ public class ClienteGUI {
         sorter = new TableRowSorter<>(model);
         table1.setRowSorter(sorter);
 
+        /**
+         * Listener para el botón Agregar.
+         * <p>
+         * Recoge los datos de los campos de texto, valida y agrega un nuevo cliente.
+         * Muestra mensajes de éxito o error según el resultado de la operación.
+         * </p>
+         */
         agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,14 +80,21 @@ public class ClienteGUI {
                         limpiarCampos();
                         obtenerDatos();
                     } else {
-                        JOptionPane.showMessageDialog(null, "Error al agregar Cliente");
+                        JOptionPane.showMessageDialog(null, "Email ya existe");
                     }
-                } catch (NumberFormatException ex) {
+                } catch (NumberFormatException | SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Ingrese datos válidos del Cliente");
                 }
             }
         });
 
+        /**
+         * Listener para el botón Actualizar.
+         * <p>
+         * Actualiza la información del cliente seleccionado con los datos de los campos de texto.
+         * Valida que el ID sea correcto y muestra mensajes de error si la actualización falla.
+         * </p>
+         */
         actualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,7 +110,7 @@ public class ClienteGUI {
                         limpiarCampos();
                         obtenerDatos();
                     } else {
-                        JOptionPane.showMessageDialog(null, "Error al actualizar Cliente");
+                        JOptionPane.showMessageDialog(null, "Error al actualizar Cliente Email o Cedula ya existe","ERROR",JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Ingrese un ID válido para actualizar");
@@ -92,6 +120,13 @@ public class ClienteGUI {
             }
         });
 
+        /**
+         * Listener para el botón Eliminar.
+         * <p>
+         * Elimina el cliente seleccionado después de confirmar el ID.
+         * Muestra mensajes de éxito o error según el resultado de la operación.
+         * </p>
+         */
         eliminarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -109,6 +144,12 @@ public class ClienteGUI {
             }
         });
 
+        /**
+         * Listener para el botón Volver.
+         * <p>
+         * Cierra la ventana actual y regresa al menú principal.
+         * </p>
+         */
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -120,6 +161,14 @@ public class ClienteGUI {
         });
 
         obtenerDatos();
+
+        /**
+         * Listener para la selección de filas en la tabla.
+         * <p>
+         * Al hacer clic en una fila, carga los datos del cliente seleccionado
+         * en los campos de texto correspondientes.
+         * </p>
+         */
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -136,6 +185,13 @@ public class ClienteGUI {
             }
         });
 
+        /**
+         * Listener para el campo de búsqueda.
+         * <p>
+         * Filtra los resultados en la tabla según el texto ingresado,
+         * buscando en todas las columnas.
+         * </p>
+         */
         buscar.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -161,6 +217,11 @@ public class ClienteGUI {
 
     /**
      * Obtiene los datos de clientes desde la base de datos y los muestra en la tabla.
+     * <p>
+     * Consulta todos los clientes registrados y los carga en un modelo de tabla
+     * con las columnas: ID, Nombre, Cédula, Teléfono, Dirección y Email.
+     * Configura el ordenamiento y filtrado de la tabla.
+     * </p>
      */
     public void obtenerDatos() {
         if (sorter != null) {
@@ -211,6 +272,10 @@ public class ClienteGUI {
 
     /**
      * Modelo de tabla personalizado que impide la edición directa de celdas.
+     * <p>
+     * Extiende DefaultTableModel para deshabilitar la edición de celdas
+     * manteniendo todas las demás funcionalidades.
+     * </p>
      */
     public class NonEditableTableModel extends DefaultTableModel {
         /**
@@ -227,6 +292,10 @@ public class ClienteGUI {
 
     /**
      * Limpia todos los campos de entrada de datos.
+     * <p>
+     * Vacía los campos de texto excepto el ID, preparando la interfaz
+     * para una nueva operación.
+     * </p>
      */
     public void limpiarCampos() {
         textField2.setText("");
@@ -238,7 +307,13 @@ public class ClienteGUI {
 
     /**
      * Método principal para ejecutar la interfaz de gestión de clientes.
-     * @param args argumentos de línea de comandos
+     * <p>
+     * Crea y muestra la ventana principal con las siguientes características:
+     * - Título "Gestión de Clientes"
+     * - Maximizada pero con bordes visibles
+     * - No redimensionable
+     * </p>
+     * @param args argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
         JFrame frame = new JFrame("Gestión de Clientes");

@@ -7,7 +7,11 @@ import java.util.List;
 
 /**
  * Clase Data Access Object (DAO) para gestionar operaciones CRUD de productos.
- * Proporciona métodos para interactuar con la tabla de productos en la base de datos.
+ * <p>
+ * Proporciona métodos para interactuar con la tabla de productos en la base de datos,
+ * incluyendo operaciones para consultar, agregar, actualizar y eliminar productos.
+ * Maneja validaciones y mensajes de error apropiados para cada operación.
+ * </p>
  */
 public class ProductosDAO {
 
@@ -15,6 +19,11 @@ public class ProductosDAO {
 
     /**
      * Obtiene todos los productos registrados en la base de datos.
+     * <p>
+     * Consulta la tabla de productos y devuelve una lista con todos los registros encontrados.
+     * Cada producto se representa como un objeto de la clase Productos.
+     * </p>
+     *
      * @return Lista de objetos Productos con todos los registros encontrados
      */
     public List<Productos> obtenerProductos() {
@@ -45,6 +54,10 @@ public class ProductosDAO {
 
     /**
      * Agrega un nuevo producto a la base de datos.
+     * <p>
+     * Inserta un nuevo registro en la tabla de productos con los datos proporcionados.
+     * </p>
+     *
      * @param producto Objeto Productos con los datos a insertar
      * @return true si la operación fue exitosa, false en caso contrario
      */
@@ -76,6 +89,11 @@ public class ProductosDAO {
 
     /**
      * Elimina un producto de la base de datos.
+     * <p>
+     * Elimina el registro del producto con el ID especificado, verificando primero
+     * que no esté asociado a ninguna venta (integridad referencial).
+     * </p>
+     *
      * @param id ID del producto a eliminar
      * @return true si la eliminación fue exitosa, false en caso contrario
      */
@@ -108,6 +126,10 @@ public class ProductosDAO {
 
     /**
      * Actualiza los datos de un producto existente.
+     * <p>
+     * Modifica todos los campos del producto con el ID especificado.
+     * </p>
+     *
      * @param id_producto ID del producto a actualizar
      * @param nombre Nuevo nombre del producto
      * @param categoria Nueva categoría del producto
